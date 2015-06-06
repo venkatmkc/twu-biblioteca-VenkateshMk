@@ -1,8 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import java.util.ArrayList;
 
@@ -24,11 +23,10 @@ public class BooksTest {
     }
 
     @Test
-    public void formattedStringShouldBeProducedRepresentingBookList() {
+    public void formattedBookListShouldBeProduced() {
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(bookOne);
         bookList.add(bookTwo);
-
         Books books = new Books(bookList);
 
         String actualBookList = books.toString();

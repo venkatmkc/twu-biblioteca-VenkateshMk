@@ -13,6 +13,6 @@ public class BibliotecaApp {
     }
 
     public void displayBookList() {
-        System.out.println(books);
+        System.out.print(books);
     }
 }

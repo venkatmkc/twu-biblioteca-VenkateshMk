@@ -11,10 +11,10 @@ public class Books {
 
     @Override
     public String toString() {
-        String formattedString = new String();
+        String formattedBookList = new String();
         for (Book book : bookList) {
-            formattedString += book + "\n";
+            formattedBookList += book + "\n";
         }
-        return formattedString;
+        return formattedBookList;
     }
 }
