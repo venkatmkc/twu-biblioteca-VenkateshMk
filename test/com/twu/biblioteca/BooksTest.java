@@ -17,6 +17,7 @@ public class BooksTest {
 
         String actualBookList = books.toString();
 
-        assertThat(actualBookList, is(equalTo("Kite Runner\nThe Sky Is Falling\n")));
+        assertThat(actualBookList, is(equalTo("Kite Runner\n" +
+                "The Sky Is Falling\n")));
     }
 }

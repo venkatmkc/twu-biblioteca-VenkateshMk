@@ -1,23 +1,33 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import java.io.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class BibliotecaAppTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
 
+    @Mock
+    Books books;
+
     @Before
-    public void setUpOutputStream() {
+    public void setUp() {
         System.setOut(new PrintStream(outputStreamContent));
+        MockitoAnnotations.initMocks(this);
+        when(books.toString())
+                .thenReturn("Kite Runner\nThe Sky Is Falling");
     }
 
     @Test
     public void welcomeMessageShouldBeDisplayed() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(books);
 
         bibliotecaApp.displayWelcomeMessage();
         String actualMessage = outputStreamContent.toString();
@@ -25,8 +35,19 @@ public class BibliotecaAppTest {
         assertThat(actualMessage, is(equalTo("Welcome to Biblioteca!\n")));
     }
 
+    @Test
+    public void listOfBooksShouldBeDisplayed() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(books);
+
+        bibliotecaApp.displayBookList();
+        String actualBookList = outputStreamContent.toString();
+
+        assertThat(actualBookList, is(equalTo("Kite Runner\n" +
+                "The Sky Is Falling\n")));
+    }
+
     @After
-    public void cleanUpOutputStream() {
+    public void cleanUp() {
 
         System.setOut(null);
     }
