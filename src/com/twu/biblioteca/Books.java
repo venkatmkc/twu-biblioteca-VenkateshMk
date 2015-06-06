@@ -12,8 +12,9 @@ public class Books {
     @Override
     public String toString() {
         String formattedString = new String();
-        for (String book : bookList)
+        for (String book : bookList) {
             formattedString += book + "\n";
+        }
         return formattedString;
     }
 }

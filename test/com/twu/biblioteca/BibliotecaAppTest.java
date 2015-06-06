@@ -1,9 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import java.io.*;
 
@@ -22,7 +20,8 @@ public class BibliotecaAppTest {
         System.setOut(new PrintStream(outputStreamContent));
         MockitoAnnotations.initMocks(this);
         when(books.toString())
-                .thenReturn("Kite Runner\nThe Sky Is Falling");
+                .thenReturn("Kite Runner\n" +
+                        "The Sky Is Falling");
     }
 
     @Test
