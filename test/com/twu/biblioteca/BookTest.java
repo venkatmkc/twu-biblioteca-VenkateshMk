@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 
 public class BookTest {
     @Test
-    public void bookDetailsShouldBeProduced() {
+    public void formattedbookDetailsShouldBeProduced() {
         Book actualBook = new Book("Kite Runner", "Khaled Hosseini", "2003");
 
         String actualBookDetails = actualBook.toString();
 
-        assertThat(actualBookDetails, is(equalTo("Kite Runner,Khaled Hosseini,2003")));
+        assertThat(actualBookDetails, is(equalTo("Kite Runner         |Khaled Hosseini     |2003")));
     }
 }
