@@ -14,6 +14,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%-" + maximumNameLength + "s", name) + "|" + String.format("%-" + maximumAuthorLength + "s", author) + "|" + year;
+        return String.format("%-" + maximumNameLength + "s", name)
+                + "|" +
+                String.format("%-" + maximumAuthorLength + "s", author)
+                + "|" +
+                year;
     }
 }
