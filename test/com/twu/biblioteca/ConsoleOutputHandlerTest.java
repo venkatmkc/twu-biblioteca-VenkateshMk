@@ -9,9 +9,9 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class BibliotecaAppTest {
+public class ConsoleOutputHandlerTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
-    private String welcomeMessage = new String("Welcome to Biblioteca");
+    private String welcomeMessage = new String("Welcome to Biblioteca!");
     private String mainMenu = new String("List Books");
 
     @Mock
@@ -28,9 +28,9 @@ public class BibliotecaAppTest {
 
     @Test
     public void welcomeMessageShouldBeDisplayed() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(books, welcomeMessage, mainMenu);
+        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(books, welcomeMessage, mainMenu);
 
-        bibliotecaApp.displayWelcomeMessage();
+        consoleOutputHandler.displayWelcomeMessage();
         String actualMessage = outputStreamContent.toString();
 
         assertThat(actualMessage, is(equalTo("Welcome to Biblioteca!\n")));
@@ -38,9 +38,9 @@ public class BibliotecaAppTest {
 
     @Test
     public void listOfBooksShouldBeDisplayed() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(books, welcomeMessage, mainMenu);
+        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(books, welcomeMessage, mainMenu);
 
-        bibliotecaApp.displayBookList();
+        consoleOutputHandler.displayBookList();
         String actualBookList = outputStreamContent.toString();
 
         assertThat(actualBookList, is(equalTo("Kite Runner         |Khaled Hosseini     |2003\n" +
@@ -49,9 +49,9 @@ public class BibliotecaAppTest {
 
     @Test
     public void mainMenuShouldBeDisplayed() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(books, welcomeMessage, mainMenu);
+        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(books, welcomeMessage, mainMenu);
 
-        bibliotecaApp.displayMainMenu();
+        consoleOutputHandler.displayMainMenu();
         String actualMainMenu = outputStreamContent.toString();
 
         assertThat(actualMainMenu, is(equalTo("List Books\n")));

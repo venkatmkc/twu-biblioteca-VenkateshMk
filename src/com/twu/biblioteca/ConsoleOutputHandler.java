@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
-public class BibliotecaApp {
+public class ConsoleOutputHandler {
     private String welcomeMessage = "Welcome to Biblioteca!";
     private String mainMenu;
     private Books books;
 
-    public BibliotecaApp(Books books, String welcomeMessage, String mainMenu) {
+    public ConsoleOutputHandler(Books books, String welcomeMessage, String mainMenu) {
         this.books = books;
         this.welcomeMessage = welcomeMessage;
         this.mainMenu = mainMenu;
