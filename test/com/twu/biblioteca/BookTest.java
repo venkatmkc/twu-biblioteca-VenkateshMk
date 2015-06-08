@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class BookTest {
     @Test
-    public void formattedbookDetailsShouldBeProduced() {
+    public void formattedBookDetailsShouldBeProduced() {
         Book actualBook = new Book("Kite Runner", "Khaled Hosseini", "2003");
 
         String actualBookDetails = actualBook.toString();

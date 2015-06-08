@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-public class ConsoleOutputHandler {
+public class WelcomeMessageToConsole {
     private String welcomeMessage;
 
-    public ConsoleOutputHandler(String welcomeMessage) {
+    public WelcomeMessageToConsole(String welcomeMessage) {
         this.welcomeMessage = welcomeMessage;
     }
 

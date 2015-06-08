@@ -1,15 +1,11 @@
 package com.twu.biblioteca;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.*;
+import org.mockito.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -36,5 +32,10 @@ public class BooksToConsoleTest {
         String actualBookList = outputStreamContent.toString();
 
         assertThat(actualBookList, is(equalTo("book list")));
+    }
+
+    @After
+    public void cleanUp() {
+        System.setOut(null);
     }
 }
