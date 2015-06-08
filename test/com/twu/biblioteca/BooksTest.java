@@ -17,9 +17,9 @@ public class BooksTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(bookOne.toString()).
-                thenReturn("Kite Runner         |Khaled Hosseini     |2003");
+                thenReturn("book one");
         when(bookTwo.toString()).
-                thenReturn("The Sky Is Falling  |Sidney Sheldon      |2001");
+                thenReturn("book two");
     }
 
     @Test
@@ -31,7 +31,6 @@ public class BooksTest {
 
         String actualBookList = books.toString();
 
-        assertThat(actualBookList, is(equalTo("Kite Runner         |Khaled Hosseini     |2003\n" +
-                "The Sky Is Falling  |Sidney Sheldon      |2001\n")));
+        assertThat(actualBookList, is(equalTo("book one\nbook two\n")));
     }
 }

@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 public class ConsoleOutputHandler {
-    private String welcomeMessage = "Welcome to Biblioteca!";
+    private String welcomeMessage;
     private String mainMenu;
     private Books books;
 
