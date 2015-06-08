@@ -7,42 +7,24 @@ import java.io.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class ConsoleOutputHandlerTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
     private String welcomeMessage = new String("Welcome to Biblioteca!");
-    private String mainMenu = new String("List Books");
-
-    @Mock
-    Books books;
 
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outputStreamContent));
-        MockitoAnnotations.initMocks(this);
-        when(books.toString())
-                .thenReturn("book list");
     }
 
     @Test
     public void welcomeMessageShouldBeDisplayed() {
-        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(books, welcomeMessage, mainMenu);
+        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(welcomeMessage);
 
         consoleOutputHandler.displayWelcomeMessage();
         String actualMessage = outputStreamContent.toString();
 
         assertThat(actualMessage, is(equalTo("Welcome to Biblioteca!\n")));
-    }
-
-    @Test
-    public void mainMenuShouldBeDisplayed() {
-        ConsoleOutputHandler consoleOutputHandler = new ConsoleOutputHandler(books, welcomeMessage, mainMenu);
-
-        consoleOutputHandler.displayMainMenu();
-        String actualMainMenu = outputStreamContent.toString();
-
-        assertThat(actualMainMenu, is(equalTo("List Books\n")));
     }
 
     @After
