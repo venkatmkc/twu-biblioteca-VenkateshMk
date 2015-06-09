@@ -3,15 +3,14 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class MainMenu {
-    HashMap<String, MainMenuAction> mainMenuOptions;
+    MainMenuOptions mainMenuOptions;
 
-    public MainMenu(HashMap<String, MainMenuAction> mainMenuOptions) {
+    public MainMenu(MainMenuOptions mainMenuOptions) {
         this.mainMenuOptions = mainMenuOptions;
     }
 
-    public void chooseOption() {
-        MainMenuConsoleView mainMenuConsoleView = new MainMenuConsoleView("List Options");
-        String option = mainMenuConsoleView.getMainMenuOptionFromUser();
-        mainMenuOptions.get(option).obtainOptionResult();
+    public String chooseOption(String option) {
+        MainMenuAction mainMenuOption = mainMenuOptions.selectOption(option);
+        return mainMenuOption.obtainOptionResult();
     }
 }

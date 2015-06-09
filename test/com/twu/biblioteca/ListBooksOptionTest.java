@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class ListBooksOptionTest {
-
     @Mock
     private Books books;
 
@@ -27,10 +26,5 @@ public class ListBooksOptionTest {
         String actualBookList = listBooksOption.obtainOptionResult();
 
         assertThat(actualBookList, is(equalTo("book list")));
-    }
-
-    @After
-    public void cleanUp() {
-        System.setOut(null);
     }
 }
