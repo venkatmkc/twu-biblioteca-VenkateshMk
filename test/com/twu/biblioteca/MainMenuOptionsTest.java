@@ -34,4 +34,15 @@ public class MainMenuOptionsTest {
 
         assertThat(actualSelectedOption, is(equalTo(listBooksOption)));
     }
+
+    @Test
+    public void formattedOptionListShouldBeProduced() {
+        HashMap<String, MainMenuAction> mainMenuOptionsMap = new HashMap<String, MainMenuAction>();
+        mainMenuOptionsMap.put("List Books", listBooksOption);
+        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsMap);
+
+        String actualFormattedOptionList = mainMenuOptions.toString();
+
+        assertThat(actualFormattedOptionList, is(equalTo("List Books\n")));
+    }
 }
