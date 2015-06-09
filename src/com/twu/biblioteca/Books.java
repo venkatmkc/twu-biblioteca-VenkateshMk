@@ -12,8 +12,16 @@ public class Books {
     @Override
     public String toString() {
         String formattedBookList = new String();
+        int maximumNameLength = 0, maximumAuthorLength = 0;
         for (Book book : bookList) {
-            formattedBookList += book + "\n";
+            if (book.nameLength() > maximumNameLength)
+                maximumNameLength = book.nameLength();
+            if (book.authorLength() > maximumAuthorLength)
+                maximumAuthorLength = book.authorLength();
+        }
+
+        for (Book book : bookList) {
+            formattedBookList += book.formattedBookDetails(maximumNameLength, maximumAuthorLength) + "\n";
         }
         return formattedBookList;
     }
