@@ -1,7 +1,5 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Books;
 import org.junit.*;
 import org.mockito.*;
 
@@ -28,7 +26,7 @@ public class BooksTest {
                 thenReturn(5);
         when(bookOne.formattedBookDetails(5, 5)).
                 thenReturn("book one");
-        when(bookTwo.formattedBookDetails(5,5)).
+        when(bookTwo.formattedBookDetails(5, 5)).
                 thenReturn("book two");
     }
 

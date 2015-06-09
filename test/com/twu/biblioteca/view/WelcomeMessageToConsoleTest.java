@@ -1,7 +1,7 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.view.WelcomeMessageToConsole;
 import org.junit.*;
+
 import java.io.*;
 
 import static org.hamcrest.CoreMatchers.*;

@@ -1,16 +1,11 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.MainMenuAction;
-import com.twu.biblioteca.model.MainMenuOptions;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
+import org.junit.*;
 import org.mockito.*;
 
 import java.util.HashMap;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
 

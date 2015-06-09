@@ -1,8 +1,6 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.model.Books;
-import com.twu.biblioteca.model.MainMenuAction;
-import com.twu.biblioteca.view.BooksToConsole;
+import com.twu.biblioteca.model.*;
 
 public class ListBooksOption implements MainMenuAction {
     private BooksToConsole booksToConsole;

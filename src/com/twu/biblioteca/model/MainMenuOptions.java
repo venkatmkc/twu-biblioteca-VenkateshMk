@@ -1,10 +1,6 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.MainMenuAction;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class MainMenuOptions {
     private HashMap<String, MainMenuAction> mainMenuOptionsMap;
