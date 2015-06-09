@@ -24,11 +24,24 @@ public class MainMenuTest {
                 thenReturn(listBooksOption);
         when(listBooksOption.obtainOptionResult()).
                 thenReturn("book List");
+        when(mainMenuOptions.toString()).
+                thenReturn("option list");
     }
     @Test
     public void chooseOptionShouldProduceOptionResult() {
         MainMenu mainMenu = new MainMenu(mainMenuOptions);
+
         String actualOptionResult = mainMenu.chooseOption("list books");
+
         assertThat(actualOptionResult, is(equalTo("book List")));
+    }
+
+    @Test
+    public void mainMenuShouldListOptions() {
+        MainMenu mainMenu = new MainMenu((mainMenuOptions));
+
+        String actualOptionList = mainMenu.listOptions();
+
+        assertThat(actualOptionList, is(equalTo("option list")));
     }
 }

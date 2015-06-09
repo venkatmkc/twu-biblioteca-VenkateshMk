@@ -22,7 +22,7 @@ public class MainMenuOptions {
         Set options = mainMenuOptionsMap.keySet();
         Iterator<String> optionsIterator = options.iterator();
         while (optionsIterator.hasNext()) {
-            formattedOptionsList += (String) optionsIterator.next() + "\n";
+            formattedOptionsList += optionsIterator.next() + "\n";
         }
         return formattedOptionsList;
     }

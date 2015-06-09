@@ -13,4 +13,8 @@ public class MainMenu {
         MainMenuAction mainMenuOption = mainMenuOptions.selectOption(option);
         return mainMenuOption.obtainOptionResult();
     }
+
+    public String listOptions() {
+        return mainMenuOptions.toString();
+    }
 }
