@@ -2,18 +2,26 @@ package com.twu.biblioteca;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.*;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.io.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 
 public class MainMenuConsoleViewTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
-    private String mainMenu = new String("List Books");
+
+    @Mock
+    private MainMenu mainMenu;
 
     @Before
     public void setUp() {
+        MockitoAnnotations.initMocks(this);
+        when(mainMenu.listOptions()).
+                thenReturn("List Books");
         System.setOut(new PrintStream(outputStreamContent));
     }
 

@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class MainMenuConsoleView {
 
-    private String mainMenu;
+    private MainMenu mainMenu;
 
-    public MainMenuConsoleView(String mainMenu) {
+    public MainMenuConsoleView(MainMenu mainMenu) {
         this.mainMenu = mainMenu;
     }
 
     public void displayMainMenu() {
-        System.out.println(mainMenu);
+        System.out.println(mainMenu.listOptions());
     }
 
     public String getMainMenuOptionFromUser() {
