@@ -21,7 +21,7 @@ public class ListBooksOptionTest {
     }
 
     @Test
-    public void bookListShouldBeDisplayed() {
+    public void bookListShouldBeChosen() {
         ListBooksOption listBooksOption = new ListBooksOption(books);
 
         String actualBookList = listBooksOption.obtainOptionResult();
