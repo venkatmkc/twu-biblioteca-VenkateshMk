@@ -14,8 +14,9 @@ public class MainMenuConsoleView {
         System.out.println(mainMenu.listOptions());
     }
 
-    public String getMainMenuOptionFromUser() {
+    public void performSelectedOption() {
         Scanner consoleInput = new Scanner(System.in);
-        return consoleInput.nextLine();
+        String option = consoleInput.nextLine();
+        System.out.println(mainMenu.chooseOption(option));
     }
 }

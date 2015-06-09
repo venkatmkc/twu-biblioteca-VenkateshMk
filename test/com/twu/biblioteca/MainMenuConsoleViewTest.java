@@ -22,6 +22,8 @@ public class MainMenuConsoleViewTest {
         MockitoAnnotations.initMocks(this);
         when(mainMenu.listOptions()).
                 thenReturn("List Books");
+        when(mainMenu.chooseOption("List Books")).
+                thenReturn("book List");
         System.setOut(new PrintStream(outputStreamContent));
     }
 
@@ -36,14 +38,15 @@ public class MainMenuConsoleViewTest {
     }
 
     @Test
-    public void mainMenuOptionShouldBeObtained() {
+    public void selectedOptionShouldBePerformed() {
         ByteArrayInputStream inputStreamContent = new ByteArrayInputStream("List Books".getBytes());
         System.setIn(inputStreamContent);
         MainMenuConsoleView mainMenuConsoleView = new MainMenuConsoleView(mainMenu);
 
-        String actualOption = mainMenuConsoleView.getMainMenuOptionFromUser();
+        mainMenuConsoleView.performSelectedOption();
+        String actualOption = outputStreamContent.toString();
 
-        MatcherAssert.assertThat(actualOption, is(equalTo("List Books")));
+        assertThat(actualOption, is(equalTo("book List\n")));
     }
 
     @After

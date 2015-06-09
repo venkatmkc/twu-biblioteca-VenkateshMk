@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class MainMenu {
-    MainMenuOptions mainMenuOptions;
+    private MainMenuOptions mainMenuOptions;
 
     public MainMenu(MainMenuOptions mainMenuOptions) {
         this.mainMenuOptions = mainMenuOptions;
