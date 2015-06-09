@@ -23,4 +23,13 @@ public class BookTest {
 
         assertThat(actualNameLength, is(equalTo(11)));
     }
+
+    @Test
+    public void authorLengthShouldBeLengthOfName() {
+        Book book = new Book("Kite Runner", "Khaled Hosseini", "2003");
+
+        int actualNameLength = book.authorLength();
+
+        assertThat(actualNameLength, is(equalTo(15)));
+    }
 }

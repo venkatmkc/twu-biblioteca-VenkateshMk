@@ -21,4 +21,8 @@ public class Book {
     public int nameLength() {
         return name.length();
     }
+
+    public int authorLength() {
+        return author.length();
+    }
 }
