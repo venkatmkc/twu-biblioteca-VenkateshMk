@@ -36,17 +36,4 @@
     </junit>
   </target>
 
-  <target name="jar" depends="test">
-    <mkdir dir="out/jar"/>
-    <jar destfile="out/jar/LineLength.jar" basedir="out/src/classes">
-      <manifest>
-        <attribute name="Main-Class" value="com.pathasala.Main"/>
-      </manifest>
-    </jar>
-  </target>
-
-  <target name="run">
-    <java jar="out/jar/LineLength.jar" fork="true"/>
-  </target>
-
 </project>

@@ -7,9 +7,12 @@ public class MainMenu {
         this.mainMenuOptions = mainMenuOptions;
     }
 
-    public void chooseOption(String option) {
-        MainMenuAction mainMenuOption = mainMenuOptions.selectOption(option);
-        mainMenuOption.obtainOptionResult();
+    public MainMenuAction chooseOption(String option) {
+        return mainMenuOptions.selectOption(option);
+    }
+
+    public void performSelectedOption(MainMenuAction mainMenuAction) {
+        mainMenuAction.obtainOptionResult();
     }
 
     public String listOptions() {

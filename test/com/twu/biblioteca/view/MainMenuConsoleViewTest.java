@@ -41,7 +41,7 @@ public class MainMenuConsoleViewTest {
         System.setIn(inputStreamContent);
         MainMenuConsoleView mainMenuConsoleView = new MainMenuConsoleView(mainMenu);
 
-        mainMenuConsoleView.performSelectedOption();
+        mainMenuConsoleView.performUserSelectedOption();
 
         Mockito.verify(mainMenu).chooseOption("List Books");
     }

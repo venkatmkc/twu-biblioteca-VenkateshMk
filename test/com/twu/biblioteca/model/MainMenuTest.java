@@ -29,12 +29,21 @@ public class MainMenuTest {
     }
 
     @Test
-    public void chooseOptionShouldProduceOptionResult() {
+    public void chooseOptionShouldProduceSelectedOption() {
         MainMenu mainMenu = new MainMenu(mainMenuOptions);
 
-        mainMenu.chooseOption("list books");
+        MainMenuAction actualSelectedOption = mainMenu.chooseOption("list books");
 
-        Mockito.verify(mainMenuOptions).selectOption("list books");
+        assertThat(actualSelectedOption, is(equalTo(listBooksOption)));
+    }
+
+    @Test
+    public void performSelectedOptionShouldProduceOptionResult() {
+        MainMenu mainMenu = new MainMenu(mainMenuOptions);
+
+        mainMenu.performSelectedOption(listBooksOption);
+
+        Mockito.verify(listBooksOption).obtainOptionResult();
     }
 
     @Test

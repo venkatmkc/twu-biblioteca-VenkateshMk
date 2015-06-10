@@ -31,6 +31,6 @@ public class BibliotecaTest {
 
         verify(welcomeMessageToConsole).displayWelcomeMessage();
         verify(mainMenuConsoleView).displayMainMenu();
-        verify(mainMenuConsoleView).performSelectedOption();
+        verify(mainMenuConsoleView).performUserSelectedOption();
     }
 }
