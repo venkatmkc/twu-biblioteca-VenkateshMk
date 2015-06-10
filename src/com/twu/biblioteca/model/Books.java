@@ -13,6 +13,7 @@ public class Books {
     public String toString() {
         String formattedBookList = new String();
         int maximumNameLength = 0, maximumAuthorLength = 0;
+
         for (Book book : bookList) {
             if (book.nameLength() > maximumNameLength)
                 maximumNameLength = book.nameLength();

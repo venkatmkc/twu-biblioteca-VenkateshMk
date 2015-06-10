@@ -1,7 +1,5 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.view.BooksToConsole;
-import com.twu.biblioteca.view.ListBooksOption;
 import org.junit.*;
 import org.mockito.*;
 
