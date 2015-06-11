@@ -2,6 +2,7 @@ package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Books;
+import com.twu.biblioteca.model.MainMenuAction;
 import org.junit.*;
 import org.mockito.*;
 
@@ -31,7 +32,7 @@ public class ListBooksOptionTest {
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(book);
         Books books = new Books(bookList);
-        ListBooksOption listBooksOption = new ListBooksOption(consoleInputOutput, books);
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, books);
 
         listBooksOption.obtainOptionResult();
 
