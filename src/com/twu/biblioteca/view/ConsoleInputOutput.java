@@ -13,7 +13,7 @@ public class ConsoleInputOutput {
         return consoleInput.nextLine();
     }
 
-    public void displayOutputToUser(String welcomeMessage) {
-        System.out.println(welcomeMessage);
+    public void displayOutputToUser(Object output) {
+        System.out.println(output);
     }
 }

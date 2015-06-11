@@ -3,14 +3,16 @@ package com.twu.biblioteca.view;
 import com.twu.biblioteca.model.*;
 
 public class ListBooksOption implements MainMenuAction {
-    private BooksToConsole booksToConsole;
+    private ConsoleInputOutput consoleInputOutput;
+    private Books books;
 
-    public ListBooksOption(BooksToConsole booksToConsole) {
-        this.booksToConsole = booksToConsole;
+    public ListBooksOption(ConsoleInputOutput consoleInputOutput, Books books) {
+        this.consoleInputOutput = consoleInputOutput;
+        this.books = books;
     }
 
     @Override
     public void obtainOptionResult() {
-        booksToConsole.displayBookList();
+        consoleInputOutput.displayOutputToUser(books);
     }
 }
