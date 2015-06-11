@@ -46,6 +46,18 @@ public class MainMenuConsoleViewTest {
         Mockito.verify(mainMenu).chooseOption("List Books");
     }
 
+    @Test
+    public void invalidOptionShouldDisplayInvalidOptionMessage() {
+        ByteArrayInputStream inputStreamContent = new ByteArrayInputStream("delete\nList Books".getBytes());
+        System.setIn(inputStreamContent);
+        MainMenuConsoleView mainMenuConsoleView = new MainMenuConsoleView(mainMenu);
+
+        mainMenuConsoleView.performUserSelectedOption();
+        String actualInvalidOptionMessage = outputStreamContent.toString();
+
+        assertThat(actualInvalidOptionMessage, is(equalTo(Messages.INVALID_MENU_OPTION)));
+    }
+
     @After
     public void cleanUp() {
         System.setOut(null);
