@@ -3,24 +3,19 @@ package com.twu.biblioteca.model;
 import java.util.*;
 
 public class MainMenuOptions {
-    private HashMap<String, MainMenuAction> mainMenuOptionsMap;
+    private ArrayList<String> mainMenuOptionsList;
 
-    public MainMenuOptions(HashMap<String, MainMenuAction> mainMenuOptionsMap) {
-        this.mainMenuOptionsMap = mainMenuOptionsMap;
-    }
-
-
-    public MainMenuAction selectOption(String option) {
-        return mainMenuOptionsMap.get(option);
+    public MainMenuOptions(ArrayList<String> mainMenuOptionsList) {
+        this.mainMenuOptionsList = mainMenuOptionsList;
     }
 
     @Override
     public String toString() {
         String formattedOptionsList = new String();
-        Set options = mainMenuOptionsMap.keySet();
-        Iterator<String> optionsIterator = options.iterator();
+        int optionNumber = 1;
+        Iterator<String> optionsIterator = mainMenuOptionsList.iterator();
         while (optionsIterator.hasNext()) {
-            formattedOptionsList += optionsIterator.next() + "\n";
+            formattedOptionsList += optionNumber + ". " + optionsIterator.next() + "\n";
         }
         return formattedOptionsList;
     }
