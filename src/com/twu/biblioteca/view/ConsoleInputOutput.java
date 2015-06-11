@@ -12,4 +12,8 @@ public class ConsoleInputOutput {
     public String getUserInput() {
         return consoleInput.nextLine();
     }
+
+    public void displayOutputToUser(String welcomeMessage) {
+        System.out.println(welcomeMessage);
+    }
 }
