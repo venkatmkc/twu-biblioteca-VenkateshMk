@@ -17,5 +17,6 @@ public class MainMenu {
 
     public void dispatch() {
         String option = consoleInputOutput.getUserInput();
+        mainMenuOptionParser.parseUserInput(option);
     }
 }

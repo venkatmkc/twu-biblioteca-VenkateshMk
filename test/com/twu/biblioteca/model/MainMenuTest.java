@@ -36,4 +36,13 @@ public class MainMenuTest {
 
         verify(consoleInputOutput).getUserInput();
     }
+
+    @Test
+    public void dispatchShouldParseUserInputToOption() {
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+
+        mainMenu.dispatch();
+
+        verify(mainMenuOptionParser).parseUserInput("List Books");
+    }
 }
