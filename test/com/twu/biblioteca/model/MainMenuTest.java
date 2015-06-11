@@ -75,7 +75,7 @@ public class MainMenuTest {
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
         mainMenu.dispatch();
-        
+
         verify(listBookOption).obtainOptionResult();
     }
 }
