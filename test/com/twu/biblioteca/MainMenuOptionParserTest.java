@@ -24,11 +24,11 @@ public class MainMenuOptionParserTest {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, books);
-        HashMap<Integer, MainMenuAction> mainMenuOptions = new HashMap<Integer, MainMenuAction>();
-        mainMenuOptions.put(1, listBooksOption);
+        HashMap<String, MainMenuAction> mainMenuOptions = new HashMap<String, MainMenuAction>();
+        mainMenuOptions.put("List Books", listBooksOption);
         MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(mainMenuOptions);
 
-        MainMenuAction actualMenuOption = mainMenuOptionParser.parseUserInput(1);
+        MainMenuAction actualMenuOption = mainMenuOptionParser.parseUserInput("List Books");
 
         assertThat(actualMenuOption, is(listBooksOption));
     }

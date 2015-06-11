@@ -5,13 +5,13 @@ import com.twu.biblioteca.model.MainMenuAction;
 import java.util.HashMap;
 
 public class MainMenuOptionParser {
-    private HashMap<Integer, MainMenuAction> mainMenuOptions;
+    private HashMap<String, MainMenuAction> Options;
 
-    public MainMenuOptionParser(HashMap<Integer, MainMenuAction> mainMenuOptions) {
-        this.mainMenuOptions = mainMenuOptions;
+    public MainMenuOptionParser(HashMap<String, MainMenuAction> Options) {
+        this.Options = Options;
     }
 
-    public MainMenuAction parseUserInput(Integer userInput) {
-        return mainMenuOptions.get(userInput);
+    public MainMenuAction parseUserInput(String userInput) {
+        return Options.get(userInput);
     }
 }
