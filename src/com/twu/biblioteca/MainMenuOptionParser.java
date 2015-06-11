@@ -1,17 +1,15 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.MainMenuAction;
-
 import java.util.HashMap;
 
 public class MainMenuOptionParser {
-    private HashMap<String, MainMenuAction> Options;
+    private HashMap<String, MainMenuAction> option;
 
-    public MainMenuOptionParser(HashMap<String, MainMenuAction> Options) {
-        this.Options = Options;
+    public MainMenuOptionParser(HashMap<String, MainMenuAction> option) {
+        this.option = option;
     }
 
     public MainMenuAction parseUserInput(String userInput) {
-        return Options.get(userInput);
+        return option.get(userInput);
     }
 }

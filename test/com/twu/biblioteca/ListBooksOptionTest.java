@@ -1,8 +1,5 @@
-package com.twu.biblioteca.view;
+package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Books;
-import com.twu.biblioteca.model.MainMenuAction;
 import org.junit.*;
 import org.mockito.*;
 

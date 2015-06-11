@@ -1,9 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.MainMenu;
-import com.twu.biblioteca.view.ConsoleInputOutput;
-import com.twu.biblioteca.view.Messages;
-
 public class Biblioteca {
     private ConsoleInputOutput consoleInputOutput;
     private MainMenu mainMenu;

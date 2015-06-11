@@ -1,7 +1,9 @@
+package com.twu.biblioteca;
+
 import com.twu.biblioteca.Biblioteca;
-import com.twu.biblioteca.model.MainMenu;
-import com.twu.biblioteca.view.ConsoleInputOutput;
-import com.twu.biblioteca.view.Messages;
+import com.twu.biblioteca.MainMenu;
+import com.twu.biblioteca.ConsoleInputOutput;
+import com.twu.biblioteca.Messages;
 import org.junit.*;
 import org.mockito.Mock;
 
@@ -34,7 +36,7 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu);
 
         biblioteca.start();
-        
+
         verify(mainMenu).dispatch();
     }
 }

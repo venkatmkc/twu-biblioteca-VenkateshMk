@@ -1,10 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Books;
-import com.twu.biblioteca.model.MainMenuAction;
-import com.twu.biblioteca.view.ConsoleInputOutput;
-import com.twu.biblioteca.view.ListBooksOption;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.twu.biblioteca.model;
+package com.twu.biblioteca;
 
 public interface MainMenuAction {
     void obtainOptionResult();

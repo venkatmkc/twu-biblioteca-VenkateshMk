@@ -1,15 +1,11 @@
-package com.twu.biblioteca.model;
+package com.twu.biblioteca;
 
-import com.twu.biblioteca.MainMenuOptionParser;
-import com.twu.biblioteca.view.ConsoleInputOutput;
-import com.twu.biblioteca.view.ListBooksOption;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
@@ -27,8 +23,12 @@ public class MainMenuTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(consoleInputOutput.getUserInput()).thenReturn("List Books");
-        when(mainMenuOptionParser.parseUserInput("List Books")).thenReturn(listBookOption);
+        when(consoleInputOutput.getUserInput()).
+                thenReturn("List Books");
+        when(mainMenuOptionParser.parseUserInput("List Books")).
+                thenReturn(listBookOption);
+        when(mainMenuOptionParser.parseUserInput("delete")).
+                thenReturn(null);
     }
 
     @Test
@@ -77,5 +77,19 @@ public class MainMenuTest {
         mainMenu.dispatch();
 
         verify(listBookOption).obtainOptionResult();
+    }
+
+    @Test
+    public void dispatchShouldProduceInvalidOptionMessageOnInvalidOption() {
+        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Books");
+
+        ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
+        mainMenuOptionsList.add("List Books");
+        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+
+        mainMenu.dispatch();
+
+        verify(consoleInputOutput).displayOutputToUser(Messages.INVALID_MENU_OPTION);
     }
 }

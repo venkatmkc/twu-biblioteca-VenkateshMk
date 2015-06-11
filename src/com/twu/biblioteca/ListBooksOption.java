@@ -1,6 +1,4 @@
-package com.twu.biblioteca.view;
-
-import com.twu.biblioteca.model.*;
+package com.twu.biblioteca;
 
 public class ListBooksOption implements MainMenuAction {
     private ConsoleInputOutput consoleInputOutput;
