@@ -9,14 +9,15 @@ public class MainMenu {
     private MainMenuOptions mainMenuOptions;
 
     public MainMenu(ConsoleInputOutput consoleInputOutput, MainMenuOptionParser mainMenuOptionParser, MainMenuOptions mainMenuOptions) {
-
         this.consoleInputOutput = consoleInputOutput;
         this.mainMenuOptionParser = mainMenuOptionParser;
         this.mainMenuOptions = mainMenuOptions;
     }
 
     public void dispatch() {
-        String option = consoleInputOutput.getUserInput();
-        mainMenuOptionParser.parseUserInput(option);
+        consoleInputOutput.displayOutputToUser(mainMenuOptions);
+        String userInput = consoleInputOutput.getUserInput();
+        MainMenuAction option = mainMenuOptionParser.parseUserInput(userInput);
+        option.obtainOptionResult();
     }
 }
