@@ -16,6 +16,7 @@ public class MainMenuOptions {
         Iterator<String> optionsIterator = mainMenuOptionsList.iterator();
         while (optionsIterator.hasNext()) {
             formattedOptionsList += optionNumber + ". " + optionsIterator.next() + "\n";
+            optionNumber++;
         }
         return formattedOptionsList;
     }

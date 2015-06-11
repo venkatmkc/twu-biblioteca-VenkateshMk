@@ -22,6 +22,7 @@ public class BibliotecaApp {
         MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(options);
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("Quit");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
         Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu);

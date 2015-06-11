@@ -13,18 +13,17 @@ public class MainMenu {
 
     public void dispatch() {
         MainMenuAction option;
-        boolean isInvalidOption;
         do {
             consoleInputOutput.displayOutputToUser(mainMenuOptions);
             String userInput = consoleInputOutput.getUserInput();
+            if (userInput.equals("Quit"))
+                return;
             option = mainMenuOptionParser.parseUserInput(userInput);
             if (checkValidOption(option)) {
                 consoleInputOutput.displayOutputToUser(Messages.INVALID_MENU_OPTION);
-                isInvalidOption = true;
             } else
-                isInvalidOption = false;
-        } while (isInvalidOption);
-        option.obtainOptionResult();
+                option.obtainOptionResult();
+        } while (true);
     }
 
     private boolean checkValidOption(MainMenuAction option) {
