@@ -66,4 +66,16 @@ public class MainMenuTest {
 
         verify(consoleInputOutput).displayOutputToUser(mainMenuOptions);
     }
+
+    @Test
+    public void dispatchShouldPerformSelectedOption() {
+        ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
+        mainMenuOptionsList.add("List Books");
+        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+
+        mainMenu.dispatch();
+        
+        verify(listBookOption).obtainOptionResult();
+    }
 }
