@@ -1,11 +1,13 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Books {
-    private ArrayList<Book> bookList;
+    private HashMap<Book, Boolean> bookList;
 
-    public Books(ArrayList<Book> bookList) {
+    public Books(HashMap<Book, Boolean> bookList) {
         this.bookList = bookList;
     }
 
@@ -13,17 +15,24 @@ public class Books {
     public String toString() {
         String formattedBookList = new String();
         int maximumNameLength = 0, maximumAuthorLength = 0;
-
-        for (Book book : bookList) {
-            if (book.nameLength() > maximumNameLength)
-                maximumNameLength = book.nameLength();
-            if (book.authorLength() > maximumAuthorLength)
-                maximumAuthorLength = book.authorLength();
+        for (Book book : bookList.keySet()) {
+            if(bookList.get(book)) {
+                if (book.nameLength() > maximumNameLength)
+                    maximumNameLength = book.nameLength();
+                if (book.authorLength() > maximumAuthorLength)
+                    maximumAuthorLength = book.authorLength();
+            }
         }
 
-        for (Book book : bookList) {
-            formattedBookList += book.formattedBookDetails(maximumNameLength, maximumAuthorLength) + "\n";
+        for (Book book : bookList.keySet()) {
+            if(bookList.get(book)) {
+                formattedBookList += book.formattedBookDetails(maximumNameLength, maximumAuthorLength) + "\n";
+            }
         }
         return formattedBookList;
+    }
+
+    public void checkout(Book book) {
+        bookList.put(book, false);
     }
 }

@@ -13,8 +13,8 @@ public class MainMenuOptionParserTest {
     @Test
     public void parseUserInputShouldProduceMainMenuOption() {
         Book book = new Book("java tutorial", "aravind", "2012");
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(book);
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        bookList.put(book, true);
         Books books = new Books(bookList);
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
