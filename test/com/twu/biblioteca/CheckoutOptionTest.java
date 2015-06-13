@@ -70,4 +70,20 @@ public class CheckoutOptionTest {
         verify(books).checkout(bookOne);
     }
 
+    @Test
+    public void successfulCheckoutShouldProduceSuccessMessage() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, true);
+        bookList.put(bookTwo, true);
+        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
+        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
+        when(books.checkout(bookOne)).thenReturn(true);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+
+        checkoutOption.obtainOptionResult();
+
+        verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_CHECKOUT);
+    }
 }

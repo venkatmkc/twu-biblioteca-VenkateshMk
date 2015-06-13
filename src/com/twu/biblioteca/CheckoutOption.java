@@ -16,6 +16,8 @@ public class CheckoutOption implements MainMenuAction{
     public void obtainOptionResult() {
         String bookTitle = consoleInputOutput.getUserInput();
         Book book = bookParser.parseUserInput(bookTitle);
-        books.checkout(book);
+        Boolean checkoutStatus = books.checkout(book);
+        if(checkoutStatus == true)
+            consoleInputOutput.displayOutputToUser(Messages.SUCCESSFUL_CHECKOUT);
     }
 }

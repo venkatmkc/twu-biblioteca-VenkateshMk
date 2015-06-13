@@ -1,8 +1,6 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Books {
     private HashMap<Book, Boolean> bookList;
