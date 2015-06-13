@@ -14,7 +14,7 @@ public class BibliotecaApp {
         HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        bookList.put(bookThree, true);
+        bookList.put(bookThree, false);
         Books books = new Books(bookList);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, books);
         HashMap<String, Book> booksTitleToBook = new HashMap<String, Book>();
@@ -23,13 +23,16 @@ public class BibliotecaApp {
         booksTitleToBook.put("The Sky Is Falling", bookThree);
         BookParser bookParser = new BookParser(booksTitleToBook);
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
         HashMap<String, MainMenuAction> options = new HashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
         options.put("Checkout", checkoutOption);
+        options.put("Return Book", returnOption);
         MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(options);
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Books");
         mainMenuOptionsList.add("Checkout");
+        mainMenuOptionsList.add("Return Book");
         mainMenuOptionsList.add("Quit");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
