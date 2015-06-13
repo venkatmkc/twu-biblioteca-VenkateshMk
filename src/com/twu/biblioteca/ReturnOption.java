@@ -17,6 +17,9 @@ public class ReturnOption implements MainMenuAction{
     public void obtainOptionResult() {
         String bookTitle = consoleInputOutput.getUserInput();
         Book book = bookParser.parseUserInput(bookTitle);
-        books.returnBook(book);
+        Boolean returnBookStatus = books.returnBook(book);
+        if(returnBookStatus == true) {
+            consoleInputOutput.displayOutputToUser(Messages.SUCCESSFUL_BOOK_RETURN);
+        }
     }
 }

@@ -5,4 +5,5 @@ public interface Messages {
     String INVALID_MENU_OPTION = "Select a valid option";
     String SUCCESSFUL_CHECKOUT = "Thank you! Enjoy the book";
     String UNSUCCESSFUL_CHECKOUT = "That book is not available.";
+    String SUCCESSFUL_BOOK_RETURN = "Thank you for returning the book.";
 }

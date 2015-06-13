@@ -119,4 +119,6 @@ public class CheckoutOptionTest {
 
         verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_CHECKOUT);
     }
+
+
 }
