@@ -28,7 +28,7 @@ public class BooksTest {
     }
 
     @Test
-    public void checkOutShouldStopAddingCheckedoutBookToFormattedBookList() {
+    public void checkoutShouldStopAddingCheckedoutBookToFormattedBookList() {
         HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
@@ -40,5 +40,19 @@ public class BooksTest {
         String actualBookList = books.toString();
 
         assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon | 2001\n")));
+    }
+
+    @Test
+    public void checkoutShouldProduceSuccessOnSuccesfulCheckout() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, true);
+        bookList.put(bookTwo, true);
+        Books books = new Books(bookList);
+
+        boolean actualCheckoutStatus = books.checkout(bookOne);
+
+        assertThat(actualCheckoutStatus , is(true));
     }
 }

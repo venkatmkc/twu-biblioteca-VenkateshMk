@@ -32,7 +32,8 @@ public class Books {
         return formattedBookList;
     }
 
-    public void checkout(Book book) {
+    public boolean checkout(Book book) {
         bookList.put(book, false);
+        return true;
     }
 }
