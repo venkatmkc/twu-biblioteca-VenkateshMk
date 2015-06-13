@@ -24,7 +24,7 @@ public class ListBooksOptionTest {
     }
 
     @Test
-    public void bookListShouldBeChosen() {
+    public void bookListShouldBeDisplayedToTheUser() {
         Book book = new Book("book name", "book author", "2012");
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(book);
