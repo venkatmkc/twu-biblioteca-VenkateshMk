@@ -39,4 +39,19 @@ public class ReturnOptionTest {
 
         verify(consoleInputOutput).getUserInput();
     }
+
+    @Test
+    public void checkoutShouldParseUserInputToBook() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, true);
+        bookList.put(bookTwo, true);
+        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+
+        returnOption.obtainOptionResult();
+
+        verify(bookParser).parseUserInput("Kite Runner");
+    }
 }

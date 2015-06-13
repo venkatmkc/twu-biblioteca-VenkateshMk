@@ -15,6 +15,7 @@ public class ReturnOption implements MainMenuAction{
 
     @Override
     public void obtainOptionResult() {
-        String userInput = consoleInputOutput.getUserInput();
+        String bookTitle = consoleInputOutput.getUserInput();
+        Book book = bookParser.parseUserInput(bookTitle);
     }
 }
