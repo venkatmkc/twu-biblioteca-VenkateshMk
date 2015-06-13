@@ -106,4 +106,20 @@ public class ReturnOptionTest {
 
         verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
     }
+
+    @Test
+    public void invalidBookNameShouldProduceFailureMessage() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, true);
+        bookList.put(bookTwo, true);
+        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
+        when(bookParser.parseUserInput("Kite Runn")).thenReturn(null);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+
+        returnOption.obtainOptionResult();
+
+        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
+    }
 }
