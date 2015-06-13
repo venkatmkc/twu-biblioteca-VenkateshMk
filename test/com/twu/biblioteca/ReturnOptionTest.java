@@ -41,7 +41,7 @@ public class ReturnOptionTest {
     }
 
     @Test
-    public void checkoutShouldParseUserInputToBook() {
+    public void returnBookShouldParseUserInputToBook() {
         HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");

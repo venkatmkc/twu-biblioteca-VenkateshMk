@@ -37,4 +37,8 @@ public class Books {
         }
         return false;
     }
+
+    public void returnBook(Book book) {
+        bookList.put(book, true);
+    }
 }
