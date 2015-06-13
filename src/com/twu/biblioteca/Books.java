@@ -39,7 +39,10 @@ public class Books {
     }
 
     public boolean returnBook(Book book) {
-        bookList.put(book, true);
-        return true;
+        if(!bookList.get(book)) {
+            bookList.put(book, true);
+            return true;
+        }
+        return  false;
     }
 }

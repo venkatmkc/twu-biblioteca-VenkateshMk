@@ -95,8 +95,23 @@ public class BooksTest {
         bookList.put(bookTwo, true);
         Books books = new Books(bookList);
 
-        boolean actualCheckoutStatus = books.returnBook(bookOne);
+        boolean actualReturnStatus = books.returnBook(bookOne);
 
-        assertThat(actualCheckoutStatus , is(true));
+        assertThat(actualReturnStatus , is(true));
+    }
+
+    @Test
+    public void returnBookShouldProduceFailureOnUnSuccessfulReturn() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, false);
+        bookList.put(bookTwo, true);
+        Books books = new Books(bookList);
+
+        books.returnBook(bookOne);
+        boolean actualReturnStatus = books.returnBook(bookOne);
+
+        assertThat(actualReturnStatus , is(false));
     }
 }
