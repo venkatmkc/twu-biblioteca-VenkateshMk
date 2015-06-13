@@ -21,5 +21,7 @@ public class ReturnOption implements MainMenuAction{
         if(returnBookStatus == true) {
             consoleInputOutput.displayOutputToUser(Messages.SUCCESSFUL_BOOK_RETURN);
         }
+        else
+            consoleInputOutput.displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
     }
 }

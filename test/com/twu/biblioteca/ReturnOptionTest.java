@@ -32,7 +32,9 @@ public class ReturnOptionTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
+        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
+        when(books.returnBook(bookOne)).thenReturn(false);
         ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
 
         returnOption.obtainOptionResult();
@@ -86,5 +88,22 @@ public class ReturnOptionTest {
         returnOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_RETURN);
+    }
+
+    @Test
+    public void unsuccessfulBookReturnShouldProduceFailureMessage() {
+        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
+        bookList.put(bookOne, true);
+        bookList.put(bookTwo, true);
+        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
+        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
+        when(books.returnBook(bookOne)).thenReturn(false);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+
+        returnOption.obtainOptionResult();
+
+        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
     }
 }

@@ -6,4 +6,5 @@ public interface Messages {
     String SUCCESSFUL_CHECKOUT = "Thank you! Enjoy the book";
     String UNSUCCESSFUL_CHECKOUT = "That book is not available.";
     String SUCCESSFUL_BOOK_RETURN = "Thank you for returning the book.";
+    String UNSUCCESSFUL_BOOK_RETURN = "That is not a valid book to return.";
 }
