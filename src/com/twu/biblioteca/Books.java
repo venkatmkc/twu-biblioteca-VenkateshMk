@@ -31,7 +31,10 @@ public class Books {
     }
 
     public boolean checkout(Book book) {
-        bookList.put(book, false);
-        return true;
+        if(bookList.get(book)) {
+            bookList.put(book, false);
+            return true;
+        }
+        return false;
     }
 }
