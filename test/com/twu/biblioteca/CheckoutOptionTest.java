@@ -17,7 +17,7 @@ public class CheckoutOptionTest {
     BookParser bookParser;
 
     @Mock
-    Books books;
+    Library library;
 
     @Before
     public void setUp() {
@@ -31,8 +31,8 @@ public class CheckoutOptionTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        Library library = new Library(bookList);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 
@@ -47,7 +47,7 @@ public class CheckoutOptionTest {
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 
@@ -63,11 +63,11 @@ public class CheckoutOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 
-        verify(books).checkout(bookOne);
+        verify(library).checkout(bookOne);
     }
 
     @Test
@@ -79,8 +79,8 @@ public class CheckoutOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(books.checkout(bookOne)).thenReturn(true);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        when(library.checkout(bookOne)).thenReturn(true);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 
@@ -96,8 +96,8 @@ public class CheckoutOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(books.checkout(bookOne)).thenReturn(false);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        when(library.checkout(bookOne)).thenReturn(false);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 
@@ -113,7 +113,7 @@ public class CheckoutOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
         when(bookParser.parseUserInput("Kite Runn")).thenReturn(null);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, books);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();
 

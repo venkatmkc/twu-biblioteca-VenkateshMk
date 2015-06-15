@@ -4,12 +4,12 @@ public class CheckoutOption implements MainMenuAction{
 
     private ConsoleInputOutput consoleInputOutput;
     private BookParser bookParser;
-    private Books books;
+    private Library library;
 
-    public CheckoutOption(ConsoleInputOutput consoleInputOutput, BookParser bookParser, Books books) {
+    public CheckoutOption(ConsoleInputOutput consoleInputOutput, BookParser bookParser, Library library) {
         this.consoleInputOutput = consoleInputOutput;
         this.bookParser = bookParser;
-        this.books = books;
+        this.library = library;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class CheckoutOption implements MainMenuAction{
             consoleInputOutput.displayOutputToUser(Messages.UNSUCCESSFUL_CHECKOUT);
             return;
         }
-        Boolean checkoutStatus = books.checkout(book);
+        Boolean checkoutStatus = library.checkout(book);
         if(checkoutStatus == true)
             consoleInputOutput.displayOutputToUser(Messages.SUCCESSFUL_CHECKOUT);
         else

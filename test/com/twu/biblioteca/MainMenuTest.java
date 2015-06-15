@@ -23,7 +23,7 @@ public class MainMenuTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(mainMenuOptionParser.parseUserInput("List Books")).
+        when(mainMenuOptionParser.parseUserInput("List Library")).
                 thenReturn(listBookOption);
     }
 
@@ -32,7 +32,7 @@ public class MainMenuTest {
         when(consoleInputOutput.getUserInput()).
                 thenReturn("Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
@@ -44,23 +44,23 @@ public class MainMenuTest {
     @Test
     public void dispatchShouldParseUserInputToOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Books", "Quit");
+                thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
         mainMenu.dispatch();
 
-        verify(mainMenuOptionParser).parseUserInput("List Books");
+        verify(mainMenuOptionParser).parseUserInput("List Library");
     }
 
     @Test
     public void dispatchShouldProduceMainMenuOptionList() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Books", "Quit");
+                thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
@@ -72,9 +72,9 @@ public class MainMenuTest {
     @Test
     public void dispatchShouldPerformSelectedOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Books", "Quit");
+                thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
@@ -85,10 +85,10 @@ public class MainMenuTest {
 
     @Test
     public void dispatchShouldProduceInvalidOptionMessageOnInvalidOption() {
-        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Books", "Quit");
+        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Library", "Quit");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 
@@ -102,7 +102,7 @@ public class MainMenuTest {
         when(consoleInputOutput.getUserInput()).thenReturn("Quit");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
 

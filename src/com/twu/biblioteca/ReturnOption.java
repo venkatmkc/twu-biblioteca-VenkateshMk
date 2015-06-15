@@ -1,16 +1,14 @@
 package com.twu.biblioteca;
 
-import java.util.Stack;
-
 public class ReturnOption implements MainMenuAction{
     private final ConsoleInputOutput consoleInputOutput;
     private final BookParser bookParser;
-    private final Books books;
+    private final Library library;
 
-    public ReturnOption(ConsoleInputOutput consoleInputOutput, BookParser bookParser, Books books) {
+    public ReturnOption(ConsoleInputOutput consoleInputOutput, BookParser bookParser, Library library) {
         this.consoleInputOutput = consoleInputOutput;
         this.bookParser = bookParser;
-        this.books = books;
+        this.library = library;
     }
 
     @Override
@@ -21,7 +19,7 @@ public class ReturnOption implements MainMenuAction{
             consoleInputOutput.displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
             return;
         }
-        Boolean returnBookStatus = books.returnBook(book);
+        Boolean returnBookStatus = library.returnBook(book);
         if(returnBookStatus == true) {
             consoleInputOutput.displayOutputToUser(Messages.SUCCESSFUL_BOOK_RETURN);
         }

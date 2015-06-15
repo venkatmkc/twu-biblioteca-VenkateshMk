@@ -2,10 +2,10 @@ package com.twu.biblioteca;
 
 import java.util.HashMap;
 
-public class Books {
+public class Library {
     private HashMap<Book, Boolean> bookList;
 
-    public Books(HashMap<Book, Boolean> bookList) {
+    public Library(HashMap<Book, Boolean> bookList) {
         this.bookList = bookList;
     }
 

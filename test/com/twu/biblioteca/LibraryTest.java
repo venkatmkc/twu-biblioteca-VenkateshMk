@@ -1,18 +1,13 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
-import org.mockito.*;
-import org.mockito.Mock;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static org.mockito.MockitoAnnotations.*;
 
-public class BooksTest {
+public class LibraryTest {
     @Test
     public void formattedBookListShouldBeProduced() {
         HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
@@ -20,9 +15,9 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        String actualBookList = books.toString();
+        String actualBookList = library.toString();
 
         assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon  | 2001\nKite Runner        | Khaled Hosseini | 2003\n")));
     }
@@ -34,10 +29,10 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        books.checkout(bookOne);
-        String actualBookList = books.toString();
+        library.checkout(bookOne);
+        String actualBookList = library.toString();
 
         assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon | 2001\n")));
     }
@@ -49,9 +44,9 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        boolean actualCheckoutStatus = books.checkout(bookOne);
+        boolean actualCheckoutStatus = library.checkout(bookOne);
 
         assertThat(actualCheckoutStatus , is(true));
     }
@@ -63,10 +58,10 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        books.checkout(bookOne);
-        boolean actualCheckoutStatus = books.checkout(bookOne);
+        library.checkout(bookOne);
+        boolean actualCheckoutStatus = library.checkout(bookOne);
 
         assertThat(actualCheckoutStatus , is(false));
     }
@@ -78,10 +73,10 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, false);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        books.returnBook(bookOne);
-        String actualBookList = books.toString();
+        library.returnBook(bookOne);
+        String actualBookList = library.toString();
 
         assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon  | 2001\nKite Runner        | Khaled Hosseini | 2003\n")));
     }
@@ -93,9 +88,9 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, false);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        boolean actualReturnStatus = books.returnBook(bookOne);
+        boolean actualReturnStatus = library.returnBook(bookOne);
 
         assertThat(actualReturnStatus , is(true));
     }
@@ -107,10 +102,10 @@ public class BooksTest {
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
         bookList.put(bookOne, false);
         bookList.put(bookTwo, true);
-        Books books = new Books(bookList);
+        Library library = new Library(bookList);
 
-        books.returnBook(bookOne);
-        boolean actualReturnStatus = books.returnBook(bookOne);
+        library.returnBook(bookOne);
+        boolean actualReturnStatus = library.returnBook(bookOne);
 
         assertThat(actualReturnStatus , is(false));
     }

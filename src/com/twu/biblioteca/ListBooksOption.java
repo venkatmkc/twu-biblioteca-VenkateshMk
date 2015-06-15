@@ -2,15 +2,15 @@ package com.twu.biblioteca;
 
 public class ListBooksOption implements MainMenuAction {
     private ConsoleInputOutput consoleInputOutput;
-    private Books books;
+    private Library library;
 
-    public ListBooksOption(ConsoleInputOutput consoleInputOutput, Books books) {
+    public ListBooksOption(ConsoleInputOutput consoleInputOutput, Library library) {
         this.consoleInputOutput = consoleInputOutput;
-        this.books = books;
+        this.library = library;
     }
 
     @Override
     public void obtainOptionResult() {
-        consoleInputOutput.displayOutputToUser(books);
+        consoleInputOutput.displayOutputToUser(library);
     }
 }

@@ -6,13 +6,12 @@ import org.mockito.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.*;
 
 
-public class ListBooksOptionTest {
+public class ListLibraryOptionTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
 
     @Mock
@@ -29,11 +28,11 @@ public class ListBooksOptionTest {
         Book book = new Book("book name", "book author", "2012");
         HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
         bookList.put(book, true);
-        Books books = new Books(bookList);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, books);
+        Library library = new Library(bookList);
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
 
         listBooksOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(books);
+        verify(consoleInputOutput).displayOutputToUser(library);
     }
 }

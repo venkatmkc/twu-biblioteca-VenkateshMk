@@ -18,7 +18,7 @@ public class ReturnOptionTest {
     BookParser bookParser;
 
     @Mock
-    Books books;
+    Library library;
 
     @Before
     public void setUp() {
@@ -34,8 +34,8 @@ public class ReturnOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(books.returnBook(bookOne)).thenReturn(false);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        when(library.returnBook(bookOne)).thenReturn(false);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 
@@ -50,7 +50,7 @@ public class ReturnOptionTest {
         bookList.put(bookOne, true);
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 
@@ -66,11 +66,11 @@ public class ReturnOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 
-        verify(books).returnBook(bookOne);
+        verify(library).returnBook(bookOne);
     }
 
     @Test
@@ -82,8 +82,8 @@ public class ReturnOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(books.returnBook(bookOne)).thenReturn(true);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        when(library.returnBook(bookOne)).thenReturn(true);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 
@@ -99,8 +99,8 @@ public class ReturnOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(books.returnBook(bookOne)).thenReturn(false);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        when(library.returnBook(bookOne)).thenReturn(false);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 
@@ -116,7 +116,7 @@ public class ReturnOptionTest {
         bookList.put(bookTwo, true);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
         when(bookParser.parseUserInput("Kite Runn")).thenReturn(null);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, books);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
 
         returnOption.obtainOptionResult();
 

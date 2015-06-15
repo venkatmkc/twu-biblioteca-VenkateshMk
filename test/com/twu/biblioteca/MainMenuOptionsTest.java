@@ -11,11 +11,11 @@ public class MainMenuOptionsTest {
     @Test
     public void formattedMainMenuOptionListShouldBeProduced() {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Books");
+        mainMenuOptionsList.add("List Library");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
 
         String actualFormattedOptionList = mainMenuOptions.toString();
 
-        assertThat(actualFormattedOptionList, is(equalTo("1. List Books\n")));
+        assertThat(actualFormattedOptionList, is(equalTo("1. List Library\n")));
     }
 }
