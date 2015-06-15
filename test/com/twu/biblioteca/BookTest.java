@@ -90,4 +90,13 @@ public class BookTest {
 
         assertEquals(firstObject.hashCode(), secondObject.hashCode());
     }
+
+    @Test
+    public void sameBookIdShouldMapToSameBook() {
+        Book book = new Book("Kite Runner","Khaled Hosseini", "2003");
+
+        boolean actualCheckResult = book.isSameBook("Kite Runner");
+
+        assertThat(actualCheckResult, is(true));
+    }
 }
