@@ -6,6 +6,7 @@ import org.mockito.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.*;
@@ -26,9 +27,11 @@ public class ListLibraryOptionTest {
     @Test
     public void bookListShouldBeDisplayedToTheUser() {
         Book book = new Book("book name", "book author", "2012");
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        bookList.put(book, true);
-        Library library = new Library(bookList);
+
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
+        availableBooks.add(book);
+        Library library = new Library(availableBooks, checkedoutBooks);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
 
         listBooksOption.obtainOptionResult();

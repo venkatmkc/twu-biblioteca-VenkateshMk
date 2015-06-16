@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -10,26 +11,28 @@ import static org.junit.Assert.*;
 public class LibraryTest {
     @Test
     public void formattedBookListShouldBeProduced() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         String actualBookList = library.toString();
 
-        assertThat(actualBookList, is(equalTo("The Sky Is Falling   | Sidney Sheldon       | 2001\nKite Runner          | Khaled Hosseini      | 2003\n")));
+        assertThat(actualBookList, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003\nThe Sky Is Falling   | Sidney Sheldon       | 2001\n")));
     }
 
     @Test
     public void checkoutShouldStopAddingCheckedoutBookToFormattedBookList() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         library.checkout(bookOne);
         String actualBookList = library.toString();
@@ -39,12 +42,13 @@ public class LibraryTest {
 
     @Test
     public void checkoutShouldProduceSuccessOnSuccesfulCheckout() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         boolean actualCheckoutStatus = library.checkout(bookOne);
 
@@ -53,12 +57,13 @@ public class LibraryTest {
 
     @Test
     public void checkoutShouldProduceFailureOnUnSuccessfulCheckout() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         library.checkout(bookOne);
         boolean actualCheckoutStatus = library.checkout(bookOne);
@@ -68,12 +73,13 @@ public class LibraryTest {
 
     @Test
     public void returnBookShouldAddReturnedBookToFormattedBookList() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, false);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        checkedoutBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         library.returnBook(bookOne);
         String actualBookList = library.toString();
@@ -84,12 +90,13 @@ public class LibraryTest {
 
     @Test
     public void returnBookShouldProduceSuccessOnSuccesfulBookReturn() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, false);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        checkedoutBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         boolean actualReturnStatus = library.returnBook(bookOne);
 
@@ -98,12 +105,13 @@ public class LibraryTest {
 
     @Test
     public void returnBookShouldProduceFailureOnUnSuccessfulReturn() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, false);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        checkedoutBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
 
         library.returnBook(bookOne);
         boolean actualReturnStatus = library.returnBook(bookOne);

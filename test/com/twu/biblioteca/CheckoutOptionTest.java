@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.*;
@@ -26,12 +27,14 @@ public class CheckoutOptionTest {
 
     @Test
     public void bookTitleShouldBeObtainedFromTheUser() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
+
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
         Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        Library library = new Library(bookList);
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        Library library = new Library(availableBooks, checkedoutBooks);
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, bookParser, library);
 
         checkoutOption.obtainOptionResult();

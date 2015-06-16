@@ -11,11 +11,12 @@ public class BibliotecaApp {
         Book bookOne = new Book("java tutorial", "aravind", "2012");
         Book bookTwo = new Book("Kite Runner", "Khaled Hosseini", "2003");
         Book bookThree = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        bookList.put(bookThree, false);
-        Library library = new Library(bookList);
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
+        checkedoutBooks.add(bookThree);
+        Library library = new Library(availableBooks, checkedoutBooks);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
         HashMap<String, Book> booksTitleToBook = new HashMap<String, Book>();
         booksTitleToBook.put("java tutorial", bookOne);
