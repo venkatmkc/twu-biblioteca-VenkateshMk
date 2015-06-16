@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97684c26-a772-4595-85a4-76b2c4398536" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/NullBookTest.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Book.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Books.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/MainMenu.class" afterPath="" />
@@ -57,7 +56,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/MainMenuConsoleViewTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/WelcomeMessageToConsoleTest.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/NullBookTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/NullBookTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -186,21 +185,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NullBook.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NullBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-              <folding />
+            <state vertical-scroll-proportion="0.3664495">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NullBookTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NullBookTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/NullBookTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3664495">
-              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -465,33 +466,7 @@
       <recent name="com.twu.biblioteca.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NullBookTest.unsuccessfulCheckoutShouldProduceFailureMessage">
-    <configuration default="false" name="AvailableBookTest.returnBookShouldProduceNullBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AvailableBookTest" />
-      <option name="METHOD_NAME" value="returnBookShouldProduceNullBook" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.NullBookTest.unsuccessfulBookReturnShouldProduceFailureMessage">
     <configuration default="false" name="CheckedOutBookTest.checkoutShouldProduceNullBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -583,6 +558,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.NullBookTest" />
       <option name="METHOD_NAME" value="unsuccessfulCheckoutShouldProduceFailureMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="NullBookTest.unsuccessfulBookReturnShouldProduceFailureMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.NullBookTest" />
+      <option name="METHOD_NAME" value="unsuccessfulBookReturnShouldProduceFailureMessage" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -874,19 +875,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BooksPresenterTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulCheckoutShouldProduceFailureMessage" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulCheckoutShouldProduceFailureMessage" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulBookReturnShouldProduceFailureMessage" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulCheckoutShouldProduceFailureMessage" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulBookReturnShouldProduceFailureMessage" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.NullBookTest.unsuccessfulCheckoutShouldProduceFailureMessage" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
       </list>
     </recent_temporary>
   </component>
@@ -922,12 +923,12 @@
       <workItem from="1434344636838" duration="1204000" />
       <workItem from="1434352458290" duration="1182000" />
       <workItem from="1434364765677" duration="1393000" />
-      <workItem from="1434372247575" duration="23438000" />
+      <workItem from="1434372247575" duration="23588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117621000" />
+    <option name="totallyTimeSpent" value="117771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
@@ -1408,14 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1426,18 +1419,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/NullBookTest.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3664495">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
