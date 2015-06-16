@@ -25,7 +25,6 @@ public class BooksPresenterTest {
         booksPresenter.addBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         String actualFormattedBooks = booksPresenter.toString();
 
-        assertThat(actualFormattedBooks, is("Kite Runner                    | Khaled Hosseini                | 2003\n" +
-                "The Sky Is Falling             | Sidney Sheldon                 | 2001\n"));
+        assertThat(actualFormattedBooks, is("Kite Runner          | Khaled Hosseini      | 2003\nThe Sky Is Falling   | Sidney Sheldon       | 2001\n"));
     }
 }

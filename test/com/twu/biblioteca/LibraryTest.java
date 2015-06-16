@@ -19,7 +19,7 @@ public class LibraryTest {
 
         String actualBookList = library.toString();
 
-        assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon  | 2001\nKite Runner        | Khaled Hosseini | 2003\n")));
+        assertThat(actualBookList, is(equalTo("The Sky Is Falling   | Sidney Sheldon       | 2001\nKite Runner          | Khaled Hosseini      | 2003\n")));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class LibraryTest {
         library.checkout(bookOne);
         String actualBookList = library.toString();
 
-        assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon | 2001\n")));
+        assertThat(actualBookList, is(equalTo("The Sky Is Falling   | Sidney Sheldon       | 2001\n")));
     }
 
     @Test
@@ -78,7 +78,8 @@ public class LibraryTest {
         library.returnBook(bookOne);
         String actualBookList = library.toString();
 
-        assertThat(actualBookList, is(equalTo("The Sky Is Falling | Sidney Sheldon  | 2001\nKite Runner        | Khaled Hosseini | 2003\n")));
+        assertThat(actualBookList, is(equalTo("The Sky Is Falling   | Sidney Sheldon       | 2001\n" +
+                "Kite Runner          | Khaled Hosseini      | 2003\n")));
     }
 
     @Test

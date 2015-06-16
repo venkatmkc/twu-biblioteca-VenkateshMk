@@ -12,22 +12,13 @@ public class Library {
     @Override
     public String toString() {
         String formattedBookList = new String();
-        int maximumNameLength = 0, maximumAuthorLength = 0;
+        BooksPresenter booksPresenter = new BooksPresenter(formattedBookList);
         for (Book book : bookList.keySet()) {
             if(bookList.get(book)) {
-                if (book.nameLength() > maximumNameLength)
-                    maximumNameLength = book.nameLength();
-                if (book.authorLength() > maximumAuthorLength)
-                    maximumAuthorLength = book.authorLength();
+                book.appendToBooks(booksPresenter);
             }
         }
-
-        for (Book book : bookList.keySet()) {
-            if(bookList.get(book)) {
-                formattedBookList += book.formattedBookDetails(maximumNameLength, maximumAuthorLength) + "\n";
-            }
-        }
-        return formattedBookList;
+        return booksPresenter.toString();
     }
 
     public boolean checkout(Book book) {
@@ -45,4 +36,5 @@ public class Library {
         }
         return  false;
     }
+
 }
