@@ -16,4 +16,14 @@ public class CheckedOutBookTest {
 
         assertThat(actualBook, is(equalTo(availableBook)));
     }
+
+    @Test
+    public void checkoutShouldProduceNullBook() {
+        NullBook nullBook = new NullBook();
+        CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+
+        NullBook actualResult = book.checkout();
+
+        assertThat(actualResult, is(equalTo(nullBook)));
+    }
 }

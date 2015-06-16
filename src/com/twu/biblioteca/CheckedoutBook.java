@@ -12,4 +12,8 @@ public class CheckedOutBook extends Book{
     public AvailableBook returnBook() {
         return AvailableBook.create(name, author, year);
     }
+
+    public NullBook checkout() {
+        return new NullBook();
+    }
 }
