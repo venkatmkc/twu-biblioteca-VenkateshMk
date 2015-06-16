@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 public class Movie {
-    private final String name;
-    private final String year;
-    private final String director;
-    private final String rating;
+    protected String name;
+    protected String year;
+    protected String director;
+    protected String rating;
 
     public Movie(String name, String year, String director, String rating) {
         this.name = name;
