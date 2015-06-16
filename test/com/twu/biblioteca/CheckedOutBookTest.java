@@ -26,4 +26,13 @@ public class CheckedOutBookTest {
 
         assertThat(actualResult, is(equalTo(nullBook)));
     }
+
+    @Test
+    public void successfulCheckoutShouldProduceSuccesMessage() {
+        CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+
+        String actualStatusMessage = book.getCheckoutMessage();
+
+        assertThat(actualStatusMessage, is(Messages.SUCCESSFUL_CHECKOUT));
+    }
 }

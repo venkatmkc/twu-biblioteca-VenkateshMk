@@ -16,4 +16,8 @@ public class CheckedOutBook extends Book{
     public NullBook checkout() {
         return new NullBook();
     }
+
+    public String getCheckoutMessage() {
+        return Messages.SUCCESSFUL_CHECKOUT;
+    }
 }
