@@ -34,4 +34,8 @@ public class Movie {
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
     }
+
+    public boolean isSameMovie(String movieName) {
+        return name.equals(movieName);
+    }
 }

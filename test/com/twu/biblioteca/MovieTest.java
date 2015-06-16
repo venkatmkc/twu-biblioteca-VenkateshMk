@@ -1,10 +1,12 @@
 package com.twu.biblioteca;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -77,5 +79,14 @@ public class MovieTest {
         Movie secondObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject.hashCode(), secondObject.hashCode());
+    }
+
+    @Test
+    public void sameMovieTitleShouldMapToSameMovie() {
+        Movie movie = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+
+        boolean actualCheckResult = movie.isSameMovie("Inception");
+
+        Assert.assertThat(actualCheckResult, is(true));
     }
 }
