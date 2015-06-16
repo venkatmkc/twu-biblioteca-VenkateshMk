@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 public class Book {
 
-    private String name, author, year;
+    protected String name, author, year;
 
     public Book(String name, String author, String year) {
         this.name = name;
@@ -16,14 +16,6 @@ public class Book {
                 String.format("%-" + maximumAuthorLength + "s", author)
                 + " | " +
                 year;
-    }
-
-    public int nameLength() {
-        return name.length();
-    }
-
-    public int authorLength() {
-        return author.length();
     }
 
     @Override

@@ -24,21 +24,7 @@ public class LibraryTest {
         assertThat(actualBookList, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003\nThe Sky Is Falling   | Sidney Sheldon       | 2001\n")));
     }
 
-    @Test
-    public void checkoutShouldStopAddingCheckedoutBookToFormattedBookList() {
-        ArrayList<Book> availableBooks = new ArrayList<Book>();
-        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        availableBooks.add(bookOne);
-        availableBooks.add(bookTwo);
-        Library library = new Library(availableBooks, checkedoutBooks);
 
-        library.checkout(bookOne);
-        String actualBookList = library.toString();
-
-        assertThat(actualBookList, is(equalTo("The Sky Is Falling   | Sidney Sheldon       | 2001\n")));
-    }
 
     @Test
     public void checkoutShouldProduceSuccessOnSuccesfulCheckout() {

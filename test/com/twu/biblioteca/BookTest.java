@@ -28,23 +28,6 @@ public class BookTest {
         assertThat(actualBookDetails, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003")));
     }
 
-    @Test
-    public void nameLengthShouldBeLengthOfName() {
-        Book book = new Book("Kite Runner", "Khaled Hosseini", "2003");
-
-        int actualNameLength = book.nameLength();
-
-        assertThat(actualNameLength, is(equalTo(11)));
-    }
-
-    @Test
-    public void authorLengthShouldBeLengthOfName() {
-        Book book = new Book("Kite Runner", "Khaled Hosseini", "2003");
-
-        int actualNameLength = book.authorLength();
-
-        assertThat(actualNameLength, is(equalTo(15)));
-    }
 
     @Test
     public void testForReflexivity() {
