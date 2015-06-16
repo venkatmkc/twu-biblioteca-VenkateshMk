@@ -8,4 +8,8 @@ public class CheckedOutBook extends Book{
     public static CheckedOutBook create(String name, String author, String year) {
         return new CheckedOutBook(name, author, year);
     }
+
+    public AvailableBook returnBook() {
+        return AvailableBook.create(name, author, year);
+    }
 }
