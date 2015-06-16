@@ -47,4 +47,8 @@ public class Book {
     public boolean isSameBook(String bookName) {
         return name == bookName;
     }
+
+    public void appendToBooks(BooksPresenter booksPresenter) {
+        booksPresenter.addBook(name, author, year);
+    }
 }

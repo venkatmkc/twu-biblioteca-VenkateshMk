@@ -1,11 +1,24 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.MockitoAnnotations.*;
 
 public class BookTest {
+    @Mock
+    BooksPresenter booksPresenter;
+
+    @Before
+    public void setUp() {
+        initMocks(this);
+    }
+
     @Test
     public void formattedBookDetailsShouldBeProduced() {
         Book actualBook = new Book("Kite Runner", "Khaled Hosseini", "2003");
@@ -98,5 +111,14 @@ public class BookTest {
         boolean actualCheckResult = book.isSameBook("Kite Runner");
 
         assertThat(actualCheckResult, is(true));
+    }
+
+    @Test
+    public void appendBookShouldBeAppendedToTheBooksList() {
+        Book book = new Book("Kite Runner","Khaled Hosseini", "2003");
+
+        book.appendToBooks(booksPresenter);
+
+        verify(booksPresenter).addBook("Kite Runner","Khaled Hosseini", "2003");
     }
 }
