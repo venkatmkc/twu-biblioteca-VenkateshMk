@@ -16,4 +16,22 @@ public class Movie {
     public void appendToMovies(MoviesPresenter moviesPresenter) {
         moviesPresenter.addMovie(name, year, director, rating);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null)
+            return false;
+
+        Movie movie = (Movie) o;
+
+        return !(name != null ? !name.equals(movie.name) : movie.name != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
 }

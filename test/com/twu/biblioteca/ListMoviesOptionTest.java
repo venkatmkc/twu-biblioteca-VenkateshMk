@@ -11,7 +11,7 @@ import java.util.LinkedHashSet;
 import static org.mockito.Mockito.*;
 
 
-public class ListLibraryOptionTest {
+public class ListMoviesOptionTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
 
     @Mock
@@ -24,7 +24,7 @@ public class ListLibraryOptionTest {
     }
 
     @Test
-    public void bookListShouldBeDisplayedToTheUser() {
+    public void movieListShouldBeDisplayedToTheUser() {
         Book book = new AvailableBook("book name", "book author", "2012");
 
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
@@ -35,10 +35,10 @@ public class ListLibraryOptionTest {
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
+        MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
 
-        listBooksOption.obtainOptionResult();
+        listMoviesOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(library.formattedBooks());
+        verify(consoleInputOutput).displayOutputToUser(library.formattedMovies());
     }
 }
