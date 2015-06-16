@@ -16,4 +16,14 @@ public class CheckedOutMovieTest {
 
         assertThat(actualMovie, is(equalTo(movie)));
     }
+
+    @Test
+    public void checkoutShouldProduceNullMovie() {
+        Movie nullMovie = new NullMovie();
+        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+
+        NullMovie actualResult = movie.checkout();
+
+        assertThat(actualResult, is(equalTo(nullMovie)));
+    }
 }

@@ -12,4 +12,8 @@ public class CheckedOutMovie extends Movie {
     public AvailableMovie returnMovie() {
         return AvailableMovie.create(name, year, director, rating);
     }
+
+    public NullMovie checkout() {
+        return new NullMovie();
+    }
 }
