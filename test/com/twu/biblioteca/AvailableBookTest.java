@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -28,5 +29,14 @@ public class AvailableBookTest {
         NullBook actualResult = book.returnBook();
 
         assertThat(actualResult, is(equalTo(nullBook)));
+    }
+
+    @Test
+    public void successfulReturnShouldProduceSuccessMessage() {
+        AvailableBook book = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
+
+        String actualStatus = book.getReturnMessage();
+
+        assertThat(actualStatus, is(equalTo(SUCCESSFUL_BOOK_RETURN)));
     }
 }

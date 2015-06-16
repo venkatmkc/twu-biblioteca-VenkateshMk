@@ -28,7 +28,7 @@ public class CheckedOutBookTest {
     }
 
     @Test
-    public void successfulCheckoutShouldProduceSuccesMessage() {
+    public void successfulCheckoutShouldProduceSuccessMessage() {
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
 
         String actualStatusMessage = book.getCheckoutMessage();

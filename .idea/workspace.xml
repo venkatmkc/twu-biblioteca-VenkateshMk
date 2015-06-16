@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java" line="37" mnemonic="0" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="97684c26-a772-4595-85a4-76b2c4398536" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Book.class" afterPath="" />
@@ -52,7 +55,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/ListBooksOptionTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/MainMenuConsoleViewTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/WelcomeMessageToConsoleTest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckedOutBookTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CheckedOutBookTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80618894">
-              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,17 +179,17 @@
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AvailableBookTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AvailableBookTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="29" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.8778502">
+              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -269,11 +275,11 @@
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BookTest.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/NullBook.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutBook.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java" />
       </list>
     </option>
   </component>
@@ -458,33 +464,7 @@
       <recent name="com.twu.biblioteca.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage">
-    <configuration default="false" name="CheckedOutBookTest.checkoutShouldProduceCheckedOutBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.CheckedOutBookTest" />
-      <option name="METHOD_NAME" value="checkoutShouldProduceCheckedOutBook" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage">
     <configuration default="false" name="CheckedOutBookTest.returnBookShouldProduceCheckedOutBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -576,6 +556,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.CheckedOutBookTest" />
       <option name="METHOD_NAME" value="successfulCheckoutShouldProduceSuccesMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AvailableBookTest.successfulReturnShouldProduceSuccessMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AvailableBookTest" />
+      <option name="METHOD_NAME" value="successfulReturnShouldProduceSuccessMessage" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -867,19 +873,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BooksPresenterTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceCheckedOutBook" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.returnBookShouldProduceCheckedOutBook" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.returnBookShouldProduceCheckedOutBook" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.returnBookShouldProduceCheckedOutBook" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceCheckedOutBook" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.successfulReturnShouldProduceSuccessMessage" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.successfulCheckoutShouldProduceSuccesMessage" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.checkoutShouldProduceNullBook" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AvailableBookTest.returnBookShouldProduceNullBook" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CheckedOutBookTest.returnBookShouldProduceCheckedOutBook" />
       </list>
     </recent_temporary>
   </component>
@@ -915,12 +921,12 @@
       <workItem from="1434344636838" duration="1204000" />
       <workItem from="1434352458290" duration="1182000" />
       <workItem from="1434364765677" duration="1393000" />
-      <workItem from="1434372247575" duration="23018000" />
+      <workItem from="1434372247575" duration="23266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117201000" />
+    <option name="totallyTimeSpent" value="117449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
@@ -1398,24 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="29" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutBook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1426,8 +1414,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CheckedOutBookTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80618894">
-          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/AvailableBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/AvailableBookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8778502">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
