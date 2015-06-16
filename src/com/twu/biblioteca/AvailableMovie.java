@@ -8,4 +8,8 @@ public class AvailableMovie extends Movie{
     public Movie checkout() {
         return CheckedOutMovie.create(name, year, director, rating);
     }
+
+    public Movie returnMovie() {
+        return new NullMovie();
+    }
 }
