@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public abstract class Movie {
     protected String name;
     protected String year;
     protected String director;
@@ -38,4 +38,6 @@ public class Movie {
     public boolean isSameMovie(String movieName) {
         return name.equals(movieName);
     }
+
+    public abstract Movie returnMovie();
 }

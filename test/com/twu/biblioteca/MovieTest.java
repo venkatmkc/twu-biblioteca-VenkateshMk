@@ -24,7 +24,7 @@ public class MovieTest {
 
     @Test
     public void appendMovieShouldAppendItselfToTheMoviesList() {
-        Movie movie = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         movie.appendToMovies(moviesPresenter);
 
@@ -33,31 +33,31 @@ public class MovieTest {
 
     @Test
     public void testForReflexivity() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject, firstObject);
     }
 
     @Test
     public void testForComparingNullObjectsWithAMovie() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertThat(firstObject, not(equalTo(null)));
     }
 
     @Test
     public void testForEquality() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie secondObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie secondObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject, secondObject);
     }
 
     @Test
     public void testForTransitivity() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie secondObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie thirdObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie secondObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie thirdObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject, secondObject);
         assertEquals(secondObject, firstObject);
@@ -66,8 +66,8 @@ public class MovieTest {
 
     @Test
     public void testForSymmetry() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie secondObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie secondObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject, secondObject);
         assertEquals(secondObject, firstObject);
@@ -75,15 +75,15 @@ public class MovieTest {
 
     @Test
     public void equalityTestForHashCode() {
-        Movie firstObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie secondObject = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie firstObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie secondObject = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         assertEquals(firstObject.hashCode(), secondObject.hashCode());
     }
 
     @Test
     public void sameMovieTitleShouldMapToSameMovie() {
-        Movie movie = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
         boolean actualCheckResult = movie.isSameMovie("Inception");
 

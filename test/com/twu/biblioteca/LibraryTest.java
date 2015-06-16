@@ -17,8 +17,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -38,8 +38,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -57,8 +57,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -76,8 +76,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -95,8 +95,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -114,8 +114,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
@@ -133,8 +133,8 @@ public class LibraryTest {
         books.add(bookOne);
         books.add(bookTwo);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);

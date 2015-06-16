@@ -8,4 +8,8 @@ public class CheckedOutMovie extends Movie {
     public static Movie create(String name, String year, String director, String rating) {
         return new CheckedOutMovie(name, year, director, rating);
     }
+
+    public AvailableMovie returnMovie() {
+        return AvailableMovie.create(name, year, director, rating);
+    }
 }

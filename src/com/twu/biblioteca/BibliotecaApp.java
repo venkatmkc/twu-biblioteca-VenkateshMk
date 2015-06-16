@@ -14,8 +14,8 @@ public class BibliotecaApp {
         books.add(bookTwo);
         books.add(bookThree);
         LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9");
-        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
