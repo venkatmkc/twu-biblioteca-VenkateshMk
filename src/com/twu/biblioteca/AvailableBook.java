@@ -13,4 +13,8 @@ public class AvailableBook extends Book {
     public static AvailableBook create(String name, String author, String year) {
         return new AvailableBook(name, author, year);
     }
+
+    public NullBook returnBook() {
+        return new NullBook();
+    }
 }
