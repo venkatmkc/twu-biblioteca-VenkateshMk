@@ -7,19 +7,31 @@ public class AvailableBook extends Book {
         super(name, author, year);
     }
 
-    public CheckedOutBook checkout() {
-        return CheckedOutBook.create(name, author, year);
+    @Override
+    public void appendToBooks(BooksPresenter booksPresenter) {
+        booksPresenter.addBook(name, author, year);
     }
 
+    @Override
+    public Book checkout() {
+        return CheckedOutBook.create(name, author, year);
+    }
 
     public static AvailableBook create(String name, String author, String year) {
         return new AvailableBook(name, author, year);
     }
 
-    public NullBook returnBook() {
+    @Override
+    public Book returnBook() {
         return new NullBook();
     }
 
+    @Override
+    public String getCheckoutMessage() {
+        return null;
+    }
+
+    @Override
     public String getReturnMessage() {
         return SUCCESSFUL_BOOK_RETURN;
     }

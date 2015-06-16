@@ -5,6 +5,10 @@ public class CheckedOutBook extends Book{
         super(name, author, year);
     }
 
+    @Override
+    public void appendToBooks(BooksPresenter booksPresenter) {
+    }
+
     public static CheckedOutBook create(String name, String author, String year) {
         return new CheckedOutBook(name, author, year);
     }
@@ -19,5 +23,10 @@ public class CheckedOutBook extends Book{
 
     public String getCheckoutMessage() {
         return Messages.SUCCESSFUL_CHECKOUT;
+    }
+
+    @Override
+    public String getReturnMessage() {
+        return null;
     }
 }

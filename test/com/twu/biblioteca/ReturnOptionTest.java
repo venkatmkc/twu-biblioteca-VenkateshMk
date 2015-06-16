@@ -5,7 +5,10 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
+import static com.twu.biblioteca.Messages.SUCCESSFUL_BOOK_RETURN;
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_BOOK_RETURN;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -13,9 +16,6 @@ import static org.mockito.MockitoAnnotations.initMocks;
 public class ReturnOptionTest {
     @Mock
     private ConsoleInputOutput consoleInputOutput;
-
-    @Mock
-    BookParser bookParser;
 
     @Mock
     Library library;
@@ -27,15 +27,14 @@ public class ReturnOptionTest {
 
     @Test
     public void bookTitleShouldBeObtainedFromTheUser() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
+        HashSet<Book> books = new HashSet<Book>();
+        Book bookOne = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(library.returnBook(bookOne)).thenReturn(false);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
+        when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
 
         returnOption.obtainOptionResult();
 
@@ -43,83 +42,65 @@ public class ReturnOptionTest {
     }
 
     @Test
-    public void returnBookShouldParseUserInputToBook() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
-        when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
-
-        returnOption.obtainOptionResult();
-
-        verify(bookParser).parseUserInput("Kite Runner");
-    }
-
-    @Test
     public void returnBookShouldPerformBookReturn() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, false);
-        bookList.put(bookTwo, true);
+        HashSet<Book> books = new HashSet<Book>();
+        Book bookOne = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
 
         returnOption.obtainOptionResult();
 
-        verify(library).returnBook(bookOne);
+        verify(library).returnBook("Kite Runner");
     }
 
     @Test
     public void successfulBookReturnShouldProduceSuccessMessage() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, false);
-        bookList.put(bookTwo, true);
+        HashSet<Book> books = new HashSet<Book>();
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(library.returnBook(bookOne)).thenReturn(true);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
+        when(library.returnBook("Kite Runner")).thenReturn(SUCCESSFUL_BOOK_RETURN);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
 
         returnOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_RETURN);
+        verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_BOOK_RETURN);
     }
 
     @Test
     public void unsuccessfulBookReturnShouldProduceFailureMessage() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
+        HashSet<Book> books = new HashSet<Book>();
+        Book bookOne = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(bookParser.parseUserInput("Kite Runner")).thenReturn(bookOne);
-        when(library.returnBook(bookOne)).thenReturn(false);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
+        when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
 
         returnOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
+        verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }
 
     @Test
     public void invalidBookNameShouldProduceFailureMessage() {
-        HashMap<Book, Boolean> bookList = new HashMap<Book, Boolean>();
-        Book bookOne = new Book("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookTwo = new Book("The Sky Is Falling", "Sidney Sheldon", "2001");
-        bookList.put(bookOne, true);
-        bookList.put(bookTwo, true);
+        HashSet<Book> books = new HashSet<Book>();
+        Book bookOne = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
-        when(bookParser.parseUserInput("Kite Runn")).thenReturn(null);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, bookParser, library);
+        when(library.returnBook("Kite Runn")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
 
         returnOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_RETURN);
+        verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }
 }

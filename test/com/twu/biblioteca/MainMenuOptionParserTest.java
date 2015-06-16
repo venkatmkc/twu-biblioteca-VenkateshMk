@@ -2,9 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,12 +10,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class MainMenuOptionParserTest {
     @Test
     public void parseUserInputShouldProduceMainMenuOption() {
-        Book book = new Book("java tutorial", "aravind", "2012");
+        Book book = new AvailableBook("java tutorial", "aravind", "2012");
 
-        ArrayList<Book> availableBooks = new ArrayList<Book>();
-        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
-        availableBooks.add(book);
-        Library library = new Library(availableBooks, checkedoutBooks);
+        LinkedHashSet<Book> books = new LinkedHashSet<Book>();
+        books.add(book);
+        LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
+        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        movies.add(movieOne);
+        movies.add(movieTwo);
+        Library library = new Library(books, movies);
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);

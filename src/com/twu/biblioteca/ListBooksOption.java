@@ -11,6 +11,6 @@ public class ListBooksOption implements MainMenuAction {
 
     @Override
     public void obtainOptionResult() {
-        consoleInputOutput.displayOutputToUser(library);
+        consoleInputOutput.displayOutputToUser(library.formattedBooks());
     }
 }

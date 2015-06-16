@@ -1,44 +1,57 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class Library {
-    private ArrayList<Book> availableBooks;
-    private ArrayList<Book> checkedoutBooks;
+    private LinkedHashSet<Book> books;
+    private LinkedHashSet<Movie> movies;
 
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkedoutBooks) {
-        this.availableBooks = availableBooks;
-        this.checkedoutBooks = checkedoutBooks;
+    public Library(LinkedHashSet<Book> books, LinkedHashSet<Movie> movies) {
+        this.books = books;
+        this.movies = movies;
     }
 
-    @Override
-    public String toString() {
-        String formattedBookList = new String();
-        BooksPresenter booksPresenter = new BooksPresenter(formattedBookList);
-        for (Book book : availableBooks) {
+    public String formattedBooks() {
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        for (Book book : books) {
                 book.appendToBooks(booksPresenter);
         }
         return booksPresenter.toString();
     }
 
-    public synchronized boolean checkout(Book book) {
-        if(availableBooks.contains(book)) {
-            availableBooks.remove(book);
-            checkedoutBooks.add(book);
-            return true;
-        }
-        return false;
+    public synchronized String checkoutBook(String title) {
+        Book book = search(title);
+        book = book.checkout();
+        books.remove(book);
+        books.add(book);
+        return book.getCheckoutMessage();
+
     }
 
-    public synchronized boolean returnBook(Book book) {
-        if(checkedoutBooks.contains(book)) {
-            checkedoutBooks.remove(book);
-            availableBooks.add(book);
-            return true;
-        }
-        return  false;
+    public synchronized String returnBook(String title) {
+        Book book = search(title);
+        book = book.returnBook();
+        books.remove(book);
+        books.add(book);
+        return book.getReturnMessage();
     }
 
 
+    public Book search(String bookName) {
+        for(Book book : books) {
+            if(book.isSameBook(bookName))
+                return book;
+        }
+        return new NullBook();
+    }
+
+    public String formattedMovies() {
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+        for(Movie movie : movies) {
+            movie.appendToMovies(moviesPresenter);
+        }
+        return moviesPresenter.toString();
+    }
 }

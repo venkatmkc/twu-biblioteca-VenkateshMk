@@ -19,51 +19,35 @@ public class BookTest {
         initMocks(this);
     }
 
-    @Test
-    public void formattedBookDetailsShouldBeProduced() {
-        Book actualBook = new Book("Kite Runner", "Khaled Hosseini", "2003");
-
-        String actualBookDetails = actualBook.formattedBookDetails(20, 20);
-
-        assertThat(actualBookDetails, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003")));
-    }
-
 
     @Test
     public void testForReflexivity() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertEquals(firstObject, firstObject);
     }
 
     @Test
     public void testForComparingNullObjectsWithABook() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertThat(firstObject, not(equalTo(null)));
     }
 
     @Test
     public void testForEquality() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Book secondObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
+        Book secondObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertEquals(firstObject, secondObject);
     }
 
-    @Test
-    public void testForDifferentObjects() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Object one = new Integer(1);
-
-        assertThat(firstObject, not(equalTo(one)));
-    }
 
     @Test
     public void testForTransitivity() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Book secondObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Book thirdObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
+        Book secondObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
+        Book thirdObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertEquals(firstObject, secondObject);
         assertEquals(secondObject, firstObject);
@@ -72,8 +56,8 @@ public class BookTest {
 
     @Test
     public void testForSymmetry() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Book secondObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
+        Book secondObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertEquals(firstObject, secondObject);
         assertEquals(secondObject, firstObject);
@@ -81,15 +65,15 @@ public class BookTest {
 
     @Test
     public void equalityTestForHashCode() {
-        Book firstObject = new Book("Kite Runner","Khaled Hosseini", "2003");
-        Book secondObject = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book firstObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
+        Book secondObject = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         assertEquals(firstObject.hashCode(), secondObject.hashCode());
     }
 
     @Test
     public void sameBookIdShouldMapToSameBook() {
-        Book book = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book book = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         boolean actualCheckResult = book.isSameBook("Kite Runner");
 
@@ -98,10 +82,10 @@ public class BookTest {
 
     @Test
     public void appendBookShouldBeAppendedToTheBooksList() {
-        Book book = new Book("Kite Runner","Khaled Hosseini", "2003");
+        Book book = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
         book.appendToBooks(booksPresenter);
 
-        verify(booksPresenter).addBook("Kite Runner","Khaled Hosseini", "2003");
+        verify(booksPresenter).addBook("Kite Runner", "Khaled Hosseini", "2003");
     }
 }

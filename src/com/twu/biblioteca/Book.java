@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public abstract class Book {
 
     protected String name, author, year;
 
@@ -10,19 +10,11 @@ public class Book {
         this.year = year;
     }
 
-    public String formattedBookDetails(int maximumNameLength, int maximumAuthorLength) {
-        return String.format("%-" + maximumNameLength + "s", name)
-                + " | " +
-                String.format("%-" + maximumAuthorLength + "s", author)
-                + " | " +
-                year;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (o == null || getClass() != o.getClass())
+        if (o == null)
             return false;
 
         Book book = (Book) o;
@@ -37,10 +29,16 @@ public class Book {
     }
 
     public boolean isSameBook(String bookName) {
-        return name == bookName;
+        return name.equals(bookName);
     }
 
-    public void appendToBooks(BooksPresenter booksPresenter) {
-        booksPresenter.addBook(name, author, year);
-    }
+    public abstract void appendToBooks(BooksPresenter booksPresenter);
+
+    public abstract Book checkout();
+    
+    public abstract Book returnBook();
+
+    public abstract String getCheckoutMessage();
+
+    public abstract String getReturnMessage();
 }

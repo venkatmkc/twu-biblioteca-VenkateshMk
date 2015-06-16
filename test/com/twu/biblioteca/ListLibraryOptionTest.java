@@ -6,8 +6,7 @@ import org.mockito.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashSet;
 
 import static org.mockito.Mockito.*;
 
@@ -26,16 +25,20 @@ public class ListLibraryOptionTest {
 
     @Test
     public void bookListShouldBeDisplayedToTheUser() {
-        Book book = new Book("book name", "book author", "2012");
+        Book book = new AvailableBook("book name", "book author", "2012");
 
-        ArrayList<Book> availableBooks = new ArrayList<Book>();
-        ArrayList<Book> checkedoutBooks = new ArrayList<Book>();
-        availableBooks.add(book);
-        Library library = new Library(availableBooks, checkedoutBooks);
+        LinkedHashSet<Book> books = new LinkedHashSet<Book>();
+        books.add(book);
+        LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
+        Movie movieOne = new Movie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new Movie( "Following", "1998", "Christopher Nolan", "8");
+        movies.add(movieOne);
+        movies.add(movieTwo);
+        Library library = new Library(books, movies);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
 
         listBooksOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(library);
+        verify(consoleInputOutput).displayOutputToUser(library.formattedBooks());
     }
 }

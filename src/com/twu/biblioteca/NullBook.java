@@ -8,6 +8,20 @@ public class NullBook extends Book{
         super("", "", "");
     }
 
+    @Override
+    public void appendToBooks(BooksPresenter booksPresenter) {
+    }
+
+    @Override
+    public Book checkout() {
+        return new NullBook();
+    }
+
+    @Override
+    public Book returnBook() {
+        return new NullBook();
+    }
+
     public String getCheckoutMessage() {
         return UNSUCCESSFUL_CHECKOUT;
     }
