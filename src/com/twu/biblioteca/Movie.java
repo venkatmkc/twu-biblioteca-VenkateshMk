@@ -13,9 +13,7 @@ public abstract class Movie {
         this.rating = rating;
     }
 
-    public void appendToMovies(MoviesPresenter moviesPresenter) {
-        moviesPresenter.addMovie(name, year, director, rating);
-    }
+    public abstract void appendToMovies(MoviesPresenter moviesPresenter);
 
     @Override
     public boolean equals(Object o) {

@@ -8,6 +8,11 @@ public class AvailableMovie extends Movie{
         super(name, year, director, rating);
     }
 
+    @Override
+    public void appendToMovies(MoviesPresenter moviesPresenter) {
+        moviesPresenter.addMovie(name, year, director, rating);
+    }
+
     public Movie checkout() {
         return CheckedOutMovie.create(name, year, director, rating);
     }

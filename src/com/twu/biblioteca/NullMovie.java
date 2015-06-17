@@ -9,6 +9,9 @@ public class NullMovie extends Movie {
     }
 
     @Override
+    public void appendToMovies(MoviesPresenter moviesPresenter) {}
+
+    @Override
     public Movie returnMovie() {
         return null;
     }

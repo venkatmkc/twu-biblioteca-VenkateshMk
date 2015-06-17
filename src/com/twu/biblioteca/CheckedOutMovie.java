@@ -5,6 +5,11 @@ public class CheckedOutMovie extends Movie {
         super(name, year, director, rating);
     }
 
+    @Override
+    public void appendToMovies(MoviesPresenter moviesPresenter) {
+
+    }
+
     public static Movie create(String name, String year, String director, String rating) {
         return new CheckedOutMovie(name, year, director, rating);
     }
