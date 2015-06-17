@@ -15,5 +15,6 @@ public class Login {
 
     public void validate() {
         String libraryNumber = consoleInputOutput.getUserInput();
+        String password = consoleInputOutput.getUserInput();
     }
 }

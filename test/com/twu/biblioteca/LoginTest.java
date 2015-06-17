@@ -36,4 +36,18 @@ public class LoginTest {
 
         verify(consoleInputOutput).getUserInput();
     }
+
+    @Test
+    public void loginShouldGetPasswordFromUser() {
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        Login login = new Login(users, consoleInputOutput);
+
+        login.validate();
+
+        verify(consoleInputOutput, times(2)).getUserInput();
+    }
 }
