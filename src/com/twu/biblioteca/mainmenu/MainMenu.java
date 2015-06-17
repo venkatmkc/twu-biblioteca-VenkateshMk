@@ -1,10 +1,12 @@
 package com.twu.biblioteca.mainmenu;
 
+import com.twu.biblioteca.Visitable;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
+import com.twu.biblioteca.user.User;
 
-public class MainMenu {
+public class MainMenu implements Visitable{
     private ConsoleInputOutput consoleInputOutput;
     private MainMenuOptionParser mainMenuOptionParser;
     private MainMenuOptions mainMenuOptions;
@@ -32,5 +34,10 @@ public class MainMenu {
 
     private boolean checkValidOption(MainMenuAction option) {
         return option == null;
+    }
+
+    @Override
+    public void accept(User user) {
+        user.visit(this);
     }
 }

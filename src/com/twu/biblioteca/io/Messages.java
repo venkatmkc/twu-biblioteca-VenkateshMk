@@ -12,4 +12,5 @@ public interface Messages {
     String UNSUCCESSFUL_MOVIE_CHECKOUT = "That movie is not available.";
     String UNSUCCESSFUL_MOVIE_RETURN = "That is not a valid movie to return.";
     String SUCCESSFUL_LOGIN = "Login Successful";
+    String UNSUCCESSFUL_LOGIN = "Login Unsuccessful";
 }

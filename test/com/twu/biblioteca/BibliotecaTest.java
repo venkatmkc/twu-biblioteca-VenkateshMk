@@ -3,9 +3,12 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.User;
 import org.junit.*;
 import org.mockito.Mock;
 
+import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.*;
 
@@ -16,6 +19,15 @@ public class BibliotecaTest {
     @Mock
     private MainMenu mainMenu;
 
+    @Mock
+    private Login login;
+
+    @Mock
+    private User user;
+
+    @Mock
+    private NullUser nullUser;
+
     @Before
     public void setUp() {
         initMocks(this);
@@ -23,7 +35,8 @@ public class BibliotecaTest {
 
     @Test
     public void welcomeMessageShouldBeDisplayed() {
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        when(login.validate()).thenReturn(user);
 
         biblioteca.start();
 
@@ -32,10 +45,45 @@ public class BibliotecaTest {
 
     @Test
     public void mainMenuShouldBeDispatched() {
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        when(login.validate()).thenReturn(user);
 
         biblioteca.start();
 
-        verify(mainMenu).dispatch();
+        verify(mainMenu).accept(user);
+    }
+
+    @Test
+    public void userShouldLoginToContinue() {
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        when(login.validate()).thenReturn(user);
+
+        biblioteca.start();
+
+        verify(login).validate();
+    }
+
+    @Test
+    public void userShouldNotBeAllowedToLoginWithInvalidCredentials() {
+        when(login.validate()).
+                thenReturn(nullUser, user);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+
+        biblioteca.start();
+
+        verify(login, times(2)).validate();
+    }
+
+    @Test
+    public void loginMessageShouldBeProduced() {
+        when(login.validate()).
+                thenReturn(user);
+        when(user.getLoginMessage()).
+                thenReturn(SUCCESSFUL_LOGIN);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+
+        biblioteca.start();
+
+        verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_LOGIN);
     }
 }

@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.User;
 
 import java.util.HashSet;
 
@@ -24,7 +26,7 @@ public class Login {
             if (user.isSameLibraryNumber(libraryNumber) && user.isSamePassword(password))
                 return user;
         }
-        return null;
+        return new NullUser();
     }
 
 }

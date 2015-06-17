@@ -2,13 +2,11 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -87,4 +85,20 @@ public class LoginTest {
         assertThat(actualLoginMessage, is(Messages.SUCCESSFUL_LOGIN));
     }
 
+    @Test
+    public void unSuccessfulLoginShouldProduceFailureMessage() {
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        when(consoleInputOutput.getUserInput()).
+                thenReturn("111-0000", "bibliote");
+        Login login = new Login(users, consoleInputOutput);
+
+        User actualUser = login.validate();
+        String actualLoginMessage = actualUser.getLoginMessage();
+
+        assertThat(actualLoginMessage, is(Messages.UNSUCCESSFUL_LOGIN));
+    }
 }

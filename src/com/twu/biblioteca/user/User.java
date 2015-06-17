@@ -1,10 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
-import com.twu.biblioteca.io.Messages;
+import com.twu.biblioteca.mainmenu.MainMenu;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
-public class User {
+public class User implements Visitor{
     private String libraryNumber;
     private String password;
 
@@ -46,5 +46,10 @@ public class User {
 
     public String getLoginMessage() {
         return SUCCESSFUL_LOGIN;
+    }
+
+    @Override
+    public void visit(MainMenu mainMenu) {
+        mainMenu.dispatch();
     }
 }

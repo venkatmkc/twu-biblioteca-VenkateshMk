@@ -10,6 +10,7 @@ import com.twu.biblioteca.mainmenu.MainMenuOptions;
 import com.twu.biblioteca.mainmenu.options.*;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 
 import java.util.*;
 
@@ -58,7 +59,13 @@ public class BibliotecaApp {
         mainMenuOptionsList.add("Quit");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu);
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        Login login = new Login(users, consoleInputOutput);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
         biblioteca.start();
     }
 }

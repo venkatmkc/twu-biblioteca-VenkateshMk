@@ -1,7 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.*;
