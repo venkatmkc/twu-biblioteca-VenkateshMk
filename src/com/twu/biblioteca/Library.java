@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class Library {
@@ -22,7 +20,7 @@ public class Library {
     }
 
     public synchronized String checkoutBook(String title) {
-        Book book = search(title);
+        Book book = searchBook(title);
         book = book.checkout();
         books.remove(book);
         books.add(book);
@@ -31,7 +29,7 @@ public class Library {
     }
 
     public synchronized String returnBook(String title) {
-        Book book = search(title);
+        Book book = searchBook(title);
         book = book.returnBook();
         books.remove(book);
         books.add(book);
@@ -39,7 +37,7 @@ public class Library {
     }
 
 
-    public Book search(String bookName) {
+    public Book searchBook(String bookName) {
         for(Book book : books) {
             if(book.isSameBook(bookName))
                 return book;
@@ -53,5 +51,13 @@ public class Library {
             movie.appendToMovies(moviesPresenter);
         }
         return moviesPresenter.toString();
+    }
+
+    public Movie searchMovie(String movieName) {
+        for(Movie movie : movies) {
+            if(movie.isSameMovie(movieName))
+                return movie;
+        }
+        return new NullMovie();
     }
 }

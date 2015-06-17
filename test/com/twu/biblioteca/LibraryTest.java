@@ -107,7 +107,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void searchShouldGiveBook() {
+    public void searchBookShouldGiveBook() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
         Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
@@ -120,9 +120,9 @@ public class LibraryTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
 
-        Book book = library.search("Kite Runner");
+        Book actualBook = library.searchBook("Kite Runner");
 
-        assertThat(book, is(book));
+        assertThat(actualBook, is(bookOne));
     }
 
     @Test
@@ -142,5 +142,24 @@ public class LibraryTest {
         String actualBookList = library.formattedMovies();
 
         assertThat(actualBookList, is(equalTo("Inception, 2010, Christopher Nolan, 9\nFollowing, 1998, Christopher Nolan, 8\n")));
+    }
+
+    @Test
+    public void searchMovieShouldGiveMovie() {
+        LinkedHashSet<Book> books = new LinkedHashSet<Book>();
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        books.add(bookOne);
+        books.add(bookTwo);
+        LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
+        Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
+        movies.add(movieOne);
+        movies.add(movieTwo);
+        Library library = new Library(books, movies);
+
+        Movie actualMovie = library.searchMovie("Inception");
+
+        assertThat(actualMovie, is(movieOne));
     }
 }
