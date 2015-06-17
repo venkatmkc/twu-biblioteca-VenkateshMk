@@ -46,7 +46,7 @@ public class LibraryTest {
 
         String actualCheckoutStatus = library.checkoutBook("Kite Runner");
 
-        assertThat(actualCheckoutStatus , is(SUCCESSFUL_CHECKOUT));
+        assertThat(actualCheckoutStatus , is(SUCCESSFUL_BOOK_CHECKOUT));
     }
 
     @Test
@@ -65,7 +65,7 @@ public class LibraryTest {
 
         String actualCheckoutStatus = library.checkoutBook("Kite Runner");
 
-        assertThat(actualCheckoutStatus , is(UNSUCCESSFUL_CHECKOUT));
+        assertThat(actualCheckoutStatus , is(UNSUCCESSFUL_BOOK_CHECKOUT));
     }
 
     @Test

@@ -22,7 +22,7 @@ public class CheckedOutBook extends Book{
     }
 
     public String getCheckoutMessage() {
-        return Messages.SUCCESSFUL_CHECKOUT;
+        return Messages.SUCCESSFUL_BOOK_CHECKOUT;
     }
 
     @Override

@@ -33,6 +33,6 @@ public class CheckedOutBookTest {
 
         String actualStatusMessage = book.getCheckoutMessage();
 
-        assertThat(actualStatusMessage, is(Messages.SUCCESSFUL_CHECKOUT));
+        assertThat(actualStatusMessage, is(Messages.SUCCESSFUL_BOOK_CHECKOUT));
     }
 }

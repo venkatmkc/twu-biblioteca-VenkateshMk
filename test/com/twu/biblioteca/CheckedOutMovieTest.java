@@ -26,4 +26,13 @@ public class CheckedOutMovieTest {
 
         assertThat(actualResult, is(equalTo(nullMovie)));
     }
+
+    @Test
+    public void successfulCheckoutShouldProduceSuccessMessage() {
+        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+
+        String actualStatusMessage = movie.getCheckoutMessage();
+
+        assertThat(actualStatusMessage, is(Messages.SUCCESSFUL_MOVIE_CHECKOUT));
+    }
 }

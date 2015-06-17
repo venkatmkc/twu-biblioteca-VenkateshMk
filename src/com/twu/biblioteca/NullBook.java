@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_BOOK_RETURN;
-import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT;
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_BOOK_CHECKOUT;
 
 public class NullBook extends Book{
     public NullBook() {
@@ -23,7 +23,7 @@ public class NullBook extends Book{
     }
 
     public String getCheckoutMessage() {
-        return UNSUCCESSFUL_CHECKOUT;
+        return UNSUCCESSFUL_BOOK_CHECKOUT;
     }
 
     public String getReturnMessage() {

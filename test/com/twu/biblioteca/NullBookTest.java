@@ -3,8 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_BOOK_RETURN;
-import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_BOOK_CHECKOUT;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -15,7 +14,7 @@ public class NullBookTest {
 
         String actualStatus = nullBook.getCheckoutMessage();
 
-        assertThat(actualStatus, is(UNSUCCESSFUL_CHECKOUT));
+        assertThat(actualStatus, is(UNSUCCESSFUL_BOOK_CHECKOUT));
     }
 
     @Test

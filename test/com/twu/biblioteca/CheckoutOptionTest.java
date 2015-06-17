@@ -52,12 +52,12 @@ public class CheckoutOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
 
-        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.SUCCESSFUL_CHECKOUT);
+        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 
         checkoutOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_CHECKOUT);
+        verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_CHECKOUT);
     }
 
     @Test
@@ -68,12 +68,12 @@ public class CheckoutOptionTest {
         books.add(bookOne);
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.UNSUCCESSFUL_CHECKOUT);
+        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 
         checkoutOption.obtainOptionResult();
 
-        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_CHECKOUT);
+        verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
     }
 
 

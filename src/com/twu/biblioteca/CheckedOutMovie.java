@@ -16,4 +16,8 @@ public class CheckedOutMovie extends Movie {
     public NullMovie checkout() {
         return new NullMovie();
     }
+
+    public String getCheckoutMessage() {
+        return Messages.SUCCESSFUL_MOVIE_CHECKOUT;
+    }
 }
