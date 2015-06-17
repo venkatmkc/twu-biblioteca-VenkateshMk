@@ -44,4 +44,13 @@ public class CheckoutMovieOptionTest {
         verify(consoleInputOutput).getUserInput();
     }
 
+    @Test
+    public void checkoutShouldBeDoneWithTheGivenTitle() {
+        when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+
+        checkoutMovieOption.obtainOptionResult();
+
+        verify(library).checkoutMovie("Inception");
+    }
 }
