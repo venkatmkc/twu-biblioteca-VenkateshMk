@@ -40,4 +40,10 @@ public abstract class Movie {
     }
 
     public abstract Movie returnMovie();
+
+    public abstract Movie checkout();
+
+    public abstract String getCheckoutMessage();
+
+    public abstract String getReturnMessage();
 }

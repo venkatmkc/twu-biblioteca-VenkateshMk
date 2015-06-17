@@ -20,4 +20,9 @@ public class CheckedOutMovie extends Movie {
     public String getCheckoutMessage() {
         return Messages.SUCCESSFUL_MOVIE_CHECKOUT;
     }
+
+    @Override
+    public String getReturnMessage() {
+        return null;
+    }
 }

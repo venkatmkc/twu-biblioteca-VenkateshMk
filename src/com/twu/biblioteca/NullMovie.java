@@ -13,6 +13,11 @@ public class NullMovie extends Movie {
         return null;
     }
 
+    @Override
+    public Movie checkout() {
+        return null;
+    }
+
     public String getCheckoutMessage() {
         return UNSUCCESSFUL_MOVIE_CHECKOUT;
     }

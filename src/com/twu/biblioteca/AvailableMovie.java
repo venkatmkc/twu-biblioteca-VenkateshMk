@@ -12,6 +12,11 @@ public class AvailableMovie extends Movie{
         return CheckedOutMovie.create(name, year, director, rating);
     }
 
+    @Override
+    public String getCheckoutMessage() {
+        return null;
+    }
+
     public Movie returnMovie() {
         return new NullMovie();
     }

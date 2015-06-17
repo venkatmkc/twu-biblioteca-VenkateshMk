@@ -60,4 +60,12 @@ public class Library {
         }
         return new NullMovie();
     }
+
+    public String checkoutMovie(String title) {
+        Movie movie = searchMovie(title);
+        movie = movie.checkout();
+        movies.remove(movie);
+        movies.add(movie);
+        return movie.getCheckoutMessage();
+    }
 }
