@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_MOVIE_CHECKOUT;
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_MOVIE_RETURN;
 
 public class NullMovie extends Movie {
     public NullMovie() {
@@ -14,5 +15,9 @@ public class NullMovie extends Movie {
 
     public String getCheckoutMessage() {
         return UNSUCCESSFUL_MOVIE_CHECKOUT;
+    }
+
+    public String getReturnMessage() {
+        return UNSUCCESSFUL_MOVIE_RETURN;
     }
 }
