@@ -4,7 +4,7 @@ import com.twu.biblioteca.mainmenu.MainMenu;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
-public class User implements Visitor{
+public class User implements Visitor {
     private String libraryNumber;
     private String password;
 
@@ -41,7 +41,7 @@ public class User implements Visitor{
     }
 
     public boolean isSamePassword(String searchPassword) {
-        return  password.equals(searchPassword);
+        return password.equals(searchPassword);
     }
 
     public String getLoginMessage() {
@@ -50,6 +50,6 @@ public class User implements Visitor{
 
     @Override
     public void visit(MainMenu mainMenu) {
-        mainMenu.dispatch();
+        mainMenu.dispatch(this);
     }
 }

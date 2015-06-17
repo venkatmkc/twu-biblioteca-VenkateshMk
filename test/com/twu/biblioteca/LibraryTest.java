@@ -6,6 +6,7 @@ import com.twu.biblioteca.book.CheckedOutBook;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.CheckedOutMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 import org.junit.*;
 
 import java.util.LinkedHashSet;
@@ -48,9 +49,10 @@ public class LibraryTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
+        User user = new User("222-2222", "logmein");
         Library library = new Library(books, movies);
 
-        String actualCheckoutStatus = library.checkoutBook("Kite Runner");
+        String actualCheckoutStatus = library.checkoutBook("Kite Runner", user);
 
         assertThat(actualCheckoutStatus , is(SUCCESSFUL_BOOK_CHECKOUT));
     }
@@ -58,7 +60,8 @@ public class LibraryTest {
     @Test
     public void checkoutShouldProduceFailureOnUnSuccessfulCheckout() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
@@ -69,7 +72,7 @@ public class LibraryTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
 
-        String actualCheckoutStatus = library.checkoutBook("Kite Runner");
+        String actualCheckoutStatus = library.checkoutBook("Kite Runner", user);
 
         assertThat(actualCheckoutStatus , is(UNSUCCESSFUL_BOOK_CHECKOUT));
     }
@@ -77,7 +80,8 @@ public class LibraryTest {
     @Test
     public void returnBookShouldProduceSuccessOnSuccesfulBookReturn() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
@@ -88,7 +92,7 @@ public class LibraryTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
 
-        String actualReturnStatus = library.returnBook("Kite Runner");
+        String actualReturnStatus = library.returnBook("Kite Runner", user);
 
         assertThat(actualReturnStatus , is(SUCCESSFUL_BOOK_RETURN));
     }
@@ -105,9 +109,10 @@ public class LibraryTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
+        User user = new User("222-2222", "logmein");
         Library library = new Library(books, movies);
 
-        String actualReturnStatus = library.returnBook("Kite Runner");
+        String actualReturnStatus = library.returnBook("Kite Runner", user);
 
         assertThat(actualReturnStatus , is(UNSUCCESSFUL_BOOK_RETURN));
     }
@@ -115,7 +120,8 @@ public class LibraryTest {
     @Test
     public void searchBookShouldGiveBook() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
@@ -134,7 +140,8 @@ public class LibraryTest {
     @Test
     public void formattedMovieListShouldBeProduced() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
@@ -153,7 +160,8 @@ public class LibraryTest {
     @Test
     public void searchMovieShouldGiveMovie() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
@@ -192,7 +200,8 @@ public class LibraryTest {
     @Test
     public void returnMovieShouldProduceSuccessOnSuccesfulMovieReturn() {
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);

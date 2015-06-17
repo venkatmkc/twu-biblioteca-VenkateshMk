@@ -7,6 +7,7 @@ import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.mainmenu.options.CheckoutMovieOption;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -43,10 +44,11 @@ public class CheckoutMovieOptionTest {
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
 
-        checkoutMovieOption.obtainOptionResult();
+        checkoutMovieOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -54,9 +56,10 @@ public class CheckoutMovieOptionTest {
     @Test
     public void checkoutShouldBeDoneWithTheGivenTitle() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        User user = new User("222-2222", "logmein");
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
 
-        checkoutMovieOption.obtainOptionResult();
+        checkoutMovieOption.obtainOptionResult(user);
 
         verify(library).checkoutMovie("Inception");
     }
@@ -64,10 +67,11 @@ public class CheckoutMovieOptionTest {
     @Test
     public void checkoutMessageShouldBeDisplayedToTheUser() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        User user = new User("222-2222", "logmein");
         when(library.checkoutMovie("Inception")).thenReturn(SUCCESSFUL_MOVIE_CHECKOUT);
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
 
-        checkoutMovieOption.obtainOptionResult();
+        checkoutMovieOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_MOVIE_CHECKOUT);
     }

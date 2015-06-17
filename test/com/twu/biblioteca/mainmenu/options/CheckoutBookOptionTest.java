@@ -8,6 +8,7 @@ import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.mainmenu.options.CheckoutBookOption;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -41,11 +42,12 @@ public class CheckoutBookOptionTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
+        User user = new User("222-2222", "logmein");
         Library library = new Library(books, movies);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutBookOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -58,12 +60,13 @@ public class CheckoutBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
 
-        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
+        when(library.checkoutBook("Kite Runner", user)).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
         CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutBookOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_CHECKOUT);
     }
@@ -75,11 +78,12 @@ public class CheckoutBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.checkoutBook("Kite Runner")).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
+        when(library.checkoutBook("Kite Runner", user)).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
         CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutBookOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
     }

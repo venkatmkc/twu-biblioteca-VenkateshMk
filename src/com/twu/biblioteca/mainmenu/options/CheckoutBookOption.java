@@ -2,6 +2,7 @@ package com.twu.biblioteca.mainmenu.options;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.Library;
+import com.twu.biblioteca.user.User;
 
 public class CheckoutBookOption implements MainMenuAction {
 
@@ -14,9 +15,9 @@ public class CheckoutBookOption implements MainMenuAction {
     }
 
     @Override
-    public void obtainOptionResult() {
+    public void obtainOptionResult(User user) {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.checkoutBook(bookTitle);
+        String returnStatus = library.checkoutBook(bookTitle, user);
         consoleInputOutput.displayOutputToUser(returnStatus);
     }
 }

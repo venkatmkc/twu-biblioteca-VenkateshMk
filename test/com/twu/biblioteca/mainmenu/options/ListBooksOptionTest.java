@@ -8,6 +8,7 @@ import com.twu.biblioteca.mainmenu.options.ListBooksOption;
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 import org.junit.*;
 import org.mockito.*;
 
@@ -42,10 +43,11 @@ public class ListBooksOptionTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
+        User user = new User("222-2222", "logmein");
         Library library = new Library(books, movies);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
 
-        listBooksOption.obtainOptionResult();
+        listBooksOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(library.formattedBooks());
     }

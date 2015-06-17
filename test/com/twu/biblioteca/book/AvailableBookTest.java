@@ -4,6 +4,8 @@ import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.book.CheckedOutBook;
 import com.twu.biblioteca.book.NullBook;
+import com.twu.biblioteca.user.User;
+import org.junit.Before;
 import org.junit.Test;
 
 import static com.twu.biblioteca.io.Messages.*;
@@ -12,12 +14,18 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class AvailableBookTest {
+    private User user;
+
+    @Before
+    public void setUp() {
+        user = new User("222-2222", "logmein");
+    }
     @Test
     public void checkoutShouldProduceCheckedOutBook() {
-        Book checkedOutBook = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        Book checkedOutBook = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         AvailableBook book = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
 
-        Book actualBook = book.checkout();
+        Book actualBook = book.checkout(user);
 
         assertThat(actualBook, is(equalTo(checkedOutBook)));
     }
@@ -27,7 +35,7 @@ public class AvailableBookTest {
         Book nullBook = new NullBook();
         AvailableBook book = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
 
-        Book actualResult = book.returnBook();
+        Book actualResult = book.returnBook(user);
 
         assertThat(actualResult, is(equalTo(nullBook)));
     }

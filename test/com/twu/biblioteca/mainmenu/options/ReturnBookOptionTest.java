@@ -6,6 +6,7 @@ import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.book.CheckedOutBook;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.mainmenu.options.ReturnBookOption;
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -37,11 +38,12 @@ public class ReturnBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnBook("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnBookOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -53,26 +55,28 @@ public class ReturnBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnBookOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult(user);
 
-        verify(library).returnBook("Kite Runner");
+        verify(library).returnBook("Kite Runner", user);
     }
 
     @Test
     public void successfulBookReturnShouldProduceSuccessMessage() {
         HashSet<Book> books = new HashSet<Book>();
-        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003");
+        User user = new User("222-2222", "logmein");
+        Book bookOne = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner")).thenReturn(SUCCESSFUL_BOOK_RETURN);
+        when(library.returnBook("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnBookOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_BOOK_RETURN);
     }
@@ -84,11 +88,12 @@ public class ReturnBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnBook("Kite Runner",user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnBookOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }
@@ -100,11 +105,12 @@ public class ReturnBookOptionTest {
         Book bookTwo = new AvailableBook("The Sky Is Falling", "Sidney Sheldon", "2001");
         books.add(bookOne);
         books.add(bookTwo);
+        User user = new User("222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
-        when(library.returnBook("Kite Runn")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnBook("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnBookOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }

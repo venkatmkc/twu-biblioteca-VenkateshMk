@@ -17,7 +17,7 @@ public class MainMenu implements Visitable{
         this.mainMenuOptions = mainMenuOptions;
     }
 
-    public void dispatch() {
+    public void dispatch(User user) {
         MainMenuAction option;
         do {
             consoleInputOutput.displayOutputToUser(mainMenuOptions);
@@ -28,7 +28,7 @@ public class MainMenu implements Visitable{
             if (checkValidOption(option)) {
                 consoleInputOutput.displayOutputToUser(Messages.INVALID_MENU_OPTION);
             } else
-                option.obtainOptionResult();
+                option.obtainOptionResult(user);
         } while (true);
     }
 

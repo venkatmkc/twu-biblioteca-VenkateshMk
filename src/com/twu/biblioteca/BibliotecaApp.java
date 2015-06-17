@@ -18,9 +18,15 @@ public class BibliotecaApp {
     public static void main(String []args) {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        Login login = new Login(users, consoleInputOutput);
         Book bookOne = new AvailableBook("java tutorial", "aravind", "2012");
         Book bookTwo = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
-        Book bookThree = new CheckedOutBook("The Sky Is Falling", "Sidney Sheldon", "2001");
+        Book bookThree = new CheckedOutBook("The Sky Is Falling", "Sidney Sheldon", "2001", userOne);
         LinkedHashSet<Book> books = new LinkedHashSet<Book>();
         books.add(bookOne);
         books.add(bookTwo);
@@ -59,12 +65,6 @@ public class BibliotecaApp {
         mainMenuOptionsList.add("Quit");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
-        HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
-        users.add(userOne);
-        users.add(userTwo);
-        Login login = new Login(users, consoleInputOutput);
         Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
         biblioteca.start();
     }

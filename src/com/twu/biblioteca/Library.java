@@ -6,6 +6,7 @@ import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.NullMovie;
 import com.twu.biblioteca.book.BooksPresenter;
 import com.twu.biblioteca.movie.MoviesPresenter;
+import com.twu.biblioteca.user.User;
 
 import java.util.LinkedHashSet;
 
@@ -26,18 +27,18 @@ public class Library {
         return booksPresenter.toString();
     }
 
-    public synchronized String checkoutBook(String title) {
+    public synchronized String checkoutBook(String title, User user) {
         Book book = searchBook(title);
-        book = book.checkout();
+        book = book.checkout(user);
         books.remove(book);
         books.add(book);
         return book.getCheckoutMessage();
 
     }
 
-    public synchronized String returnBook(String title) {
+    public synchronized String returnBook(String title, User user) {
         Book book = searchBook(title);
-        book = book.returnBook();
+        book = book.returnBook(user);
         books.remove(book);
         books.add(book);
         return book.getReturnMessage();

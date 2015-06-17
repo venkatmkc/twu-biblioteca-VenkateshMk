@@ -2,6 +2,7 @@ package com.twu.biblioteca.mainmenu.options;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.Library;
+import com.twu.biblioteca.user.User;
 
 public class ReturnBookOption implements MainMenuAction {
     private final ConsoleInputOutput consoleInputOutput;
@@ -13,9 +14,9 @@ public class ReturnBookOption implements MainMenuAction {
     }
 
     @Override
-    public void obtainOptionResult() {
+    public void obtainOptionResult(User user) {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.returnBook(bookTitle);
+        String returnStatus = library.returnBook(bookTitle, user);
         consoleInputOutput.displayOutputToUser(returnStatus);
     }
 }

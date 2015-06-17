@@ -1,5 +1,7 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.user.User;
+
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_BOOK_RETURN;
 
 public class AvailableBook extends Book {
@@ -13,8 +15,8 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public Book checkout() {
-        return CheckedOutBook.create(name, author, year);
+    public Book checkout(User user) {
+        return CheckedOutBook.create(name, author, year, user);
     }
 
     public static AvailableBook create(String name, String author, String year) {
@@ -22,7 +24,7 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public Book returnBook() {
+    public Book returnBook(User user) {
         return new NullBook();
     }
 

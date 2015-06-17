@@ -1,5 +1,7 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.user.User;
+
 public abstract class Book {
 
     protected String name, author, year;
@@ -34,9 +36,9 @@ public abstract class Book {
 
     public abstract void appendToBooks(BooksPresenter booksPresenter);
 
-    public abstract Book checkout();
+    public abstract Book checkout(User user);
     
-    public abstract Book returnBook();
+    public abstract Book returnBook(User user);
 
     public abstract String getCheckoutMessage();
 

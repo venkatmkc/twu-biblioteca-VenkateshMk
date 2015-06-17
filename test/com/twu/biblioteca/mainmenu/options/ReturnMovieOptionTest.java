@@ -7,6 +7,7 @@ import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.mainmenu.options.ReturnMovieOption;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -42,11 +43,12 @@ public class ReturnMovieOptionTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
+        User user = new User("222-2222", "logmein");
         Library library = new Library(books, movies);
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
 
-        returnMovieOption.obtainOptionResult();
+        returnMovieOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -54,9 +56,10 @@ public class ReturnMovieOptionTest {
     @Test
     public void returnMovieShouldBeDoneWithTheGivenTitle() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        User user = new User("222-2222", "logmein");
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
 
-        returnMovieOption.obtainOptionResult();
+        returnMovieOption.obtainOptionResult(user);
 
         verify(library).returnMovie("Inception");
     }
@@ -65,9 +68,10 @@ public class ReturnMovieOptionTest {
     public void checkoutMessageShouldBeDisplayedToTheUser() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         when(library.returnMovie("Inception")).thenReturn(SUCCESSFUL_MOVIE_RETURN);
+        User user = new User("222-2222", "logmein");
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
 
-        returnMovieOption.obtainOptionResult();
+        returnMovieOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_MOVIE_RETURN);
     }
