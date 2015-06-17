@@ -45,4 +45,15 @@ public class ReturnMovieOptionTest {
 
         verify(consoleInputOutput).getUserInput();
     }
+
+    @Test
+    public void returnMovieShouldBeDoneWithTheGivenTitle() {
+        when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+
+        returnMovieOption.obtainOptionResult();
+
+        verify(library).returnMovie("Inception");
+    }
+
 }

@@ -11,5 +11,6 @@ public class ReturnMovieOption implements MainMenuAction{
 
     public void obtainOptionResult() {
         String title = consoleInputOutput.getUserInput();
+        String returnMovieStatus = library.returnMovie(title);
     }
 }
