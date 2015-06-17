@@ -1,5 +1,16 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.book.AvailableBook;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.CheckedOutBook;
+import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.mainmenu.MainMenuOptionParser;
+import com.twu.biblioteca.mainmenu.MainMenuOptions;
+import com.twu.biblioteca.mainmenu.options.*;
+import com.twu.biblioteca.movie.AvailableMovie;
+import com.twu.biblioteca.movie.Movie;
+
 import java.util.*;
 
 public class BibliotecaApp {
@@ -28,12 +39,14 @@ public class BibliotecaApp {
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
         HashMap<String, MainMenuAction> options = new HashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
         options.put("Checkout Book", checkoutBookOption);
         options.put("Return Book", returnBookOption);
         options.put("List Movies", listMoviesOption);
         options.put("Checkout Movie", checkoutMovieOption);
+        options.put("Return Movie", returnMovieOption);
         MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(options);
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Books");
@@ -41,6 +54,7 @@ public class BibliotecaApp {
         mainMenuOptionsList.add("Return Book");
         mainMenuOptionsList.add("List Movies");
         mainMenuOptionsList.add("Checkout Movie");
+        mainMenuOptionsList.add("Return Movie");
         mainMenuOptionsList.add("Quit");
         MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);

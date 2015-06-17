@@ -1,9 +1,8 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Biblioteca;
-import com.twu.biblioteca.MainMenu;
-import com.twu.biblioteca.ConsoleInputOutput;
-import com.twu.biblioteca.Messages;
+import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.io.Messages;
+import com.twu.biblioteca.mainmenu.MainMenu;
 import org.junit.*;
 import org.mockito.Mock;
 

@@ -1,5 +1,12 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.NullBook;
+import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.movie.NullMovie;
+import com.twu.biblioteca.book.BooksPresenter;
+import com.twu.biblioteca.movie.MoviesPresenter;
+
 import java.util.LinkedHashSet;
 
 public class Library {
@@ -14,7 +21,7 @@ public class Library {
     public String formattedBooks() {
         BooksPresenter booksPresenter = new BooksPresenter("");
         for (Book book : books) {
-                book.appendToBooks(booksPresenter);
+            book.appendToBooks(booksPresenter);
         }
         return booksPresenter.toString();
     }
@@ -38,8 +45,8 @@ public class Library {
 
 
     public Book searchBook(String bookName) {
-        for(Book book : books) {
-            if(book.isSameBook(bookName))
+        for (Book book : books) {
+            if (book.isSameBook(bookName))
                 return book;
         }
         return new NullBook();
@@ -47,15 +54,15 @@ public class Library {
 
     public String formattedMovies() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
-        for(Movie movie : movies) {
+        for (Movie movie : movies) {
             movie.appendToMovies(moviesPresenter);
         }
         return moviesPresenter.toString();
     }
 
     public Movie searchMovie(String movieName) {
-        for(Movie movie : movies) {
-            if(movie.isSameMovie(movieName))
+        for (Movie movie : movies) {
+            if (movie.isSameMovie(movieName))
                 return movie;
         }
         return new NullMovie();

@@ -1,10 +1,16 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.book.AvailableBook;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.CheckedOutBook;
+import com.twu.biblioteca.movie.AvailableMovie;
+import com.twu.biblioteca.movie.CheckedOutMovie;
+import com.twu.biblioteca.movie.Movie;
 import org.junit.*;
 
 import java.util.LinkedHashSet;
 
-import static com.twu.biblioteca.Messages.*;
+import static com.twu.biblioteca.io.Messages.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
