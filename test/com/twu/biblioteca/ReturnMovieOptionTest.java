@@ -6,6 +6,8 @@ import org.mockito.Mock;
 
 import java.util.LinkedHashSet;
 
+import static com.twu.biblioteca.Messages.SUCCESSFUL_MOVIE_CHECKOUT;
+import static com.twu.biblioteca.Messages.SUCCESSFUL_MOVIE_RETURN;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -56,4 +58,14 @@ public class ReturnMovieOptionTest {
         verify(library).returnMovie("Inception");
     }
 
+    @Test
+    public void checkoutMessageShouldBeDisplayedToTheUser() {
+        when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        when(library.returnMovie("Inception")).thenReturn(SUCCESSFUL_MOVIE_RETURN);
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+
+        returnMovieOption.obtainOptionResult();
+
+        verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_MOVIE_RETURN);
+    }
 }
