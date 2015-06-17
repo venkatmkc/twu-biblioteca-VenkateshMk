@@ -20,8 +20,8 @@ public class Login {
     }
 
     private User search(String libraryNumber, String password) {
-        for(User user : users) {
-            if(user.isSameLibraryNumber(libraryNumber) && user.isSamePassword(password))
+        for (User user : users) {
+            if (user.isSameLibraryNumber(libraryNumber) && user.isSamePassword(password))
                 return user;
         }
         return null;

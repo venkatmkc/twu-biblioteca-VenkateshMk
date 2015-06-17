@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.io.Messages;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -67,6 +68,23 @@ public class LoginTest {
         User actualUser = login.validate();
 
         assertThat(actualUser, is(equalTo(userOne)));
+    }
+
+    @Test
+    public void successfulLoginShouldProduceSuccessMessage() {
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        when(consoleInputOutput.getUserInput()).
+                thenReturn("111-0000", "biblioteca");
+        Login login = new Login(users, consoleInputOutput);
+
+        User actualUser = login.validate();
+        String actualLoginMessage = actualUser.getLoginMessage();
+
+        assertThat(actualLoginMessage, is(Messages.SUCCESSFUL_LOGIN));
     }
 
 }

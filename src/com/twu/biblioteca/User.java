@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.io.Messages;
+
+import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
+
 public class User {
     private String libraryNumber;
     private String password;
@@ -38,5 +42,9 @@ public class User {
 
     public boolean isSamePassword(String searchPassword) {
         return  password.equals(searchPassword);
+    }
+
+    public String getLoginMessage() {
+        return SUCCESSFUL_LOGIN;
     }
 }
