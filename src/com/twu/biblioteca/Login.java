@@ -13,8 +13,18 @@ public class Login {
         this.consoleInputOutput = consoleInputOutput;
     }
 
-    public void validate() {
+    public User validate() {
         String libraryNumber = consoleInputOutput.getUserInput();
         String password = consoleInputOutput.getUserInput();
+        return search(libraryNumber, password);
     }
+
+    private User search(String libraryNumber, String password) {
+        for(User user : users) {
+            if(user.isSameLibraryNumber(libraryNumber) && user.isSamePassword(password))
+                return user;
+        }
+        return null;
+    }
+
 }

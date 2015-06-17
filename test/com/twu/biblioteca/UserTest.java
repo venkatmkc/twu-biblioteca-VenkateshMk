@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.book.AvailableBook;
+import com.twu.biblioteca.book.Book;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -66,5 +66,23 @@ public class UserTest {
         User secondObject = new User("111-5555", "biblioteca");
 
         assertEquals(firstObject.hashCode(), secondObject.hashCode());
+    }
+
+    @Test
+    public void sameLibraryNumberShouldMapToSameUser() {
+        User user = new User("111-5555", "biblioteca");
+
+        boolean actualCheckResult = user.isSameLibraryNumber("111-5555");
+
+        assertThat(actualCheckResult, is(true));
+    }
+
+    @Test
+    public void samePasswordShouldMapToSameUser() {
+        User user = new User("111-5555", "biblioteca");
+
+        boolean actualCheckResult = user.isSamePassword("biblioteca");
+
+        assertThat(actualCheckResult, is(true));
     }
 }

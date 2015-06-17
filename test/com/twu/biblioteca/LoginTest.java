@@ -10,6 +10,8 @@ import org.mockito.MockitoAnnotations;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -34,7 +36,7 @@ public class LoginTest {
 
         login.validate();
 
-        verify(consoleInputOutput).getUserInput();
+        verify(consoleInputOutput, times(2)).getUserInput();
     }
 
     @Test
@@ -50,4 +52,21 @@ public class LoginTest {
 
         verify(consoleInputOutput, times(2)).getUserInput();
     }
+
+    @Test
+    public void loginShouldProduceUser() {
+        HashSet<User> users = new HashSet<User>();
+        User userOne = new User("111-0000", "biblioteca");
+        User userTwo = new User("222-2222", "logmein");
+        users.add(userOne);
+        users.add(userTwo);
+        when(consoleInputOutput.getUserInput()).
+                thenReturn("111-0000", "biblioteca");
+        Login login = new Login(users, consoleInputOutput);
+
+        User actualUser = login.validate();
+
+        assertThat(actualUser, is(equalTo(userOne)));
+    }
+
 }

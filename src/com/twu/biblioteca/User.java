@@ -30,4 +30,13 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
+
+
+    public boolean isSameLibraryNumber(String searchLibraryNumber) {
+        return libraryNumber.equals(searchLibraryNumber);
+    }
+
+    public boolean isSamePassword(String searchPassword) {
+        return  password.equals(searchPassword);
+    }
 }
