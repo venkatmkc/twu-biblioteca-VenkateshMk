@@ -1,5 +1,6 @@
 package com.twu.biblioteca.book;
 
+import com.sun.xml.internal.xsom.impl.WildcardImpl;
 import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.CheckedOutBook;
 import com.twu.biblioteca.book.NullBook;
@@ -18,9 +19,9 @@ public class CheckedOutBookTest {
         AvailableBook availableBook = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
-        AvailableBook actualBook = book.returnBook(user);
+        Book actualBook = book.returnBook(user);
 
-        assertThat(actualBook, is(equalTo(availableBook)));
+        assertThat(actualBook, is(equalTo((Book) availableBook)));
     }
 
     @Test
@@ -29,9 +30,9 @@ public class CheckedOutBookTest {
         User user = new User("222-2222", "logmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
-        NullBook actualResult = book.checkout(user);
+        Book actualResult = book.checkout(user);
 
-        assertThat(actualResult, is(equalTo(nullBook)));
+        assertThat(actualResult, is(equalTo((Book) nullBook)));
     }
 
     @Test
@@ -42,5 +43,17 @@ public class CheckedOutBookTest {
         String actualStatusMessage = book.getCheckoutMessage();
 
         assertThat(actualStatusMessage, is(Messages.SUCCESSFUL_BOOK_CHECKOUT));
+    }
+
+    @Test
+    public void returnBookShouldProduceNullBookIfOwnerIsDifferent() {
+        User user = new User("222-2222", "logmein");
+        User otherUser = new User("555-5555", "letmein");
+        CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
+        Book nullBook = new NullBook();
+
+        Book actualResult = book.returnBook(otherUser);
+
+        assertThat(actualResult, is(nullBook));
     }
 }

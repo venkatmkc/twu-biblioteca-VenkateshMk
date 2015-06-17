@@ -19,11 +19,13 @@ public class CheckedOutBook extends Book {
         return new CheckedOutBook(name, author, year, user);
     }
 
-    public AvailableBook returnBook(User user) {
-        return AvailableBook.create(name, author, year);
+    public Book returnBook(User visitingUser) {
+        if(user.equals(visitingUser))
+            return AvailableBook.create(name, author, year);
+        return new NullBook();
     }
 
-    public NullBook checkout(User user) {
+    public Book checkout(User user) {
         return new NullBook();
     }
 
