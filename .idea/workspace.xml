@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97684c26-a772-4595-85a4-76b2c4398536" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Biblioteca.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Book.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Books.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/MainMenu.class" afterPath="" />
@@ -30,6 +31,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/src/classes/com/twu/biblioteca/view/ListBooksOption.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/src/classes/com/twu/biblioteca/view/MainMenuConsoleView.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/src/classes/com/twu/biblioteca/view/WelcomeMessageToConsole.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/model/BookTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/model/BooksTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/model/MainMenuOptionsTest.class" afterPath="" />
@@ -54,12 +56,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/ListBooksOptionTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/MainMenuConsoleViewTest.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/classes/com/twu/biblioteca/view/WelcomeMessageToConsoleTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableMovie.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableMovie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutMovie.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutMovie.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/NullMovie.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/NullMovie.java" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -154,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Library.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -185,13 +183,15 @@
       <file leaf-file-name="LibraryTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46254072">
-              <caret line="168" column="29" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.75570035">
+              <caret line="199" column="54" selection-start-line="199" selection-start-column="54" selection-end-line="199" selection-end-column="54" />
               <folding>
                 <element signature="e#350#356#0" expanded="true" />
                 <element signature="e#645#652#0" expanded="true" />
                 <element signature="e#1314#1320#0" expanded="true" />
                 <element signature="e#1609#1616#0" expanded="true" />
+                <element signature="e#2212#2218#0" expanded="true" />
+                <element signature="e#2508#2515#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -275,11 +275,11 @@
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/NullMovieTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Messages.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutMovie.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/AvailableMovie.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/NullMovie.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" />
       </list>
     </option>
   </component>
@@ -464,7 +464,7 @@
       <recent name="com.twu.biblioteca.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in biblioteca">
+  <component name="RunManager" selected="JUnit.LibraryTest.returnMovieShouldProduceSuccessOnSuccesfulMovieReturn">
     <configuration default="false" name="All in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="biblioteca" />
@@ -474,32 +474,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="LibraryTest.searchMovieShouldGiveMovie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
-      <option name="METHOD_NAME" value="searchMovieShouldGiveMovie" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -578,6 +552,32 @@
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.AvailableMovieTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="LibraryTest.returnMovieShouldProduceSuccessOnSuccesfulMovieReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
+      <option name="METHOD_NAME" value="returnMovieShouldProduceSuccessOnSuccesfulMovieReturn" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -869,18 +869,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BooksPresenterTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryTest.searchMovieShouldGiveMovie" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutShouldProduceSuccessOnSuccesfulCheckout" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutMovieShouldProduceSuccessOnSuccesfulCheckout" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AvailableMovieTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutShouldProduceSuccessOnSuccesfulCheckout" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutMovieShouldProduceSuccessOnSuccesfulCheckout" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AvailableMovieTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.LibraryTest.returnMovieShouldProduceSuccessOnSuccesfulMovieReturn" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AvailableMovieTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutMovieShouldProduceSuccessOnSuccesfulCheckout" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutShouldProduceSuccessOnSuccesfulCheckout" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryTest.searchMovieShouldGiveMovie" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.LibraryTest.returnMovieShouldProduceSuccessOnSuccesfulMovieReturn" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AvailableMovieTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutMovieShouldProduceSuccessOnSuccesfulCheckout" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.LibraryTest.checkoutShouldProduceSuccessOnSuccesfulCheckout" />
       </list>
     </recent_temporary>
   </component>
@@ -917,16 +917,16 @@
       <workItem from="1434352458290" duration="1182000" />
       <workItem from="1434364765677" duration="1393000" />
       <workItem from="1434372247575" duration="40037000" />
-      <workItem from="1434513842122" duration="2309000" />
+      <workItem from="1434513842122" duration="2533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136529000" />
+    <option name="totallyTimeSpent" value="136753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1375,14 +1375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Library.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="42" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/CheckedOutMovie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1411,15 +1403,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Library.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46254072">
-          <caret line="168" column="29" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.75570035">
+          <caret line="199" column="54" selection-start-line="199" selection-start-column="54" selection-end-line="199" selection-end-column="54" />
           <folding>
             <element signature="e#350#356#0" expanded="true" />
             <element signature="e#645#652#0" expanded="true" />
             <element signature="e#1314#1320#0" expanded="true" />
             <element signature="e#1609#1616#0" expanded="true" />
+            <element signature="e#2212#2218#0" expanded="true" />
+            <element signature="e#2508#2515#0" expanded="true" />
           </folding>
         </state>
       </provider>

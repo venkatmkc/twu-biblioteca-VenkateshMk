@@ -68,4 +68,12 @@ public class Library {
         movies.add(movie);
         return movie.getCheckoutMessage();
     }
+
+    public String returnMovie(String title) {
+        Movie movie = searchMovie(title);
+        movie = movie.returnMovie();
+        movies.remove(movie);
+        movies.add(movie);
+        return movie.getReturnMessage();
+    }
 }
