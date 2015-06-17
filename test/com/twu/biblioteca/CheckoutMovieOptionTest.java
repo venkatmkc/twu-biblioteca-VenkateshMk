@@ -6,6 +6,7 @@ import org.mockito.Mock;
 
 import java.util.LinkedHashSet;
 
+import static com.twu.biblioteca.Messages.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -52,5 +53,16 @@ public class CheckoutMovieOptionTest {
         checkoutMovieOption.obtainOptionResult();
 
         verify(library).checkoutMovie("Inception");
+    }
+
+    @Test
+    public void checkoutMessageShouldBeDisplayedToTheUser() {
+        when(consoleInputOutput.getUserInput()).thenReturn("Inception");
+        when(library.checkoutMovie("Inception")).thenReturn(SUCCESSFUL_MOVIE_CHECKOUT);
+        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+
+        checkoutMovieOption.obtainOptionResult();
+
+        verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_MOVIE_CHECKOUT);
     }
 }
