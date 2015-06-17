@@ -24,13 +24,13 @@ public class BibliotecaApp {
         booksTitleToBook.put("java tutorial", bookOne);
         booksTitleToBook.put("Kite Runner", bookTwo);
         booksTitleToBook.put("The Sky Is Falling", bookThree);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
         HashMap<String, MainMenuAction> options = new HashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
-        options.put("Checkout", checkoutOption);
-        options.put("Return Book", returnOption);
+        options.put("Checkout", checkoutBookOption);
+        options.put("Return Book", returnBookOption);
         options.put("List Movies", listMoviesOption);
         MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(options);
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();

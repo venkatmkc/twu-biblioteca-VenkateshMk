@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.*;
 
-public class CheckoutOptionTest {
+public class CheckoutBookOptionTest {
     @Mock
     private ConsoleInputOutput consoleInputOutput;
 
@@ -35,9 +35,9 @@ public class CheckoutOptionTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -53,9 +53,9 @@ public class CheckoutOptionTest {
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
 
         when(library.checkoutBook("Kite Runner")).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_CHECKOUT);
     }
@@ -69,9 +69,9 @@ public class CheckoutOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(library.checkoutBook("Kite Runner")).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
 
-        checkoutOption.obtainOptionResult();
+        checkoutBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
     }

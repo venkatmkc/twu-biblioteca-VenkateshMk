@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
 import static com.twu.biblioteca.Messages.SUCCESSFUL_BOOK_RETURN;
@@ -13,7 +12,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class ReturnOptionTest {
+public class ReturnBookOptionTest {
     @Mock
     private ConsoleInputOutput consoleInputOutput;
 
@@ -34,9 +33,9 @@ public class ReturnOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -49,9 +48,9 @@ public class ReturnOptionTest {
         books.add(bookOne);
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult();
 
         verify(library).returnBook("Kite Runner");
     }
@@ -65,9 +64,9 @@ public class ReturnOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(library.returnBook("Kite Runner")).thenReturn(SUCCESSFUL_BOOK_RETURN);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_BOOK_RETURN);
     }
@@ -81,9 +80,9 @@ public class ReturnOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(library.returnBook("Kite Runner")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }
@@ -97,9 +96,9 @@ public class ReturnOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
         when(library.returnBook("Kite Runn")).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnOption returnOption = new ReturnOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
-        returnOption.obtainOptionResult();
+        returnBookOption.obtainOptionResult();
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }

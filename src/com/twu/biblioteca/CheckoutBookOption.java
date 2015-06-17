@@ -1,10 +1,11 @@
 package com.twu.biblioteca;
 
-public class ReturnOption implements MainMenuAction{
-    private final ConsoleInputOutput consoleInputOutput;
-    private final Library library;
+public class CheckoutBookOption implements MainMenuAction{
 
-    public ReturnOption(ConsoleInputOutput consoleInputOutput, Library library) {
+    private ConsoleInputOutput consoleInputOutput;;
+    private Library library;
+
+    public CheckoutBookOption(ConsoleInputOutput consoleInputOutput, Library library) {
         this.consoleInputOutput = consoleInputOutput;
         this.library = library;
     }
@@ -12,7 +13,7 @@ public class ReturnOption implements MainMenuAction{
     @Override
     public void obtainOptionResult() {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.returnBook(bookTitle);
+        String returnStatus = library.checkoutBook(bookTitle);
         consoleInputOutput.displayOutputToUser(returnStatus);
     }
 }
