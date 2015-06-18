@@ -4,14 +4,14 @@ import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 
 import java.util.HashMap;
 
-public class MainMenuOptionParser {
+public class UserOptions {
     private HashMap<String, MainMenuAction> options;
 
-    public MainMenuOptionParser(HashMap<String, MainMenuAction> options) {
+    public UserOptions(HashMap<String, MainMenuAction> options) {
         this.options = options;
     }
 
-    public MainMenuAction parseUserInput(String userInput) {
+    public MainMenuAction UserOptions(String userInput) {
         return options.get(userInput);
     }
 }

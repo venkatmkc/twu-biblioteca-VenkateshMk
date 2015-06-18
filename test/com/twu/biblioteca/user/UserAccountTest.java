@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class UserTest {
+public class UserAccountTest {
 
     @Test
     public void testForReflexivity() {

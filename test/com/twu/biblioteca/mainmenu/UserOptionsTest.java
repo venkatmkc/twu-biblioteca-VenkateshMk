@@ -4,7 +4,6 @@ import com.twu.biblioteca.Library;
 import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.mainmenu.MainMenuOptionParser;
 import com.twu.biblioteca.mainmenu.options.ListBooksOption;
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 import com.twu.biblioteca.movie.AvailableMovie;
@@ -16,7 +15,7 @@ import java.util.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class MainMenuOptionParserTest {
+public class UserOptionsTest {
     @Test
     public void parseUserInputShouldProduceMainMenuOption() {
         Book book = new AvailableBook("java tutorial", "aravind", "2012");
@@ -34,9 +33,9 @@ public class MainMenuOptionParserTest {
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
         HashMap<String, MainMenuAction> mainMenuOptions = new HashMap<String, MainMenuAction>();
         mainMenuOptions.put("List Library", listBooksOption);
-        MainMenuOptionParser mainMenuOptionParser = new MainMenuOptionParser(mainMenuOptions);
+        UserOptions userOptions = new UserOptions(mainMenuOptions);
 
-        MainMenuAction actualMenuOption = mainMenuOptionParser.parseUserInput("List Library");
+        MainMenuAction actualMenuOption = userOptions.UserOptions("List Library");
 
         assertThat(actualMenuOption, is(listBooksOption));
     }
