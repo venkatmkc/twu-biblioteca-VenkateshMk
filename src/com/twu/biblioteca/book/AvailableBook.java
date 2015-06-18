@@ -10,8 +10,8 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public void appendToBooks(BooksPresenter booksPresenter) {
-        booksPresenter.addBook(name, author, year);
+    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
+        availableBookPresenter.addBook(name, author, year);
     }
 
     @Override

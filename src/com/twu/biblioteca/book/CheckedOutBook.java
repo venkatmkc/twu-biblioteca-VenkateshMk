@@ -11,8 +11,11 @@ public class CheckedOutBook extends Book {
         this.user = user;
     }
 
-    @Override
-    public void appendToBooks(BooksPresenter booksPresenter) {
+    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
+    }
+
+    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
+        checkedOutBookPresenter.addBook(name, author, year, user);
     }
 
     public static CheckedOutBook create(String name, String author, String year, User user) {

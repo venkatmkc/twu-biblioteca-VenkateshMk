@@ -52,4 +52,9 @@ public class User implements Visitor {
     public void visit(MainMenu mainMenu) {
         mainMenu.dispatch(this);
     }
+
+    @Override
+    public String toString() {
+        return libraryNumber;
+    }
 }

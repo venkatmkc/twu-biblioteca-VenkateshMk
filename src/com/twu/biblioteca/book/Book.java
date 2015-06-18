@@ -34,8 +34,6 @@ public abstract class Book {
         return name.equals(bookName);
     }
 
-    public abstract void appendToBooks(BooksPresenter booksPresenter);
-
     public abstract Book checkout(User user);
 
     public abstract Book returnBook(User user);
@@ -43,4 +41,6 @@ public abstract class Book {
     public abstract String getCheckoutMessage();
 
     public abstract String getReturnMessage();
+
+    public abstract void appendToBooks(AvailableBookPresenter availableBookPresenter);
 }

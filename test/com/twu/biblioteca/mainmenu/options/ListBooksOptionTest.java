@@ -4,8 +4,6 @@ import com.twu.biblioteca.Library;
 import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.mainmenu.options.ListBooksOption;
-import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.user.User;
@@ -49,6 +47,6 @@ public class ListBooksOptionTest {
 
         listBooksOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser(library.formattedBooks());
+        verify(consoleInputOutput).displayOutputToUser(library.AvailableBooks());
     }
 }

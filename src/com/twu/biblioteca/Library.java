@@ -4,7 +4,7 @@ import com.twu.biblioteca.book.Book;
 import com.twu.biblioteca.book.NullBook;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.NullMovie;
-import com.twu.biblioteca.book.BooksPresenter;
+import com.twu.biblioteca.book.AvailableBookPresenter;
 import com.twu.biblioteca.movie.MoviesPresenter;
 import com.twu.biblioteca.user.User;
 
@@ -19,12 +19,12 @@ public class Library {
         this.movies = movies;
     }
 
-    public String formattedBooks() {
-        BooksPresenter booksPresenter = new BooksPresenter("");
+    public String AvailableBooks() {
+        AvailableBookPresenter availableBookPresenter = new AvailableBookPresenter("");
         for (Book book : books) {
-            book.appendToBooks(booksPresenter);
+            book.appendToBooks(availableBookPresenter);
         }
-        return booksPresenter.toString();
+        return availableBookPresenter.toString();
     }
 
     public synchronized String checkoutBook(String title, User user) {

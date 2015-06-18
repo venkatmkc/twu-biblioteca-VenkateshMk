@@ -11,7 +11,7 @@ public class NullBook extends Book {
     }
 
     @Override
-    public void appendToBooks(BooksPresenter booksPresenter) {
+    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
     }
 
     @Override

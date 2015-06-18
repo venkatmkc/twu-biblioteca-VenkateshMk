@@ -84,4 +84,13 @@ public class UserTest {
 
         assertThat(actualCheckResult, is(true));
     }
+
+    @Test
+    public void userInformationShouldBeProduced() {
+        User user = new User("111-5555", "biblioteca");
+
+        String actualLibraryNumber = user.toString();
+
+        assertThat(actualLibraryNumber, is("111-5555"));
+    }
 }

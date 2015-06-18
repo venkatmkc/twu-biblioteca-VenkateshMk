@@ -11,7 +11,7 @@ import static org.mockito.MockitoAnnotations.*;
 
 public class BookTest {
     @Mock
-    BooksPresenter booksPresenter;
+    AvailableBookPresenter availableBookPresenter;
 
     @Before
     public void setUp() {
@@ -83,8 +83,8 @@ public class BookTest {
     public void appendBookShouldBeAppendedToTheBooksList() {
         Book book = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
-        book.appendToBooks(booksPresenter);
+        book.appendToBooks(availableBookPresenter);
 
-        verify(booksPresenter).addBook("Kite Runner", "Khaled Hosseini", "2003");
+        verify(availableBookPresenter).addBook("Kite Runner", "Khaled Hosseini", "2003");
     }
 }

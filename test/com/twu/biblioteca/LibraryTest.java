@@ -30,7 +30,7 @@ public class LibraryTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
 
-        String actualBookList = library.formattedBooks();
+        String actualBookList = library.AvailableBooks();
 
         assertThat(actualBookList, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003\nThe Sky Is Falling   | Sidney Sheldon       | 2001\n")));
     }

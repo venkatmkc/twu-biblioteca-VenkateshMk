@@ -25,6 +25,5 @@ public class Biblioteca {
             consoleInputOutput.displayOutputToUser(user.getLoginMessage());
             mainMenu.accept(user);
         } while (user instanceof NullUser);
-//        mainMenu.dispatch();
     }
 }

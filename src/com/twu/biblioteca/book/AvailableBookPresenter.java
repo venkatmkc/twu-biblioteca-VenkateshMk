@@ -1,11 +1,11 @@
 package com.twu.biblioteca.book;
 
-public class BooksPresenter {
+public class AvailableBookPresenter {
     private String formattedBooks;
     private final int maximumNameLength = 20;
     private final int maximumAuthorLength = 20;
 
-    public BooksPresenter(String formattedBooks) {
+    public AvailableBookPresenter(String formattedBooks) {
         this.formattedBooks = formattedBooks;
     }
 
