@@ -19,7 +19,7 @@ public class MainMenuTest {
     ConsoleInputOutput consoleInputOutput;
 
     @Mock
-    MainMenuOptionParser mainMenuOptionParser;
+    UserOptions userOptions;
 
     @Mock
     MainMenuAction listBookOption;
@@ -29,7 +29,7 @@ public class MainMenuTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(mainMenuOptionParser.parseUserInput("List Library")).
+        when(userOptions.parseUserInput("List Library")).
                 thenReturn(listBookOption);
         user = new User("222-2222", "logmein");
     }
@@ -40,8 +40,8 @@ public class MainMenuTest {
                 thenReturn("Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
         User user = new User("222-2222", "logmein");
 
         mainMenu.dispatch(user);
@@ -55,12 +55,12 @@ public class MainMenuTest {
                 thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
 
         mainMenu.dispatch(user);
 
-        verify(mainMenuOptionParser).parseUserInput("List Library");
+        verify(userOptions).parseUserInput("List Library");
     }
 
     @Test
@@ -69,12 +69,12 @@ public class MainMenuTest {
                 thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
 
         mainMenu.dispatch(user);
 
-        verify(consoleInputOutput, times(2)).displayOutputToUser(mainMenuOptions);
+        verify(consoleInputOutput, times(2)).displayOutputToUser(mainMenu);
     }
 
     @Test
@@ -83,8 +83,8 @@ public class MainMenuTest {
                 thenReturn("List Library", "Quit");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
 
         mainMenu.dispatch(user);
 
@@ -97,8 +97,8 @@ public class MainMenuTest {
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
 
         mainMenu.dispatch(user);
 
@@ -111,11 +111,11 @@ public class MainMenuTest {
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
-        MainMenuOptions mainMenuOptions = new MainMenuOptions(mainMenuOptionsList);
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, mainMenuOptionParser, mainMenuOptions);
+        MenuPresenter menuPresenter = new MenuPresenter("");
+        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
 
         mainMenu.dispatch(user);
 
-        verify(mainMenuOptionParser, times(0)).parseUserInput("Quit");
+        verify(userOptions, times(0)).parseUserInput("Quit");
     }
 }

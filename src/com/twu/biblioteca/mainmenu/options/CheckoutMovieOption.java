@@ -5,8 +5,8 @@ import com.twu.biblioteca.Library;
 import com.twu.biblioteca.user.User;
 
 public class CheckoutMovieOption implements MainMenuAction {
-    private final ConsoleInputOutput consoleInputOutput;
-    private final Library library;
+    private ConsoleInputOutput consoleInputOutput;
+    private Library library;
 
     public CheckoutMovieOption(ConsoleInputOutput consoleInputOutput, Library library) {
         this.consoleInputOutput = consoleInputOutput;

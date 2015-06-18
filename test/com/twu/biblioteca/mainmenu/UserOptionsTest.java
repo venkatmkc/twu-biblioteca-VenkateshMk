@@ -31,11 +31,11 @@ public class UserOptionsTest {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
-        HashMap<String, MainMenuAction> mainMenuOptions = new HashMap<String, MainMenuAction>();
+        LinkedHashMap<String, MainMenuAction> mainMenuOptions = new LinkedHashMap<String, MainMenuAction>();
         mainMenuOptions.put("List Library", listBooksOption);
         UserOptions userOptions = new UserOptions(mainMenuOptions);
 
-        MainMenuAction actualMenuOption = userOptions.UserOptions("List Library");
+        MainMenuAction actualMenuOption = userOptions.parseUserInput("List Library");
 
         assertThat(actualMenuOption, is(listBooksOption));
     }

@@ -8,23 +8,23 @@ import com.twu.biblioteca.user.User;
 
 public class MainMenu implements Visitable{
     private ConsoleInputOutput consoleInputOutput;
-    private MainMenuOptionParser mainMenuOptionParser;
-    private MainMenuOptions mainMenuOptions;
+    private UserOptions userOptions;
+    private MenuPresenter menuPresenter;
 
-    public MainMenu(ConsoleInputOutput consoleInputOutput, MainMenuOptionParser mainMenuOptionParser, MainMenuOptions mainMenuOptions) {
+    public MainMenu(ConsoleInputOutput consoleInputOutput, UserOptions userOptions, MenuPresenter menuPresenter) {
         this.consoleInputOutput = consoleInputOutput;
-        this.mainMenuOptionParser = mainMenuOptionParser;
-        this.mainMenuOptions = mainMenuOptions;
+        this.userOptions = userOptions;
+        this.menuPresenter = menuPresenter;
     }
 
     public void dispatch(User user) {
         MainMenuAction option;
         do {
-            consoleInputOutput.displayOutputToUser(mainMenuOptions);
+            consoleInputOutput.displayOutputToUser(this);
             String userInput = consoleInputOutput.getUserInput();
             if (userInput.equals("Quit"))
                 return;
-            option = mainMenuOptionParser.parseUserInput(userInput);
+            option = userOptions.parseUserInput(userInput);
             if (checkValidOption(option)) {
                 consoleInputOutput.displayOutputToUser(Messages.INVALID_MENU_OPTION);
             } else
@@ -39,5 +39,12 @@ public class MainMenu implements Visitable{
     @Override
     public void accept(User user) {
         user.visit(this);
+    }
+
+    @Override
+    public String toString() {
+        menuPresenter.flush();
+        userOptions.addOptions(menuPresenter);
+        return menuPresenter.toString();
     }
 }

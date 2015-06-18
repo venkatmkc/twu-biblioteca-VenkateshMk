@@ -4,11 +4,11 @@ import com.twu.biblioteca.mainmenu.MainMenu;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
-public class UserAccount implements Visitor {
+public class User implements Visitor {
     private String libraryNumber;
     private String password;
 
-    public UserAccount(String libraryNumber, String password) {
+    public User(String libraryNumber, String password) {
         this.libraryNumber = libraryNumber;
         this.password = password;
     }
@@ -20,7 +20,7 @@ public class UserAccount implements Visitor {
         if (o == null || getClass() != o.getClass())
             return false;
 
-        UserAccount user = (UserAccount) o;
+        User user = (User) o;
 
         if (libraryNumber != null ? !libraryNumber.equals(user.libraryNumber) : user.libraryNumber != null)
             return false;

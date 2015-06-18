@@ -2,10 +2,10 @@ package com.twu.biblioteca.mainmenu;
 
 import java.util.*;
 
-public class MainMenuPresenter {
+public class MenuPresenter {
     private String formattedOptionsList;
 
-    public MainMenuPresenter(String formattedOptionsList) {
+    public MenuPresenter(String formattedOptionsList) {
         this.formattedOptionsList = formattedOptionsList;
     }
 
@@ -21,5 +21,10 @@ public class MainMenuPresenter {
             formattedOptionsList += optionNumber + ". " + optionsIterator.next() + "\n";
             optionNumber++;
         }
+        formattedOptionsList += optionNumber + ". " + "Quit\n";
+    }
+
+    public void flush() {
+        formattedOptionsList = "";
     }
 }
