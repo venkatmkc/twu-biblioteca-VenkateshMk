@@ -1,9 +1,5 @@
 package com.twu.biblioteca.book;
 
-import com.sun.xml.internal.xsom.impl.WildcardImpl;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.CheckedOutBook;
-import com.twu.biblioteca.book.NullBook;
 import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.user.User;
 import org.junit.Test;
@@ -15,7 +11,7 @@ import static org.junit.Assert.*;
 public class CheckedOutBookTest {
     @Test
     public void returnBookShouldProduceAvailableBook() {
-        User user = new User("222-2222", "logmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         AvailableBook availableBook = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
@@ -27,7 +23,7 @@ public class CheckedOutBookTest {
     @Test
     public void checkoutShouldProduceNullBook() {
         NullBook nullBook = new NullBook();
-        User user = new User("222-2222", "logmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
         Book actualResult = book.checkout(user);
@@ -37,7 +33,7 @@ public class CheckedOutBookTest {
 
     @Test
     public void successfulCheckoutShouldProduceSuccessMessage() {
-        User user = new User("222-2222", "logmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
         String actualStatusMessage = book.getCheckoutMessage();
@@ -47,8 +43,8 @@ public class CheckedOutBookTest {
 
     @Test
     public void returnBookShouldProduceNullBookIfOwnerIsDifferent() {
-        User user = new User("222-2222", "logmein");
-        User otherUser = new User("555-5555", "letmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        User otherUser = new User("111-1131", "letmein", "venkatesh", "555-5555", "letmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book nullBook = new NullBook();
 

@@ -2,10 +2,9 @@ package com.twu.biblioteca.mainmenu;
 
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class UserOptions {
+public class UserOptions{
     private LinkedHashMap<String, MainMenuAction> options;
 
     public UserOptions(LinkedHashMap<String, MainMenuAction> options) {

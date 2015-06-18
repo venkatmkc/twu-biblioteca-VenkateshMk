@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
@@ -24,14 +25,23 @@ public class MainMenuTest {
     @Mock
     MainMenuAction listBookOption;
 
+    @Mock
+    MainMenuAction checkedOutBooksOption;
+
     private User user;
+    private MenuPresenter menuPresenter;
+    private LibrarianOptions librarianOptions;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(userOptions.parseUserInput("List Library")).
                 thenReturn(listBookOption);
-        user = new User("222-2222", "logmein");
+        user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        LinkedHashMap<String, MainMenuAction> librarianOptionsList = new LinkedHashMap<String, MainMenuAction>();
+        librarianOptionsList.put("CheckedOut Books", checkedOutBooksOption);
+        menuPresenter = new MenuPresenter("");
+        librarianOptions = new LibrarianOptions(librarianOptionsList);
     }
 
     @Test
@@ -42,7 +52,7 @@ public class MainMenuTest {
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
         MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
-        User user = new User("222-2222", "logmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
 
         mainMenu.dispatch(user);
 

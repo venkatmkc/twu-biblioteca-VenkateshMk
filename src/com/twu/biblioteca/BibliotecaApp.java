@@ -1,15 +1,15 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.CheckedOutBook;
+import com.twu.biblioteca.book.*;
 import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.mainmenu.LibrarianMainMenu;
 import com.twu.biblioteca.mainmenu.MainMenu;
 import com.twu.biblioteca.mainmenu.UserOptions;
 import com.twu.biblioteca.mainmenu.MenuPresenter;
 import com.twu.biblioteca.mainmenu.options.*;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.user.Librarian;
 import com.twu.biblioteca.user.User;
 
 import java.util.*;
@@ -19,10 +19,12 @@ public class BibliotecaApp {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "venkatmk@thoughtworks.com", "9566011847");
+        User userTwo = new User("222-2222", "logmein", "chip", "abc@def.com", "9989898989");
+        User librarian = new Librarian("333-3333", "superuser", "superman", "super@super.com", "77777777777");
         users.add(userOne);
         users.add(userTwo);
+        users.add(librarian);
         Login login = new Login(users, consoleInputOutput);
         Book bookOne = new AvailableBook("java tutorial", "aravind", "2012");
         Book bookTwo = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
@@ -37,7 +39,8 @@ public class BibliotecaApp {
         movies.add(movieOne);
         movies.add(movieTwo);
         Library library = new Library(books, movies);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
+        BookPresenter bookPresenter = new AvailableBookPresenter("");
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library, bookPresenter);
         HashMap<String, Book> booksTitleToBook = new HashMap<String, Book>();
         booksTitleToBook.put("java tutorial", bookOne);
         booksTitleToBook.put("Kite Runner", bookTwo);
@@ -47,6 +50,7 @@ public class BibliotecaApp {
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+        UserInformationOption userInformationOption = new UserInformationOption(consoleInputOutput);
         LinkedHashMap<String, MainMenuAction> options = new LinkedHashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
         options.put("Checkout Book", checkoutBookOption);
@@ -54,10 +58,24 @@ public class BibliotecaApp {
         options.put("List Movies", listMoviesOption);
         options.put("Checkout Movie", checkoutMovieOption);
         options.put("Return Movie", returnMovieOption);
+        options.put("User Information", userInformationOption);
         UserOptions userOptions = new UserOptions(options);
+        LinkedHashMap<String, MainMenuAction> librarianOptionsList = new LinkedHashMap<String, MainMenuAction>();
+        librarianOptionsList.put("List Books", listBooksOption);
+        librarianOptionsList.put("Checkout Book", checkoutBookOption);
+        librarianOptionsList.put("Return Book", returnBookOption);
+        librarianOptionsList.put("List Movies", listMoviesOption);
+        librarianOptionsList.put("Checkout Movie", checkoutMovieOption);
+        librarianOptionsList.put("Return Movie", returnMovieOption);
+        librarianOptionsList.put("User Information", userInformationOption);
+        BookPresenter checkedOutBookPresenter = new CheckedOutBookPresenter("");
+        MainMenuAction checkedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, library ,checkedOutBookPresenter);
+        librarianOptionsList.put("CheckedOut Books", checkedOutBooksOption);
         MenuPresenter menuPresenter = new MenuPresenter("");
+        UserOptions librarianOptions = new UserOptions(librarianOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        LibrarianMainMenu librarianMainMenu = new LibrarianMainMenu(consoleInputOutput, librarianOptions, menuPresenter);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, librarianMainMenu, login);
         biblioteca.start();
     }
 }

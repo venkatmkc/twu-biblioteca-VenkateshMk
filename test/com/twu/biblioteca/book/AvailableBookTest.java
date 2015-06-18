@@ -1,9 +1,5 @@
 package com.twu.biblioteca.book;
 
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.CheckedOutBook;
-import com.twu.biblioteca.book.NullBook;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +14,7 @@ public class AvailableBookTest {
 
     @Before
     public void setUp() {
-        user = new User("222-2222", "logmein");
+        user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
     }
     @Test
     public void checkoutShouldProduceCheckedOutBook() {

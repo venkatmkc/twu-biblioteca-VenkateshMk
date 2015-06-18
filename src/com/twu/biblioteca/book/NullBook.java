@@ -15,6 +15,11 @@ public class NullBook extends Book {
     }
 
     @Override
+    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
+
+    }
+
+    @Override
     public Book checkout(User  user) {
         return new NullBook();
     }

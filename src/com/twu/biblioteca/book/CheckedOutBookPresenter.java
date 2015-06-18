@@ -2,7 +2,7 @@ package com.twu.biblioteca.book;
 
 import com.twu.biblioteca.user.User;
 
-public class CheckedOutBookPresenter {
+public class CheckedOutBookPresenter implements BookPresenter{
     private String formattedBooks;
     private final int maximumNameLength = 20;
     private final int maximumAuthorLength = 20;
@@ -20,6 +20,9 @@ public class CheckedOutBookPresenter {
                 + " | " + user +
                 "\n";
     }
+
+    @Override
+    public void addBook(String name, String author, String year) {}
 
     @Override
     public String toString() {

@@ -15,6 +15,9 @@ public class AvailableBook extends Book {
     }
 
     @Override
+    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {}
+
+    @Override
     public Book checkout(User user) {
         return CheckedOutBook.create(name, author, year, user);
     }

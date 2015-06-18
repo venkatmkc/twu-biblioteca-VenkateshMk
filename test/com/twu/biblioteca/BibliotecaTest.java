@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
+import com.twu.biblioteca.mainmenu.LibrarianMainMenu;
 import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.user.Librarian;
 import com.twu.biblioteca.user.NullUser;
 import com.twu.biblioteca.user.User;
 import org.junit.*;
@@ -28,6 +30,8 @@ public class BibliotecaTest {
     @Mock
     private NullUser nullUser;
 
+    @Mock
+    private LibrarianMainMenu librarianMainMenu;
     @Before
     public void setUp() {
         initMocks(this);
@@ -35,7 +39,7 @@ public class BibliotecaTest {
 
     @Test
     public void welcomeMessageShouldBeDisplayed() {
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, librarianMainMenu, login);
         when(login.validate()).thenReturn(user);
 
         biblioteca.start();
@@ -44,18 +48,8 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void mainMenuShouldBeDispatched() {
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
-        when(login.validate()).thenReturn(user);
-
-        biblioteca.start();
-
-        verify(mainMenu).accept(user);
-    }
-
-    @Test
     public void userShouldLoginToContinue() {
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, librarianMainMenu, login);
         when(login.validate()).thenReturn(user);
 
         biblioteca.start();
@@ -67,7 +61,7 @@ public class BibliotecaTest {
     public void userShouldNotBeAllowedToLoginWithInvalidCredentials() {
         when(login.validate()).
                 thenReturn(nullUser, user);
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, librarianMainMenu, login);
 
         biblioteca.start();
 
@@ -80,7 +74,7 @@ public class BibliotecaTest {
                 thenReturn(user);
         when(user.getLoginMessage()).
                 thenReturn(SUCCESSFUL_LOGIN);
-        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, login);
+        Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, librarianMainMenu, login);
 
         biblioteca.start();
 

@@ -2,7 +2,9 @@ package com.twu.biblioteca.mainmenu.options;
 
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.book.AvailableBook;
+import com.twu.biblioteca.book.AvailableBookPresenter;
 import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.BookPresenter;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
@@ -41,12 +43,13 @@ public class ListBooksOptionTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
-        User user = new User("222-2222", "logmein");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         Library library = new Library(books, movies);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
+        BookPresenter bookPresenter = new AvailableBookPresenter("");
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library, bookPresenter);
 
         listBooksOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser(library.AvailableBooks());
+        verify(consoleInputOutput).displayOutputToUser(library.availableBooks());
     }
 }

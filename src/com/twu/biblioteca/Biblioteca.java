@@ -2,18 +2,22 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
+import com.twu.biblioteca.mainmenu.LibrarianMainMenu;
 import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.user.Librarian;
 import com.twu.biblioteca.user.NullUser;
 import com.twu.biblioteca.user.User;
 
-public class Biblioteca {
+public class Biblioteca implements Visitable{
     private ConsoleInputOutput consoleInputOutput;
     private MainMenu mainMenu;
+    private LibrarianMainMenu librarianMainMenu;
     private Login login;
 
-    public Biblioteca(ConsoleInputOutput consoleInputOutput, MainMenu mainMenu, Login login) {
+    public Biblioteca(ConsoleInputOutput consoleInputOutput, MainMenu mainMenu, LibrarianMainMenu librarianMainMenu, Login login) {
         this.consoleInputOutput = consoleInputOutput;
         this.mainMenu = mainMenu;
+        this.librarianMainMenu = librarianMainMenu;
         this.login = login;
     }
 
@@ -23,7 +27,13 @@ public class Biblioteca {
         do {
             user = login.validate();
             consoleInputOutput.displayOutputToUser(user.getLoginMessage());
-            mainMenu.accept(user);
+            accept(user);
         } while (user instanceof NullUser);
+    }
+
+    @Override
+    public void accept(User user) {
+        user.visit(mainMenu);
+        user.visit(librarianMainMenu);
     }
 }

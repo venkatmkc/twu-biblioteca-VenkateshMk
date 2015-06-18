@@ -43,4 +43,6 @@ public abstract class Book {
     public abstract String getReturnMessage();
 
     public abstract void appendToBooks(AvailableBookPresenter availableBookPresenter);
+
+    public abstract void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter);
 }

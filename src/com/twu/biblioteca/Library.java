@@ -1,10 +1,8 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.NullBook;
+import com.twu.biblioteca.book.*;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.NullMovie;
-import com.twu.biblioteca.book.AvailableBookPresenter;
 import com.twu.biblioteca.movie.MoviesPresenter;
 import com.twu.biblioteca.user.User;
 
@@ -19,7 +17,7 @@ public class Library {
         this.movies = movies;
     }
 
-    public String AvailableBooks() {
+    public String availableBooks() {
         AvailableBookPresenter availableBookPresenter = new AvailableBookPresenter("");
         for (Book book : books) {
             book.appendToBooks(availableBookPresenter);
@@ -83,5 +81,13 @@ public class Library {
         movies.remove(movie);
         movies.add(movie);
         return movie.getReturnMessage();
+    }
+
+    public String checkedOutBooks() {
+        CheckedOutBookPresenter checkedOutBookPresenter = new CheckedOutBookPresenter("");
+        for (Book book : books) {
+            book.appendToBooks(checkedOutBookPresenter);
+        }
+        return checkedOutBookPresenter.toString();
     }
 }

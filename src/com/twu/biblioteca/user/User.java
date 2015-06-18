@@ -1,16 +1,24 @@
 package com.twu.biblioteca.user;
 
-import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.Visitable;
+import com.twu.biblioteca.mainmenu.*;
+import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
-public class User implements Visitor {
+public class User implements Visitor{
     private String libraryNumber;
     private String password;
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
 
-    public User(String libraryNumber, String password) {
+    public User(String libraryNumber, String password, String name, String email, String phoneNumber) {
         this.libraryNumber = libraryNumber;
         this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -49,12 +57,22 @@ public class User implements Visitor {
     }
 
     @Override
+    public String toString() {
+        return libraryNumber;
+    }
+
     public void visit(MainMenu mainMenu) {
         mainMenu.dispatch(this);
     }
 
     @Override
-    public String toString() {
-        return libraryNumber;
+    public void visit(LibrarianMainMenu librarianMainMenu) {
+
+    }
+
+    public String userInformation() {
+        return "Name : " + name +
+                "\nEmail : " + email +
+                "\nPhone number : " + phoneNumber;
     }
 }

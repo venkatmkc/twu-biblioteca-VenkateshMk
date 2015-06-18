@@ -2,7 +2,9 @@ package com.twu.biblioteca.mainmenu;
 
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.book.AvailableBook;
+import com.twu.biblioteca.book.AvailableBookPresenter;
 import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.book.BookPresenter;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.mainmenu.options.ListBooksOption;
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
@@ -30,7 +32,8 @@ public class UserOptionsTest {
         Library library = new Library(books, movies);
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
+        BookPresenter bookPresenter = new AvailableBookPresenter("");
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library, bookPresenter);
         LinkedHashMap<String, MainMenuAction> mainMenuOptions = new LinkedHashMap<String, MainMenuAction>();
         mainMenuOptions.put("List Library", listBooksOption);
         UserOptions userOptions = new UserOptions(mainMenuOptions);

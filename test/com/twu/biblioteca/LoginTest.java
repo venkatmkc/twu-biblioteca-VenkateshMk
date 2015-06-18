@@ -27,8 +27,8 @@ public class LoginTest {
     @Test
     public void loginShouldGetLibraryNumberFromUser() {
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "111-0000", "biblioteca");
+        User userTwo = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         users.add(userOne);
         users.add(userTwo);
         Login login = new Login(users, consoleInputOutput);
@@ -41,8 +41,8 @@ public class LoginTest {
     @Test
     public void loginShouldGetPasswordFromUser() {
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "111-0000", "biblioteca");
+        User userTwo = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         users.add(userOne);
         users.add(userTwo);
         Login login = new Login(users, consoleInputOutput);
@@ -55,12 +55,12 @@ public class LoginTest {
     @Test
     public void loginShouldProduceUser() {
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "111-0000", "biblioteca");
+        User userTwo = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         users.add(userOne);
         users.add(userTwo);
         when(consoleInputOutput.getUserInput()).
-                thenReturn("111-0000", "biblioteca");
+                thenReturn("111-1111", "letmein");
         Login login = new Login(users, consoleInputOutput);
 
         User actualUser = login.validate();
@@ -71,12 +71,12 @@ public class LoginTest {
     @Test
     public void successfulLoginShouldProduceSuccessMessage() {
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "111-0000", "biblioteca");
+        User userTwo = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         users.add(userOne);
         users.add(userTwo);
         when(consoleInputOutput.getUserInput()).
-                thenReturn("111-0000", "biblioteca");
+                thenReturn("111-1111", "letmein");
         Login login = new Login(users, consoleInputOutput);
 
         User actualUser = login.validate();
@@ -88,8 +88,8 @@ public class LoginTest {
     @Test
     public void unSuccessfulLoginShouldProduceFailureMessage() {
         HashSet<User> users = new HashSet<User>();
-        User userOne = new User("111-0000", "biblioteca");
-        User userTwo = new User("222-2222", "logmein");
+        User userOne = new User("111-1111", "letmein", "venkatesh", "111-0000", "biblioteca");
+        User userTwo = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         users.add(userOne);
         users.add(userTwo);
         when(consoleInputOutput.getUserInput()).

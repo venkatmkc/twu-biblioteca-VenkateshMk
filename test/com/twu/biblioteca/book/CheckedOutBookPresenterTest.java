@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
 
 public class CheckedOutBookPresenterTest {
     @Test
@@ -21,13 +20,13 @@ public class CheckedOutBookPresenterTest {
     @Test
     public void addBookShouldAddBookToTheFormattedBooks() {
         String formattedBooks = new String();
-        User user = new User("111-5555", "biblioteca");
+        User user = new User("111-1111", "letmein", "venkatesh", "111-5555", "biblioteca");
         CheckedOutBookPresenter checkedOutBookPresenter = new CheckedOutBookPresenter(formattedBooks);
 
         checkedOutBookPresenter.addBook("Kite Runner", "Khaled Hosseini", "2003", user);
         checkedOutBookPresenter.addBook("The Sky Is Falling", "Sidney Sheldon", "2001", user);
         String actualFormattedBooks = checkedOutBookPresenter.toString();
 
-        assertThat(actualFormattedBooks, is("Kite Runner          | Khaled Hosseini      | 2003 | 111-5555\nThe Sky Is Falling   | Sidney Sheldon       | 2001 | 111-5555\n"));
+        assertThat(actualFormattedBooks, is("Kite Runner          | Khaled Hosseini      | 2003 | 111-1111\nThe Sky Is Falling   | Sidney Sheldon       | 2001 | 111-1111\n"));
     }
 }
