@@ -46,7 +46,7 @@ public class ListBooksOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         Library library = new Library(books, movies);
         BookPresenter bookPresenter = new AvailableBookPresenter("");
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library, bookPresenter);
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
 
         listBooksOption.obtainOptionResult(user);
 

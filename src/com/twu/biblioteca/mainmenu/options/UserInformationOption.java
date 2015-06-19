@@ -1,7 +1,6 @@
 package com.twu.biblioteca.mainmenu.options;
 
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.mainmenu.MainMenu;
 import com.twu.biblioteca.user.User;
 
 public class UserInformationOption implements MainMenuAction{
@@ -10,6 +9,7 @@ public class UserInformationOption implements MainMenuAction{
     public UserInformationOption(ConsoleInputOutput consoleInputOutput) {
         this.consoleInputOutput = consoleInputOutput;
     }
+
 
     @Override
     public void obtainOptionResult(User user) {

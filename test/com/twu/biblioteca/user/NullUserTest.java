@@ -2,7 +2,6 @@ package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.user.NullUser;
-import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

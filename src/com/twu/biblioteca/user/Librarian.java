@@ -2,6 +2,7 @@ package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.mainmenu.LibrarianMainMenu;
 import com.twu.biblioteca.mainmenu.MainMenu;
+import com.twu.biblioteca.mainmenu.UserMainMenu;
 
 public class Librarian extends User {
 
@@ -11,11 +12,14 @@ public class Librarian extends User {
     }
 
     @Override
-    public void visit(MainMenu mainMenu) {
+    public void visit(UserMainMenu userMainMenu) {
     }
 
     @Override
     public void visit(LibrarianMainMenu librarianMainMenu) {
         librarianMainMenu.dispatch(this);
     }
+
+    @Override
+    public void visit(MainMenu mainMenu) {}
 }

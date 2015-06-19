@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
-public class MainMenuTest {
+public class UserMainMenuTest {
     @Mock
     ConsoleInputOutput consoleInputOutput;
 
@@ -51,10 +51,10 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -66,9 +66,9 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
         verify(userOptions).parseUserInput("List Library");
     }
@@ -80,11 +80,11 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
-        verify(consoleInputOutput, times(2)).displayOutputToUser(mainMenu);
+        verify(consoleInputOutput, times(2)).displayOutputToUser(userMainMenu);
     }
 
     @Test
@@ -94,9 +94,9 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
         verify(listBookOption).obtainOptionResult(user);
     }
@@ -108,9 +108,9 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
         verify(consoleInputOutput).displayOutputToUser(Messages.INVALID_MENU_OPTION);
     }
@@ -122,9 +122,9 @@ public class MainMenuTest {
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Library");
         MenuPresenter menuPresenter = new MenuPresenter("");
-        MainMenu mainMenu = new MainMenu(consoleInputOutput, userOptions, menuPresenter);
+        UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
 
-        mainMenu.dispatch(user);
+        userMainMenu.dispatch(user);
 
         verify(userOptions, times(0)).parseUserInput("Quit");
     }

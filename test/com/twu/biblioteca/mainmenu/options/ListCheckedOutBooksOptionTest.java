@@ -46,11 +46,11 @@ public class ListCheckedOutBooksOptionTest {
         movies.add(movieTwo);
         Library library = new Library(books, movies);
         BookPresenter bookPresenter = new CheckedOutBookPresenter("");
-        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, library, bookPresenter);
+        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, library);
 
         listCheckedOutBooksOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser("book name            | book author          | 2012 | 111-1111\n");
+        verify(consoleInputOutput).displayOutputToUser("book name            | book author          | 2012 | 111-1111 | venkatesh\n");
     }
 
 }

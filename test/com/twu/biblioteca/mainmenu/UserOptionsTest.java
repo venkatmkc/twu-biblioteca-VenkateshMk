@@ -33,7 +33,7 @@ public class UserOptionsTest {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
         BookPresenter bookPresenter = new AvailableBookPresenter("");
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library, bookPresenter);
+        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, library);
         LinkedHashMap<String, MainMenuAction> mainMenuOptions = new LinkedHashMap<String, MainMenuAction>();
         mainMenuOptions.put("List Library", listBooksOption);
         UserOptions userOptions = new UserOptions(mainMenuOptions);

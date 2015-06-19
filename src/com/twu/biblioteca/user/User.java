@@ -1,8 +1,6 @@
 package com.twu.biblioteca.user;
 
-import com.twu.biblioteca.Visitable;
 import com.twu.biblioteca.mainmenu.*;
-import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
@@ -58,17 +56,20 @@ public class User implements Visitor{
 
     @Override
     public String toString() {
-        return libraryNumber;
+        return libraryNumber + " | " + name;
     }
 
-    public void visit(MainMenu mainMenu) {
-        mainMenu.dispatch(this);
+    public void visit(UserMainMenu userMainMenu) {
+        userMainMenu.dispatch(this);
     }
 
     @Override
     public void visit(LibrarianMainMenu librarianMainMenu) {
 
     }
+
+    @Override
+    public void visit(MainMenu mainMenu) {}
 
     public String userInformation() {
         return "Name : " + name +

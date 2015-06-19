@@ -100,7 +100,7 @@ public class UserTest {
 
         String actualLibraryNumber = user.toString();
 
-        assertThat(actualLibraryNumber, is("111-1111"));
+        assertThat(actualLibraryNumber, is("111-1111 | venkatesh"));
     }
 
     @Test

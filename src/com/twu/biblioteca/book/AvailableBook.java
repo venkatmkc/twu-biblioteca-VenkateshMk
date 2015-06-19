@@ -15,7 +15,8 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {}
+    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
+    }
 
     @Override
     public Book checkout(User user) {
