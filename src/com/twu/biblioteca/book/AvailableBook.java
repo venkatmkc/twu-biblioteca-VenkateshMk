@@ -3,7 +3,7 @@ package com.twu.biblioteca.book;
 import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.user.User;
 
-import static com.twu.biblioteca.io.Messages.SUCCESSFUL_BOOK_RETURN;
+import static com.twu.biblioteca.io.Messages.*;
 
 public class AvailableBook extends Book {
     public AvailableBook(String name, String author, String year) {
@@ -26,7 +26,7 @@ public class AvailableBook extends Book {
 
     @Override
     public String getCheckoutMessage() {
-        return null;
+        return UNSUCCESSFUL_BOOK_CHECKOUT;
     }
 
     @Override
@@ -40,5 +40,6 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public void appendToCheckedOutItems(ItemPresenter itemPresenter)  {}
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {
+    }
 }

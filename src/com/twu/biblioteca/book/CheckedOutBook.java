@@ -32,7 +32,7 @@ public class CheckedOutBook extends Book {
 
     @Override
     public String getReturnMessage() {
-        return null;
+        return Messages.UNSUCCESSFUL_BOOK_RETURN;
     }
 
 
