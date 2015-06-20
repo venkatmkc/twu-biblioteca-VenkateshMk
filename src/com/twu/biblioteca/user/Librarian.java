@@ -6,7 +6,6 @@ import com.twu.biblioteca.mainmenu.UserMainMenu;
 
 public class Librarian extends User {
 
-
     public Librarian(String libraryNumber, String password, String name, String email, String phoneNumber) {
         super(libraryNumber, password, name, email, phoneNumber);
     }
@@ -21,5 +20,6 @@ public class Librarian extends User {
     }
 
     @Override
-    public void visit(MainMenu mainMenu) {}
+    public void visit(MainMenu mainMenu) {
+    }
 }

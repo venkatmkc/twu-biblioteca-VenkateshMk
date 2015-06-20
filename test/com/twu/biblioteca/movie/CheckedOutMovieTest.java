@@ -5,6 +5,7 @@ import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.CheckedOutMovie;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.NullMovie;
+import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -15,7 +16,8 @@ public class CheckedOutMovieTest {
     @Test
     public void returnBookShouldProduceAvailableBook() {
         AvailableMovie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
-        CheckedOutMovie checkedOutMovie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        CheckedOutMovie checkedOutMovie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0", user);
 
         AvailableMovie actualMovie = checkedOutMovie.returnMovie();
 
@@ -25,7 +27,8 @@ public class CheckedOutMovieTest {
     @Test
     public void checkoutShouldProduceNullMovie() {
         Movie nullMovie = new NullMovie();
-        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0", user);
 
         NullMovie actualResult = movie.checkout();
 
@@ -34,7 +37,8 @@ public class CheckedOutMovieTest {
 
     @Test
     public void successfulCheckoutShouldProduceSuccessMessage() {
-        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        CheckedOutMovie movie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0", user);
 
         String actualStatusMessage = movie.getCheckoutMessage();
 

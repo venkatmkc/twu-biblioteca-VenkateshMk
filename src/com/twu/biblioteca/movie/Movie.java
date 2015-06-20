@@ -1,6 +1,8 @@
 package com.twu.biblioteca.movie;
 
-public abstract class Movie {
+import com.twu.biblioteca.BorrowableItem;
+
+public abstract class Movie implements BorrowableItem {
     protected String name;
     protected String year;
     protected String director;
@@ -12,8 +14,6 @@ public abstract class Movie {
         this.director = director;
         this.rating = rating;
     }
-
-    public abstract void appendToMovies(MoviesPresenter moviesPresenter);
 
     @Override
     public boolean equals(Object o) {
@@ -33,15 +33,8 @@ public abstract class Movie {
         return name != null ? name.hashCode() : 0;
     }
 
-    public boolean isSameMovie(String movieName) {
+    @Override
+    public boolean isSameItem(String movieName) {
         return name.equals(movieName);
     }
-
-    public abstract Movie returnMovie();
-
-    public abstract Movie checkout();
-
-    public abstract String getCheckoutMessage();
-
-    public abstract String getReturnMessage();
 }

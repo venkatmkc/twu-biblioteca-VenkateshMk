@@ -1,5 +1,6 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.io.Messages;
 import com.twu.biblioteca.user.User;
 
@@ -11,18 +12,11 @@ public class CheckedOutBook extends Book {
         this.user = user;
     }
 
-    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
-    }
-
-    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
-        checkedOutBookPresenter.addBook(name, author, year, user);
-    }
-
     public static CheckedOutBook create(String name, String author, String year, User user) {
         return new CheckedOutBook(name, author, year, user);
     }
 
-    public Book returnBook(User visitingUser) {
+    public Book returnItem(User visitingUser) {
         if(user.equals(visitingUser))
             return AvailableBook.create(name, author, year);
         return new NullBook();
@@ -40,4 +34,13 @@ public class CheckedOutBook extends Book {
     public String getReturnMessage() {
         return null;
     }
+
+
+    @Override
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {
+        itemPresenter.addCheckedOutBook(name, author, year, user);
+    }
+
+    @Override
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {}
 }

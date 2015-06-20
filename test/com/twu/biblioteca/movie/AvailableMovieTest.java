@@ -1,9 +1,11 @@
 package com.twu.biblioteca.movie;
 
+import com.twu.biblioteca.BorrowableItem;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.CheckedOutMovie;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.NullMovie;
+import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_MOVIE_RETURN;
@@ -14,20 +16,22 @@ import static org.junit.Assert.assertThat;
 public class AvailableMovieTest {
     @Test
     public void checkoutShouldProduceCheckedOutMovie() {
-        Movie checkedOutMovie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
+        BorrowableItem checkedOutMovie = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0", user);
         AvailableMovie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
-        Movie actualMovie = movie.checkout();
+        BorrowableItem actualMovie = movie.checkout(user);
 
         assertThat(actualMovie, is(equalTo(checkedOutMovie)));
     }
 
     @Test
     public void returnMovieShouldProduceNullMovie() {
-        Movie nullMovie = new NullMovie();
+        BorrowableItem nullMovie = new NullMovie();
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         AvailableMovie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
-        Movie actualResult = movie.returnMovie();
+        BorrowableItem actualResult = movie.returnItem(user);
 
         assertThat(actualResult, is(equalTo(nullMovie)));
     }

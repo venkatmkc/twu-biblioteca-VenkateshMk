@@ -1,6 +1,6 @@
 package com.twu.biblioteca.user;
 
-import com.twu.biblioteca.mainmenu.UserOptions;
+import com.twu.biblioteca.mainmenu.Options;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -12,7 +12,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class UserTest {
     @Mock
-    private UserOptions userOptions;
+    private Options options;
 
     @Before
     public void setUp() {

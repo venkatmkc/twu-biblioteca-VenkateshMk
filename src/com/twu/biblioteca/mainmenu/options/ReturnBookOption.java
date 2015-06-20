@@ -16,7 +16,7 @@ public class ReturnBookOption implements MainMenuAction {
     @Override
     public void obtainOptionResult(User user) {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.returnBook(bookTitle, user);
+        String returnStatus = library.returnItem(bookTitle, user);
         consoleInputOutput.displayOutputToUser(returnStatus);
     }
 }

@@ -15,7 +15,7 @@ public class CheckedOutBookTest {
         AvailableBook availableBook = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
-        Book actualBook = book.returnBook(user);
+        Book actualBook = book.returnItem(user);
 
         assertThat(actualBook, is(equalTo((Book) availableBook)));
     }
@@ -48,7 +48,7 @@ public class CheckedOutBookTest {
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
         Book nullBook = new NullBook();
 
-        Book actualResult = book.returnBook(otherUser);
+        Book actualResult = book.returnItem(otherUser);
 
         assertThat(actualResult, is(nullBook));
     }

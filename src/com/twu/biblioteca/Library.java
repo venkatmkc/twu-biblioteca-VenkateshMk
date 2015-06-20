@@ -1,93 +1,55 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.book.*;
-import com.twu.biblioteca.movie.Movie;
-import com.twu.biblioteca.movie.NullMovie;
-import com.twu.biblioteca.movie.MoviesPresenter;
 import com.twu.biblioteca.user.User;
 
 import java.util.LinkedHashSet;
 
 public class Library {
-    private LinkedHashSet<Book> books;
-    private LinkedHashSet<Movie> movies;
+    private LinkedHashSet<BorrowableItem> items;
 
-    public Library(LinkedHashSet<Book> books, LinkedHashSet<Movie> movies) {
-        this.books = books;
-        this.movies = movies;
+    public Library(LinkedHashSet<BorrowableItem> items) {
+        this.items = items;
     }
 
-    public String availableBooks() {
-        AvailableBookPresenter availableBookPresenter = new AvailableBookPresenter("");
-        for (Book book : books) {
-            book.appendToBooks(availableBookPresenter);
+    public String availableFormattedItems(ItemPresenter itemPresenter) {
+        itemPresenter.flush();
+        for (BorrowableItem item : items) {
+            item.appendToAvailableItems(itemPresenter);
         }
-        return availableBookPresenter.toString();
+        return itemPresenter.toString();
     }
 
-    public synchronized String checkoutBook(String title, User user) {
-        Book book = searchBook(title);
-        book = book.checkout(user);
-        books.remove(book);
-        books.add(book);
-        return book.getCheckoutMessage();
-
-    }
-
-    public synchronized String returnBook(String title, User user) {
-        Book book = searchBook(title);
-        book = book.returnBook(user);
-        books.remove(book);
-        books.add(book);
-        return book.getReturnMessage();
-    }
-
-
-    public Book searchBook(String bookName) {
-        for (Book book : books) {
-            if (book.isSameBook(bookName))
-                return book;
+    public String checkedOutItems(ItemPresenter itemPresenter) {
+        itemPresenter.flush();
+        for (BorrowableItem item : items) {
+            item.appendToCheckedOutItems(itemPresenter);
         }
-        return new NullBook();
+        return itemPresenter.toString();
     }
 
-    public String formattedMovies() {
-        MoviesPresenter moviesPresenter = new MoviesPresenter("");
-        for (Movie movie : movies) {
-            movie.appendToMovies(moviesPresenter);
+    public synchronized String checkoutItem(String title, User user) {
+        BorrowableItem item  = searchItem(title);
+        item = item.checkout(user);
+        items.remove(item);
+        items.add(item);
+        return item.getCheckoutMessage();
+
+    }
+
+    public synchronized String returnItem(String title, User user) {
+        BorrowableItem item = searchItem(title);
+        item = item.returnItem(user);
+        items.remove(item);
+        items.add(item);
+        return item.getReturnMessage();
+    }
+
+
+    public BorrowableItem searchItem(String itemName) {
+        for (BorrowableItem item : items) {
+            if (item.isSameItem(itemName))
+                return item;
         }
-        return moviesPresenter.toString();
-    }
-
-    public Movie searchMovie(String movieName) {
-        for (Movie movie : movies) {
-            if (movie.isSameMovie(movieName))
-                return movie;
-        }
-        return new NullMovie();
-    }
-
-    public String checkoutMovie(String title) {
-        Movie movie = searchMovie(title);
-        movie = movie.checkout();
-        movies.remove(movie);
-        movies.add(movie);
-        return movie.getCheckoutMessage();
-    }
-
-    public String returnMovie(String title) {
-        Movie movie = searchMovie(title);
-        movie = movie.returnMovie();
-        movies.remove(movie);
-        movies.add(movie);
-        return movie.getReturnMessage();
-    }
-
-    public String checkedOutBooks() {
-        CheckedOutBookPresenter checkedOutBookPresenter = new CheckedOutBookPresenter("");
-        for (Book book : books) {
-            book.appendToBooks(checkedOutBookPresenter);
-        }
-        return checkedOutBookPresenter.toString();
+        return new NullItem();
     }
 }

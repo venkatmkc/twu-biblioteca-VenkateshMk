@@ -17,7 +17,7 @@ public class CheckoutBookOption implements MainMenuAction {
     @Override
     public void obtainOptionResult(User User) {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.checkoutBook(bookTitle, User);
+        String returnStatus = library.checkoutItem(bookTitle, User);
         consoleInputOutput.displayOutputToUser(returnStatus);
     }
 }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.ItemPresenter;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -11,7 +12,7 @@ import static org.mockito.MockitoAnnotations.*;
 
 public class BookTest {
     @Mock
-    AvailableBookPresenter availableBookPresenter;
+    ItemPresenter availableBookPresenter;
 
     @Before
     public void setUp() {
@@ -74,7 +75,7 @@ public class BookTest {
     public void sameBookIdShouldMapToSameBook() {
         Book book = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
-        boolean actualCheckResult = book.isSameBook("Kite Runner");
+        boolean actualCheckResult = book.isSameItem("Kite Runner");
 
         assertThat(actualCheckResult, is(true));
     }
@@ -83,8 +84,8 @@ public class BookTest {
     public void appendBookShouldBeAppendedToTheBooksList() {
         Book book = new AvailableBook("Kite Runner","Khaled Hosseini", "2003");
 
-        book.appendToBooks(availableBookPresenter);
+        book.appendToAvailableItems(availableBookPresenter);
 
-        verify(availableBookPresenter).addBook("Kite Runner", "Khaled Hosseini", "2003");
+        verify(availableBookPresenter).addAvailableBook("Kite Runner", "Khaled Hosseini", "2003");
     }
 }

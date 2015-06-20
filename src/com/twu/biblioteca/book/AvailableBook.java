@@ -1,5 +1,6 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.user.User;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_BOOK_RETURN;
@@ -7,15 +8,6 @@ import static com.twu.biblioteca.io.Messages.SUCCESSFUL_BOOK_RETURN;
 public class AvailableBook extends Book {
     public AvailableBook(String name, String author, String year) {
         super(name, author, year);
-    }
-
-    @Override
-    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
-        availableBookPresenter.addBook(name, author, year);
-    }
-
-    @Override
-    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
     }
 
     @Override
@@ -28,7 +20,7 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public Book returnBook(User user) {
+    public Book returnItem(User user) {
         return new NullBook();
     }
 
@@ -41,4 +33,12 @@ public class AvailableBook extends Book {
     public String getReturnMessage() {
         return SUCCESSFUL_BOOK_RETURN;
     }
+
+    @Override
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {
+        itemPresenter.addAvailableBook(name, author, year);
+    }
+
+    @Override
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter)  {}
 }

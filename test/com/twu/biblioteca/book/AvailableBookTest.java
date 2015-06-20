@@ -31,7 +31,7 @@ public class AvailableBookTest {
         Book nullBook = new NullBook();
         AvailableBook book = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
 
-        Book actualResult = book.returnBook(user);
+        Book actualResult = book.returnItem(user);
 
         assertThat(actualResult, is(equalTo(nullBook)));
     }

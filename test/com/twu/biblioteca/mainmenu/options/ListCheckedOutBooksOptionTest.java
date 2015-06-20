@@ -1,11 +1,13 @@
 package com.twu.biblioteca.mainmenu.options;
 
+import com.twu.biblioteca.BorrowableItem;
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.BookPresenter;
+import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.CheckedOutBook;
 import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.CheckedOutBookPresenter;
 import com.twu.biblioteca.io.ConsoleInputOutput;
+import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.CheckedOutMovie;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.user.User;
@@ -34,18 +36,11 @@ public class ListCheckedOutBooksOptionTest {
 
     @Test
     public void checkedOutBookListShouldBeDisplayedToTheUser() {
-        User user = new User("111-1111", "letmein", "venkatesh", "111-5555", "biblioteca");
+        User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         Book book = new CheckedOutBook("book name", "book author", "2012", user);
-
-        LinkedHashSet<Book> books = new LinkedHashSet<Book>();
+        LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
-        LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
-        Movie movieOne = new CheckedOutMovie("Inception", "2010", "Christopher Nolan", "9.0");
-        Movie movieTwo = new CheckedOutMovie( "Following", "1998", "Christopher Nolan", "8");
-        movies.add(movieOne);
-        movies.add(movieTwo);
-        Library library = new Library(books, movies);
-        BookPresenter bookPresenter = new CheckedOutBookPresenter("");
+        Library library = new Library(books);
         MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, library);
 
         listCheckedOutBooksOption.obtainOptionResult(user);

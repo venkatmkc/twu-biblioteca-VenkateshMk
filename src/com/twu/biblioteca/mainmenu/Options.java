@@ -4,10 +4,10 @@ import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 
 import java.util.LinkedHashMap;
 
-public class UserOptions{
+public class Options {
     private LinkedHashMap<String, MainMenuAction> options;
 
-    public UserOptions(LinkedHashMap<String, MainMenuAction> options) {
+    public Options(LinkedHashMap<String, MainMenuAction> options) {
         this.options = options;
     }
 

@@ -1,5 +1,7 @@
 package com.twu.biblioteca.mainmenu.options;
 
+import com.twu.biblioteca.BorrowableItem;
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.book.AvailableBook;
 import com.twu.biblioteca.book.Book;
@@ -33,20 +35,20 @@ public class ListMoviesOptionTest {
     @Test
     public void movieListShouldBeDisplayedToTheUser() {
         Book book = new AvailableBook("book name", "book author", "2012");
-
-        LinkedHashSet<Book> books = new LinkedHashSet<Book>();
+        LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
-        LinkedHashSet<Movie> movies = new LinkedHashSet<Movie>();
+        LinkedHashSet<BorrowableItem> movies = new LinkedHashSet<BorrowableItem>();
         Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        Library library = new Library(books, movies);
+        Library library = new Library(books);
+        ItemPresenter bookPresenter = new ItemPresenter("");
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
 
         listMoviesOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser(library.formattedMovies());
+        verify(consoleInputOutput).displayOutputToUser(library.availableFormattedItems(bookPresenter));
     }
 }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.user.User;
 
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_BOOK_RETURN;
@@ -11,21 +12,12 @@ public class NullBook extends Book {
     }
 
     @Override
-    public void appendToBooks(AvailableBookPresenter availableBookPresenter) {
-    }
-
-    @Override
-    public void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter) {
-
-    }
-
-    @Override
     public Book checkout(User user) {
         return new NullBook();
     }
 
     @Override
-    public Book returnBook(User user) {
+    public Book returnItem(User user) {
         return new NullBook();
     }
 
@@ -35,5 +27,20 @@ public class NullBook extends Book {
 
     public String getReturnMessage() {
         return UNSUCCESSFUL_BOOK_RETURN;
+    }
+
+    @Override
+    public boolean isSameItem(String itemName) {
+        return name.equals(itemName);
+    }
+
+    @Override
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {
+
+    }
+
+    @Override
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {
+
     }
 }

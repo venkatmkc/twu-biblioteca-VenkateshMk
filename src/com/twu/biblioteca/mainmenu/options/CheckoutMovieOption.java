@@ -16,7 +16,7 @@ public class CheckoutMovieOption implements MainMenuAction {
     @Override
     public void obtainOptionResult(User user) {
         String movieTitle = consoleInputOutput.getUserInput();
-        String checkoutStatus = library.checkoutMovie(movieTitle);
+        String checkoutStatus = library.checkoutItem(movieTitle, user);
         consoleInputOutput.displayOutputToUser(checkoutStatus);
     }
 }

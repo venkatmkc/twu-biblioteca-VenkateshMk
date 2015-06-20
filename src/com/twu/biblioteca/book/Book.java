@@ -1,8 +1,9 @@
 package com.twu.biblioteca.book;
 
+import com.twu.biblioteca.BorrowableItem;
 import com.twu.biblioteca.user.User;
 
-public abstract class Book {
+public abstract class Book implements BorrowableItem {
 
     protected String name, author, year;
 
@@ -30,19 +31,16 @@ public abstract class Book {
         return name != null ? name.hashCode() : 0;
     }
 
-    public boolean isSameBook(String bookName) {
-        return name.equals(bookName);
-    }
-
     public abstract Book checkout(User user);
 
-    public abstract Book returnBook(User user);
+    public abstract Book returnItem(User user);
 
     public abstract String getCheckoutMessage();
 
     public abstract String getReturnMessage();
 
-    public abstract void appendToBooks(AvailableBookPresenter availableBookPresenter);
-
-    public abstract void appendToBooks(CheckedOutBookPresenter checkedOutBookPresenter);
+    @Override
+    public boolean isSameItem(String itemName) {
+        return name.equals(itemName);
+    }
 }

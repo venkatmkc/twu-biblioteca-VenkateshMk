@@ -1,17 +1,8 @@
-package com.twu.biblioteca.movie;
+package com.twu.biblioteca;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.user.User;
 
-import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_MOVIE_CHECKOUT;
-import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_MOVIE_RETURN;
-
-public class NullMovie extends Movie {
-    public NullMovie() {
-        super("", "", "", "");
-    }
-
+public class NullItem implements BorrowableItem {
     @Override
     public BorrowableItem checkout(User user) {
         return null;
@@ -22,12 +13,14 @@ public class NullMovie extends Movie {
         return null;
     }
 
+    @Override
     public String getCheckoutMessage() {
-        return UNSUCCESSFUL_MOVIE_CHECKOUT;
+        return null;
     }
 
+    @Override
     public String getReturnMessage() {
-        return UNSUCCESSFUL_MOVIE_RETURN;
+        return null;
     }
 
     @Override
@@ -44,4 +37,5 @@ public class NullMovie extends Movie {
     public void appendToAvailableItems(ItemPresenter itemPresenter) {
 
     }
+
 }

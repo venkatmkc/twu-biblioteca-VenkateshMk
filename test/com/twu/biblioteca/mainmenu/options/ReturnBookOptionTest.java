@@ -39,7 +39,7 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
         returnBookOption.obtainOptionResult(user);
@@ -60,7 +60,7 @@ public class ReturnBookOptionTest {
 
         returnBookOption.obtainOptionResult(user);
 
-        verify(library).returnBook("Kite Runner", user);
+        verify(library).returnItem("Kite Runner", user);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class ReturnBookOptionTest {
         books.add(bookOne);
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
+        when(library.returnItem("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
         returnBookOption.obtainOptionResult(user);
@@ -89,7 +89,7 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnBook("Kite Runner",user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnItem("Kite Runner",user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
         returnBookOption.obtainOptionResult(user);
@@ -106,7 +106,7 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
-        when(library.returnBook("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        when(library.returnItem("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
 
         returnBookOption.obtainOptionResult(user);

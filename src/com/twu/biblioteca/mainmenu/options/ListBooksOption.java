@@ -1,5 +1,6 @@
 package com.twu.biblioteca.mainmenu.options;
 
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.Library;
 import com.twu.biblioteca.user.User;
@@ -15,6 +16,7 @@ public class ListBooksOption implements MainMenuAction {
 
     @Override
     public void obtainOptionResult(User user) {
-        consoleInputOutput.displayOutputToUser(library.availableBooks());
+        ItemPresenter itemPresenter = new ItemPresenter("");
+        consoleInputOutput.displayOutputToUser(library.availableFormattedItems(itemPresenter));
     }
 }

@@ -7,10 +7,10 @@ import com.twu.biblioteca.user.User;
 
 public class MainMenu {
     protected ConsoleInputOutput consoleInputOutput;
-    protected UserOptions options;
+    protected Options options;
     protected MenuPresenter menuPresenter;
 
-    public MainMenu(ConsoleInputOutput consoleInputOutput, UserOptions options, MenuPresenter menuPresenter) {
+    public MainMenu(ConsoleInputOutput consoleInputOutput, Options options, MenuPresenter menuPresenter) {
         this.consoleInputOutput = consoleInputOutput;
         this.options = options;
         this.menuPresenter = menuPresenter;

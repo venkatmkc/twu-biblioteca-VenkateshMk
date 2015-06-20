@@ -1,5 +1,6 @@
 package com.twu.biblioteca.movie;
 
+import com.twu.biblioteca.ItemPresenter;
 import com.twu.biblioteca.movie.AvailableMovie;
 import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.movie.MoviesPresenter;
@@ -18,7 +19,7 @@ import static org.mockito.MockitoAnnotations.*;
 
 public class MovieTest {
     @Mock
-    MoviesPresenter moviesPresenter;
+    ItemPresenter moviesPresenter;
 
     @Before
     public void setUp() {
@@ -29,9 +30,9 @@ public class MovieTest {
     public void appendMovieShouldAppendItselfToTheMoviesList() {
         Movie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
-        movie.appendToMovies(moviesPresenter);
+        movie.appendToAvailableItems(moviesPresenter);
 
-        verify(moviesPresenter).addMovie("Inception", "2010", "Christopher Nolan", "9.0");
+        verify(moviesPresenter).addAvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
     }
 
     @Test
@@ -88,7 +89,7 @@ public class MovieTest {
     public void sameMovieTitleShouldMapToSameMovie() {
         Movie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 
-        boolean actualCheckResult = movie.isSameMovie("Inception");
+        boolean actualCheckResult = movie.isSameItem("Inception");
 
         Assert.assertThat(actualCheckResult, is(true));
     }
