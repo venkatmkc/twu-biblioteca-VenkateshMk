@@ -9,6 +9,7 @@ public class MainMenu {
     protected ConsoleInputOutput consoleInputOutput;
     protected Options options;
     protected MenuPresenter menuPresenter;
+    public static final String LOGOUT = "4";
 
     public MainMenu(ConsoleInputOutput consoleInputOutput, Options options, MenuPresenter menuPresenter) {
         this.consoleInputOutput = consoleInputOutput;
@@ -22,7 +23,7 @@ public class MainMenu {
             consoleInputOutput.displayOutputToUser(this);
             consoleInputOutput.displayOutputToUser(Messages.MENU_CHOICE);
             String userInput = consoleInputOutput.getUserInput();
-            if (userInput.equals("4"))
+            if (userInput.equals(LOGOUT))
                 return;
             option = options.parseUserInput(userInput);
             if (checkValidOption(option)) {

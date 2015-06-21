@@ -6,19 +6,19 @@ import com.twu.biblioteca.user.User;
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_BOOK_RETURN;
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_BOOK_CHECKOUT;
 
-public class NullBook extends Book {
-    public NullBook() {
+public class UnAvailableBook extends Book {
+    public UnAvailableBook() {
         super("", "", "");
     }
 
     @Override
     public Book checkout(User user) {
-        return new NullBook();
+        return new UnAvailableBook();
     }
 
     @Override
     public Book returnItem(User user) {
-        return new NullBook();
+        return new UnAvailableBook();
     }
 
     public String getCheckoutMessage() {
@@ -35,12 +35,8 @@ public class NullBook extends Book {
     }
 
     @Override
-    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {
-
-    }
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {}
 
     @Override
-    public void appendToAvailableItems(ItemPresenter itemPresenter) {
-
-    }
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {}
 }

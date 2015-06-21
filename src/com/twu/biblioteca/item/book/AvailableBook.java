@@ -21,7 +21,7 @@ public class AvailableBook extends Book {
 
     @Override
     public Book returnItem(User user) {
-        return new NullBook();
+        return new UnAvailableBook();
     }
 
     @Override

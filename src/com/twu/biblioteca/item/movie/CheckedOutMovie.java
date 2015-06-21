@@ -18,13 +18,6 @@ public class CheckedOutMovie extends Movie {
         return new CheckedOutMovie(name, year, director, rating, user);
     }
 
-    public AvailableMovie returnMovie() {
-        return AvailableMovie.create(name, year, director, rating);
-    }
-
-    public NullMovie checkout() {
-        return new NullMovie();
-    }
 
     @Override
     public BorrowableItem checkout(User user) {

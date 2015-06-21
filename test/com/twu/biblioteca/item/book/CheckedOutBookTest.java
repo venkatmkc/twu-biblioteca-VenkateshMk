@@ -22,13 +22,13 @@ public class CheckedOutBookTest {
 
     @Test
     public void checkoutShouldProduceNullBook() {
-        NullBook nullBook = new NullBook();
+        UnAvailableBook unAvailableBook = new UnAvailableBook();
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
 
         Book actualResult = book.checkout(user);
 
-        assertThat(actualResult, is(equalTo((Book) nullBook)));
+        assertThat(actualResult, is(equalTo((Book) unAvailableBook)));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CheckedOutBookTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         User otherUser = new User("111-1131", "letmein", "venkatesh", "555-5555", "letmein");
         CheckedOutBook book = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);
-        Book nullBook = new NullBook();
+        Book nullBook = new UnAvailableBook();
 
         Book actualResult = book.returnItem(otherUser);
 

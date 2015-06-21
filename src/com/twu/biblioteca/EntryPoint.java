@@ -22,6 +22,7 @@ public class EntryPoint {
     public static void main(String []args) {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
+
         HashSet<User> users = new HashSet<User>();
         User userOne = new User("111-1111", "letmein", "venkatesh", "venkatmk@thoughtworks.com", "9566011847");
         User userTwo = new User("222-2222", "logmein", "chip", "abc@def.com", "9989898989");
@@ -30,13 +31,19 @@ public class EntryPoint {
         users.add(userTwo);
         users.add(librarian);
         UserAccounts userAccounts = new UserAccounts(users, consoleInputOutput);
+
         Book bookOne = new AvailableBook("java tutorial", "aravind", "2012");
         Book bookTwo = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
         Book bookThree = new CheckedOutBook("The Sky Is Falling", "Sidney Sheldon", "2001", userOne);
+        Book bookFour = new AvailableBook("Outliers", "Marrisa Meyer", "2007");
+        Book bookFive = new CheckedOutBook("Harry potter", "JK Rowling", "2002", librarian);
         LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(bookOne);
         books.add(bookTwo);
         books.add(bookThree);
+        books.add(bookFour);
+        books.add(bookFive);
+
         LinkedHashSet<BorrowableItem> movies = new LinkedHashSet<BorrowableItem>();
         Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9");
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "unrated");
@@ -44,19 +51,23 @@ public class EntryPoint {
         movies.add(movieOne);
         movies.add(movieTwo);
         movies.add(movieThree);
+
         Section bookSection = new Section(books);
+
         Section movieSection = new Section(movies);
+
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, bookSection);
-        HashMap<String, Book> booksTitleToBook = new HashMap<String, Book>();
-        booksTitleToBook.put("java tutorial", bookOne);
-        booksTitleToBook.put("Kite Runner", bookTwo);
-        booksTitleToBook.put("The Sky Is Falling", bookThree);
+
         CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, bookSection);
+
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, bookSection);
+
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, movieSection);
+
         CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, movieSection);
+
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, movieSection);
-        UserInformationOption userInformationOption = new UserInformationOption(consoleInputOutput);
+
         LinkedHashMap<String, MainMenuAction> options = new LinkedHashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
         options.put("Checkout Book", checkoutBookOption);
@@ -64,34 +75,38 @@ public class EntryPoint {
         options.put("List Movies", listMoviesOption);
         options.put("Checkout Movie", checkoutMovieOption);
         options.put("Return Movie", returnMovieOption);
-        options.put("User Information", userInformationOption);
         options.put("Logout", null);
         Options userOptions = new Options(options);
+
         LinkedHashMap<String, MainMenuAction> librarianOptionsList = new LinkedHashMap<String, MainMenuAction>();
+
+        MainMenuAction checkedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, bookSection);
+
+        MainMenuAction checkedOutMoviesOption = new ListCheckedOutBooksOption(consoleInputOutput, movieSection);
+        librarianOptionsList.put("CheckedOut Books", checkedOutBooksOption);
+        librarianOptionsList.put("CheckedOut Movies", checkedOutMoviesOption);
         librarianOptionsList.put("List Books", listBooksOption);
         librarianOptionsList.put("Checkout Book", checkoutBookOption);
         librarianOptionsList.put("Return Book", returnBookOption);
         librarianOptionsList.put("List Movies", listMoviesOption);
         librarianOptionsList.put("Checkout Movie", checkoutMovieOption);
         librarianOptionsList.put("Return Movie", returnMovieOption);
-        librarianOptionsList.put("User Information", userInformationOption);
-        MainMenuAction checkedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, bookSection);
-        librarianOptionsList.put("CheckedOut Books", checkedOutBooksOption);
-        MainMenuAction checkedOutMoviesOption = new ListCheckedOutBooksOption(consoleInputOutput, movieSection);
-        librarianOptionsList.put("CheckedOut Movies", checkedOutMoviesOption);
         librarianOptionsList.put("Logout", null);
+
         MenuPresenter menuPresenter = new MenuPresenter("");
         Options librarianOptions = new Options(librarianOptionsList);
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, userOptions, menuPresenter);
         LibrarianMainMenu librarianMainMenu = new LibrarianMainMenu(consoleInputOutput, librarianOptions, menuPresenter);
         LinkedHashMap<String, MainMenuAction> guestOptionsList = new LinkedHashMap<String, MainMenuAction>();
+        LoginOption loginOption = new LoginOption(userAccounts, userMainMenu, librarianMainMenu, consoleInputOutput);
+
         guestOptionsList.put("List Books", listBooksOption);
         guestOptionsList.put("List Movies", listMoviesOption);
-        LoginOption loginOption = new LoginOption(userAccounts, userMainMenu, librarianMainMenu, consoleInputOutput);
         guestOptionsList.put("Login", loginOption);
         guestOptionsList.put("Quit", null);
         Options guestOptions = new Options(guestOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, guestOptions, menuPresenter);
+
         Biblioteca biblioteca = new Biblioteca(consoleInputOutput, mainMenu, userMainMenu, librarianMainMenu);
         biblioteca.start();
     }

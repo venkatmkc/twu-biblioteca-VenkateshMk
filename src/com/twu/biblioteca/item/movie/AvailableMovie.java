@@ -18,7 +18,7 @@ public class AvailableMovie extends Movie {
 
     @Override
     public BorrowableItem returnItem(User user) {
-        return new NullMovie();
+        return new UnAvailableMovie();
     }
 
     @Override

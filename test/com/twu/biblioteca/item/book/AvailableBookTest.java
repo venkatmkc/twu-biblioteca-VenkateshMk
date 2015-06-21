@@ -28,7 +28,7 @@ public class AvailableBookTest {
 
     @Test
     public void returnBookShouldProduceNullBook() {
-        Book nullBook = new NullBook();
+        Book nullBook = new UnAvailableBook();
         AvailableBook book = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
 
         Book actualResult = book.returnItem(user);

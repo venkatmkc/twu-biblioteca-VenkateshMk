@@ -6,6 +6,8 @@ import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 import com.twu.biblioteca.user.User;
 
 public class LibrarianMainMenu extends UserMainMenu {
+    public static final String LOGOUT = "9";
+
     public LibrarianMainMenu(ConsoleInputOutput consoleInputOutput, Options options, MenuPresenter menuPresenter) {
         super(consoleInputOutput, options, menuPresenter);
     }
@@ -16,7 +18,7 @@ public class LibrarianMainMenu extends UserMainMenu {
             consoleInputOutput.displayOutputToUser(this);
             consoleInputOutput.displayOutputToUser(Messages.MENU_CHOICE);
             String userInput = consoleInputOutput.getUserInput();
-            if (userInput.equals("10"))
+            if (userInput.equals(LOGOUT))
                 return;
             option = options.parseUserInput(userInput);
             if (checkValidOption(option)) {

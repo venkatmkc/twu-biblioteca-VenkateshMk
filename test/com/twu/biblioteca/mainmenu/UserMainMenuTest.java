@@ -47,7 +47,7 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldGetInputFromUser() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("8");
+                thenReturn("7");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
@@ -62,7 +62,7 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldParseUserInputToOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Section", "8");
+                thenReturn("List Section", "7");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
@@ -76,7 +76,7 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldProduceMainMenuOptionList() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Section", "8");
+                thenReturn("List Section", "7");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
@@ -90,7 +90,7 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldPerformSelectedOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Section", "8");
+                thenReturn("List Section", "7");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
@@ -103,7 +103,7 @@ public class UserMainMenuTest {
 
     @Test
     public void dispatchShouldProduceInvalidOptionMessageOnInvalidOption() {
-        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Section", "8");
+        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Section", "7");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
@@ -117,7 +117,7 @@ public class UserMainMenuTest {
 
     @Test
     public void dispatchShould8WhenQuitOptionIsSelected() {
-        when(consoleInputOutput.getUserInput()).thenReturn("8");
+        when(consoleInputOutput.getUserInput()).thenReturn("7");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
         mainMenuOptionsList.add("List Section");
@@ -126,6 +126,6 @@ public class UserMainMenuTest {
 
         userMainMenu.dispatch(user);
 
-        verify(options, times(0)).parseUserInput("8");
+        verify(options, times(0)).parseUserInput("7");
     }
 }

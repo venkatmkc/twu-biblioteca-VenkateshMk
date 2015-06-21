@@ -23,7 +23,7 @@ public class AvailableMovieTest {
 
     @Test
     public void returnMovieShouldProduceNullMovie() {
-        BorrowableItem nullMovie = new NullMovie();
+        BorrowableItem nullMovie = new UnAvailableMovie();
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         AvailableMovie movie = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9.0");
 

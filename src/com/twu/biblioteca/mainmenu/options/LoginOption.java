@@ -27,6 +27,7 @@ public class LoginOption implements MainMenuAction {
         consoleInputOutput.displayOutputToUser(user.getLoginMessage());
         if(user instanceof NullUser)
             return;
+        consoleInputOutput.displayOutputToUser(user.userInformation());
         user.visit(userMainMenu);
         user.visit(librarianMainMenu);
     }

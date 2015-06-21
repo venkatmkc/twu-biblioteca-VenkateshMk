@@ -7,19 +7,19 @@ import com.twu.biblioteca.user.User;
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_MOVIE_CHECKOUT;
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_MOVIE_RETURN;
 
-public class NullMovie extends Movie {
-    public NullMovie() {
+public class UnAvailableMovie extends Movie {
+    public UnAvailableMovie() {
         super("", "", "", "");
     }
 
     @Override
     public BorrowableItem checkout(User user) {
-        return null;
+        return new UnAvailableMovie();
     }
 
     @Override
     public BorrowableItem returnItem(User user) {
-        return null;
+        return new UnAvailableMovie();
     }
 
     public String getCheckoutMessage() {
