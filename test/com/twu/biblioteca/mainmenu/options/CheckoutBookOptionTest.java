@@ -1,14 +1,11 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.ItemPresenter;
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.BorrowableItem;
+import com.twu.biblioteca.item.book.AvailableBook;
+import com.twu.biblioteca.item.book.Book;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.io.Messages;
-import com.twu.biblioteca.movie.AvailableMovie;
-import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +21,7 @@ public class CheckoutBookOptionTest {
     private ConsoleInputOutput consoleInputOutput;
 
     @Mock
-    Library library;
+    Section section;
 
     @Before
     public void setUp() {
@@ -37,9 +34,9 @@ public class CheckoutBookOptionTest {
         LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        Library library = new Library(books);;
+        Section section = new Section(books);;
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
 
         checkoutBookOption.obtainOptionResult(user);
 
@@ -57,8 +54,8 @@ public class CheckoutBookOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
 
-        when(library.checkoutItem("Kite Runner", user)).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
+        when(section.checkoutItem("Kite Runner", user)).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
 
         checkoutBookOption.obtainOptionResult(user);
 
@@ -74,8 +71,8 @@ public class CheckoutBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.checkoutItem("Kite Runner", user)).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, library);
+        when(section.checkoutItem("Kite Runner", user)).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
+        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
 
         checkoutBookOption.obtainOptionResult(user);
 

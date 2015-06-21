@@ -1,13 +1,10 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.ItemPresenter;
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.BorrowableItem;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.movie.AvailableMovie;
-import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.item.movie.AvailableMovie;
+import com.twu.biblioteca.item.movie.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +22,7 @@ public class CheckoutMovieOptionTest {
     private ConsoleInputOutput consoleInputOutput;
 
     @Mock
-    Library library;
+    Section section;
 
     @Before
     public void setUp() {
@@ -41,9 +38,9 @@ public class CheckoutMovieOptionTest {
         movies.add(movieOne);
         movies.add(movieTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        Library library = new Library(movies);
+        Section section = new Section(movies);
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
-        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, section);
 
         checkoutMovieOption.obtainOptionResult(user);
 
@@ -54,19 +51,19 @@ public class CheckoutMovieOptionTest {
     public void checkoutShouldBeDoneWithTheGivenTitle() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, section);
 
         checkoutMovieOption.obtainOptionResult(user);
 
-        verify(library).checkoutItem("Inception", user);
+        verify(section).checkoutItem("Inception", user);
     }
 
     @Test
     public void checkoutMessageShouldBeDisplayedToTheUser() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        when(library.checkoutItem("Inception", user)).thenReturn(SUCCESSFUL_MOVIE_CHECKOUT);
-        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, library);
+        when(section.checkoutItem("Inception", user)).thenReturn(SUCCESSFUL_MOVIE_CHECKOUT);
+        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, section);
 
         checkoutMovieOption.obtainOptionResult(user);
 

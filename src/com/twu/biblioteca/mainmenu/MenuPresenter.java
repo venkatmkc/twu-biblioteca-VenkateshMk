@@ -21,7 +21,6 @@ public class MenuPresenter {
             formattedOptionsList += optionNumber + ". " + optionsIterator.next() + "\n";
             optionNumber++;
         }
-        formattedOptionsList += optionNumber + ". " + "Quit\n";
     }
 
     public void flush() {

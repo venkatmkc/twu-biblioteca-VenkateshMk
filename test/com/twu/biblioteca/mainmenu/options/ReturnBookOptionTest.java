@@ -1,9 +1,9 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.CheckedOutBook;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.book.AvailableBook;
+import com.twu.biblioteca.item.book.Book;
+import com.twu.biblioteca.item.book.CheckedOutBook;
 import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
@@ -23,7 +23,7 @@ public class ReturnBookOptionTest {
     private ConsoleInputOutput consoleInputOutput;
 
     @Mock
-    Library library;
+    Section section;
 
     @Before
     public void setUp() {
@@ -39,8 +39,8 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
+        when(section.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
 
         returnBookOption.obtainOptionResult(user);
 
@@ -56,11 +56,11 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
 
         returnBookOption.obtainOptionResult(user);
 
-        verify(library).returnItem("Kite Runner", user);
+        verify(section).returnItem("Kite Runner", user);
     }
 
     @Test
@@ -72,8 +72,8 @@ public class ReturnBookOptionTest {
         books.add(bookOne);
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnItem("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
+        when(section.returnItem("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
 
         returnBookOption.obtainOptionResult(user);
 
@@ -89,8 +89,8 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        when(library.returnItem("Kite Runner",user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
+        when(section.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
 
         returnBookOption.obtainOptionResult(user);
 
@@ -106,8 +106,8 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
-        when(library.returnItem("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, library);
+        when(section.returnItem("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
+        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
 
         returnBookOption.obtainOptionResult(user);
 

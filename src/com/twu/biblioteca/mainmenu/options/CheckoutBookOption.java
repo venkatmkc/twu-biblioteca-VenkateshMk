@@ -1,23 +1,23 @@
 package com.twu.biblioteca.mainmenu.options;
 
+import com.twu.biblioteca.library.Section;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.Library;
 import com.twu.biblioteca.user.User;
 
 public class CheckoutBookOption implements MainMenuAction {
 
     private ConsoleInputOutput consoleInputOutput;;
-    private Library library;
+    private Section section;
 
-    public CheckoutBookOption(ConsoleInputOutput consoleInputOutput, Library library) {
+    public CheckoutBookOption(ConsoleInputOutput consoleInputOutput, Section section) {
         this.consoleInputOutput = consoleInputOutput;
-        this.library = library;
+        this.section = section;
     }
 
     @Override
     public void obtainOptionResult(User User) {
         String bookTitle = consoleInputOutput.getUserInput();
-        String returnStatus = library.checkoutItem(bookTitle, User);
-        consoleInputOutput.displayOutputToUser(returnStatus);
+        String checkoutStatus = section.checkoutItem(bookTitle, User);
+        consoleInputOutput.displayOutputToUser(checkoutStatus);
     }
 }

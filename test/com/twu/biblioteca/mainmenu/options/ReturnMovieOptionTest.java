@@ -1,13 +1,12 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
-import com.twu.biblioteca.book.CheckedOutBook;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.BorrowableItem;
+import com.twu.biblioteca.item.book.Book;
+import com.twu.biblioteca.item.book.CheckedOutBook;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.movie.AvailableMovie;
-import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.item.movie.AvailableMovie;
+import com.twu.biblioteca.item.movie.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +24,7 @@ public class ReturnMovieOptionTest {
     private ConsoleInputOutput consoleInputOutput;
 
     @Mock
-    Library library;
+    Section section;
 
     @Before
     public void setUp() {
@@ -41,9 +40,9 @@ public class ReturnMovieOptionTest {
         Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "8");
         movies.add(movieOne);
         movies.add(movieTwo);
-        Library library = new Library(movies);
+        Section section = new Section(movies);
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
-        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, section);
 
         returnMovieOption.obtainOptionResult(user);
 
@@ -54,19 +53,19 @@ public class ReturnMovieOptionTest {
     public void returnMovieShouldBeDoneWithTheGivenTitle() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, section);
 
         returnMovieOption.obtainOptionResult(user);
 
-        verify(library).returnItem("Inception", user);
+        verify(section).returnItem("Inception", user);
     }
 
     @Test
     public void checkoutMessageShouldBeDisplayedToTheUser() {
         when(consoleInputOutput.getUserInput()).thenReturn("Inception");
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        when(library.returnItem("Inception", user)).thenReturn(SUCCESSFUL_MOVIE_RETURN);
-        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, library);
+        when(section.returnItem("Inception", user)).thenReturn(SUCCESSFUL_MOVIE_RETURN);
+        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, section);
 
         returnMovieOption.obtainOptionResult(user);
 

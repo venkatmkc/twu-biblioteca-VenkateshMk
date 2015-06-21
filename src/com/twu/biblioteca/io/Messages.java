@@ -11,7 +11,10 @@ public interface Messages {
     String SUCCESSFUL_MOVIE_CHECKOUT = "Thank you! Enjoy the movie";
     String UNSUCCESSFUL_MOVIE_CHECKOUT = "That movie is not available.";
     String UNSUCCESSFUL_MOVIE_RETURN = "That is not a valid movie to return.";
-    String SUCCESSFUL_LOGIN = "Login Successful";
-    String UNSUCCESSFUL_LOGIN = "Login Unsuccessful";
+    String SUCCESSFUL_LOGIN = "UserAccounts Successful";
+    String UNSUCCESSFUL_LOGIN = "UserAccounts Unsuccessful";
     String ITEM_UNAVAILABLE = "That Item is not available";
+    String LIBRARY_NUMBER = "Enter your library number : ";
+    String PASSWORD = "Enter your password : ";
+    String MENU_CHOICE = "Please Choose an option : ";
 }

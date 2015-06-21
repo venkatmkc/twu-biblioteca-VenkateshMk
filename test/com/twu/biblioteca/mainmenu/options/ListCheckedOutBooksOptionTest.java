@@ -1,15 +1,10 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.ItemPresenter;
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.CheckedOutBook;
-import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.BorrowableItem;
+import com.twu.biblioteca.item.book.CheckedOutBook;
+import com.twu.biblioteca.item.book.Book;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.movie.AvailableMovie;
-import com.twu.biblioteca.movie.CheckedOutMovie;
-import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,8 +35,8 @@ public class ListCheckedOutBooksOptionTest {
         Book book = new CheckedOutBook("book name", "book author", "2012", user);
         LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
-        Library library = new Library(books);
-        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, library);
+        Section section = new Section(books);
+        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, section);
 
         listCheckedOutBooksOption.obtainOptionResult(user);
 

@@ -11,19 +11,19 @@ public class MenuPresenterTest {
     @Test
     public void formattedMainMenuOptionListShouldBeProduced() {
         Set<String> options = new LinkedHashSet<String>();
-        options.add("List Library");
+        options.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
 
         menuPresenter.addMenu(options);
         String actualFormattedOptionList = menuPresenter.toString();
 
-        assertThat(actualFormattedOptionList, is(equalTo("1. List Library\n2. Quit\n")));
+        assertThat(actualFormattedOptionList, is(equalTo("1. List Section\n")));
     }
 
     @Test
     public void flushShouldClearTheMenu() {
         Set<String> options = new LinkedHashSet<String>();
-        options.add("List Library");
+        options.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("list");
 
         menuPresenter.flush();

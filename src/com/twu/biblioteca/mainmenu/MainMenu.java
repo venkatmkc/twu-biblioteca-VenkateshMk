@@ -20,8 +20,9 @@ public class MainMenu {
         MainMenuAction option;
         do {
             consoleInputOutput.displayOutputToUser(this);
+            consoleInputOutput.displayOutputToUser(Messages.MENU_CHOICE);
             String userInput = consoleInputOutput.getUserInput();
-            if (userInput.equals("Quit"))
+            if (userInput.equals("4"))
                 return;
             option = options.parseUserInput(userInput);
             if (checkValidOption(option)) {

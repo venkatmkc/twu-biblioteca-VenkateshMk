@@ -35,7 +35,7 @@ public class UserMainMenuTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(options.parseUserInput("List Library")).
+        when(options.parseUserInput("List Section")).
                 thenReturn(listBookOption);
         user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         LinkedHashMap<String, MainMenuAction> librarianOptionsList = new LinkedHashMap<String, MainMenuAction>();
@@ -47,9 +47,9 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldGetInputFromUser() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("Quit");
+                thenReturn("8");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
@@ -62,23 +62,23 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldParseUserInputToOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Library", "Quit");
+                thenReturn("List Section", "8");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
 
         userMainMenu.dispatch(user);
 
-        verify(options).parseUserInput("List Library");
+        verify(options).parseUserInput("List Section");
     }
 
     @Test
     public void dispatchShouldProduceMainMenuOptionList() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Library", "Quit");
+                thenReturn("List Section", "8");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
 
@@ -90,9 +90,9 @@ public class UserMainMenuTest {
     @Test
     public void dispatchShouldPerformSelectedOption() {
         when(consoleInputOutput.getUserInput()).
-                thenReturn("List Library", "Quit");
+                thenReturn("List Section", "8");
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
 
@@ -103,10 +103,10 @@ public class UserMainMenuTest {
 
     @Test
     public void dispatchShouldProduceInvalidOptionMessageOnInvalidOption() {
-        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Library", "Quit");
+        when(consoleInputOutput.getUserInput()).thenReturn("delete", "List Section", "8");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
 
@@ -116,16 +116,16 @@ public class UserMainMenuTest {
     }
 
     @Test
-    public void dispatchShouldQuitWhenQuitOptionIsSelected() {
-        when(consoleInputOutput.getUserInput()).thenReturn("Quit");
+    public void dispatchShould8WhenQuitOptionIsSelected() {
+        when(consoleInputOutput.getUserInput()).thenReturn("8");
 
         ArrayList<String> mainMenuOptionsList = new ArrayList<String>();
-        mainMenuOptionsList.add("List Library");
+        mainMenuOptionsList.add("List Section");
         MenuPresenter menuPresenter = new MenuPresenter("");
         UserMainMenu userMainMenu = new UserMainMenu(consoleInputOutput, options, menuPresenter);
 
         userMainMenu.dispatch(user);
 
-        verify(options, times(0)).parseUserInput("Quit");
+        verify(options, times(0)).parseUserInput("8");
     }
 }

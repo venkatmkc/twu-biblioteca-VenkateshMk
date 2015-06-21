@@ -8,7 +8,7 @@ import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_LOGIN;
 
 public class NullUser extends User{
     public NullUser() {
-        super("111-1111", "letmein", "venkatesh", "", "");
+        super("", "", "", "", "");
     }
 
     public String getLoginMessage() {

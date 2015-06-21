@@ -1,13 +1,13 @@
 package com.twu.biblioteca.mainmenu.options;
 
-import com.twu.biblioteca.BorrowableItem;
-import com.twu.biblioteca.ItemPresenter;
-import com.twu.biblioteca.Library;
-import com.twu.biblioteca.book.AvailableBook;
-import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.item.BorrowableItem;
+import com.twu.biblioteca.item.ItemPresenter;
+import com.twu.biblioteca.library.Section;
+import com.twu.biblioteca.item.book.AvailableBook;
+import com.twu.biblioteca.item.book.Book;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.movie.AvailableMovie;
-import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.item.movie.AvailableMovie;
+import com.twu.biblioteca.item.movie.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.*;
 import org.mockito.*;
@@ -43,12 +43,12 @@ public class ListMoviesOptionTest {
         movies.add(movieOne);
         movies.add(movieTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        Library library = new Library(books);
+        Section section = new Section(books);
         ItemPresenter bookPresenter = new ItemPresenter("");
-        MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, library);
+        MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, section);
 
         listMoviesOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser(library.availableFormattedItems(bookPresenter));
+        verify(consoleInputOutput).displayOutputToUser(section.availableFormattedItems(bookPresenter));
     }
 }
