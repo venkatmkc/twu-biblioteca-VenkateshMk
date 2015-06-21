@@ -15,6 +15,7 @@ public class UserMainMenu extends MainMenu{
         MainMenuAction option;
         do {
             consoleInputOutput.displayOutputToUser(this);
+            consoleInputOutput.displayOutputToUser(Messages.MENU_CHOICE);
             String userInput = consoleInputOutput.getUserInput();
             if (userInput.equals("8"))
                 return;

@@ -88,7 +88,7 @@ public class EntryPoint {
         guestOptionsList.put("List Books", listBooksOption);
         guestOptionsList.put("List Movies", listMoviesOption);
         LoginOption loginOption = new LoginOption(userAccounts, userMainMenu, librarianMainMenu, consoleInputOutput);
-        guestOptionsList.put("UserAccounts", loginOption);
+        guestOptionsList.put("Login", loginOption);
         guestOptionsList.put("Quit", null);
         Options guestOptions = new Options(guestOptionsList);
         MainMenu mainMenu = new MainMenu(consoleInputOutput, guestOptions, menuPresenter);

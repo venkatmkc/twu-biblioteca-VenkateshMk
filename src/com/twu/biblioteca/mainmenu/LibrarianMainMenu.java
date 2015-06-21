@@ -14,6 +14,7 @@ public class LibrarianMainMenu extends UserMainMenu {
         MainMenuAction option;
         do {
             consoleInputOutput.displayOutputToUser(this);
+            consoleInputOutput.displayOutputToUser(Messages.MENU_CHOICE);
             String userInput = consoleInputOutput.getUserInput();
             if (userInput.equals("10"))
                 return;
