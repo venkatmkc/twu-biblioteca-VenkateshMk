@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class ReturnBookOptionTest {
+public class ReturnItemOptionTest {
     @Mock
     private ConsoleInputOutput consoleInputOutput;
 
@@ -40,9 +40,9 @@ public class ReturnBookOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(section.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, section);
 
-        returnBookOption.obtainOptionResult(user);
+        returnItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -56,9 +56,9 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, section);
 
-        returnBookOption.obtainOptionResult(user);
+        returnItemOption.obtainOptionResult(user);
 
         verify(section).returnItem("Kite Runner", user);
     }
@@ -73,9 +73,9 @@ public class ReturnBookOptionTest {
         books.add(bookTwo);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(section.returnItem("Kite Runner", user)).thenReturn(SUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, section);
 
-        returnBookOption.obtainOptionResult(user);
+        returnItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(SUCCESSFUL_BOOK_RETURN);
     }
@@ -90,9 +90,9 @@ public class ReturnBookOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(section.returnItem("Kite Runner", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, section);
 
-        returnBookOption.obtainOptionResult(user);
+        returnItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }
@@ -107,9 +107,9 @@ public class ReturnBookOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runn");
         when(section.returnItem("Kite Runn", user)).thenReturn(UNSUCCESSFUL_BOOK_RETURN);
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, section);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, section);
 
-        returnBookOption.obtainOptionResult(user);
+        returnItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(UNSUCCESSFUL_BOOK_RETURN);
     }

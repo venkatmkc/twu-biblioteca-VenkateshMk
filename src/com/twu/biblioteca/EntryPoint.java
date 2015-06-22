@@ -60,18 +60,18 @@ public class EntryPoint {
 
         CheckoutItemOption checkoutBookOption = new CheckoutItemOption(consoleInputOutput, bookSection);
 
-        ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, bookSection);
+        ReturnItemOption returnItemOption = new ReturnItemOption(consoleInputOutput, bookSection);
 
         MainMenuAction listMoviesOption = new ListItemsOption(consoleInputOutput, movieSection);
 
         CheckoutItemOption checkoutMovieOption = new CheckoutItemOption(consoleInputOutput, movieSection);
 
-        ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, movieSection);
+        ReturnItemOption returnMovieOption = new ReturnItemOption(consoleInputOutput, movieSection);
 
         LinkedHashMap<String, MainMenuAction> options = new LinkedHashMap<String, MainMenuAction>();
         options.put("List Books", listBooksOption);
         options.put("Checkout Book", checkoutBookOption);
-        options.put("Return Book", returnBookOption);
+        options.put("Return Book", returnItemOption);
         options.put("List Movies", listMoviesOption);
         options.put("Checkout Movie", checkoutMovieOption);
         options.put("Return Movie", returnMovieOption);
@@ -88,7 +88,7 @@ public class EntryPoint {
         librarianOptionsList.put("CheckedOut Movies", checkedOutMoviesOption);
         librarianOptionsList.put("List Books", listBooksOption);
         librarianOptionsList.put("Checkout Book", checkoutBookOption);
-        librarianOptionsList.put("Return Book", returnBookOption);
+        librarianOptionsList.put("Return Book", returnItemOption);
         librarianOptionsList.put("List Movies", listMoviesOption);
         librarianOptionsList.put("Checkout Movie", checkoutMovieOption);
         librarianOptionsList.put("Return Movie", returnMovieOption);
