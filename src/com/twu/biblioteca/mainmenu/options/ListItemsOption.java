@@ -5,11 +5,11 @@ import com.twu.biblioteca.io.ConsoleInputOutput;
 import com.twu.biblioteca.library.Section;
 import com.twu.biblioteca.user.User;
 
-public class ListMoviesOption implements MainMenuAction {
-    private final ConsoleInputOutput consoleInputOutput;
-    private final Section section;
+public class ListItemsOption implements MainMenuAction {
+    private ConsoleInputOutput consoleInputOutput;
+    private Section section;
 
-    public ListMoviesOption(ConsoleInputOutput consoleInputOutput, Section section) {
+    public ListItemsOption(ConsoleInputOutput consoleInputOutput, Section section) {
         this.consoleInputOutput = consoleInputOutput;
         this.section = section;
     }

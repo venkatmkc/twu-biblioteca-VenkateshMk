@@ -56,13 +56,13 @@ public class EntryPoint {
 
         Section movieSection = new Section(movies);
 
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, bookSection);
+        MainMenuAction listBooksOption = new ListItemsOption(consoleInputOutput, bookSection);
 
         CheckoutItemOption checkoutBookOption = new CheckoutItemOption(consoleInputOutput, bookSection);
 
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, bookSection);
 
-        MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, movieSection);
+        MainMenuAction listMoviesOption = new ListItemsOption(consoleInputOutput, movieSection);
 
         CheckoutItemOption checkoutMovieOption = new CheckoutItemOption(consoleInputOutput, movieSection);
 

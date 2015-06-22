@@ -3,7 +3,7 @@ package com.twu.biblioteca.mainmenu;
 import com.twu.biblioteca.library.Section;
 import com.twu.biblioteca.item.BorrowableItem;
 import com.twu.biblioteca.io.ConsoleInputOutput;
-import com.twu.biblioteca.mainmenu.options.ListBooksOption;
+import com.twu.biblioteca.mainmenu.options.ListItemsOption;
 import com.twu.biblioteca.mainmenu.options.MainMenuAction;
 import com.twu.biblioteca.item.movie.AvailableMovie;
 import com.twu.biblioteca.item.movie.Movie;
@@ -27,7 +27,7 @@ public class OptionsTest {
         Section section = new Section(movies);
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, section);
+        MainMenuAction listBooksOption = new ListItemsOption(consoleInputOutput, section);
         LinkedHashMap<String, MainMenuAction> mainMenuOptions = new LinkedHashMap<String, MainMenuAction>();
         mainMenuOptions.put("List Section", listBooksOption);
         Options options = new Options(mainMenuOptions);

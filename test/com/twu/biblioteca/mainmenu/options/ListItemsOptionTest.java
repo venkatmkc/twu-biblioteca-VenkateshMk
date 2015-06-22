@@ -20,7 +20,7 @@ import java.util.LinkedHashSet;
 import static org.mockito.Mockito.*;
 
 
-public class ListBooksOptionTest {
+public class ListItemsOptionTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
 
     @Mock
@@ -46,7 +46,7 @@ public class ListBooksOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         Section section = new Section(books);
         ItemPresenter bookPresenter = new ItemPresenter("");
-        MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, section);
+        MainMenuAction listBooksOption = new ListItemsOption(consoleInputOutput, section);
 
         listBooksOption.obtainOptionResult(user);
 
