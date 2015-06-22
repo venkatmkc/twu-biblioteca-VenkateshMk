@@ -58,13 +58,13 @@ public class EntryPoint {
 
         MainMenuAction listBooksOption = new ListBooksOption(consoleInputOutput, bookSection);
 
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, bookSection);
+        CheckoutItemOption checkoutBookOption = new CheckoutItemOption(consoleInputOutput, bookSection);
 
         ReturnBookOption returnBookOption = new ReturnBookOption(consoleInputOutput, bookSection);
 
         MainMenuAction listMoviesOption = new ListMoviesOption(consoleInputOutput, movieSection);
 
-        CheckoutMovieOption checkoutMovieOption = new CheckoutMovieOption(consoleInputOutput, movieSection);
+        CheckoutItemOption checkoutMovieOption = new CheckoutItemOption(consoleInputOutput, movieSection);
 
         ReturnMovieOption returnMovieOption = new ReturnMovieOption(consoleInputOutput, movieSection);
 
@@ -80,9 +80,10 @@ public class EntryPoint {
 
         LinkedHashMap<String, MainMenuAction> librarianOptionsList = new LinkedHashMap<String, MainMenuAction>();
 
-        MainMenuAction checkedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, bookSection);
+        MainMenuAction checkedOutBooksOption = new ListCheckedOutItemsOption(consoleInputOutput, bookSection);
 
-        MainMenuAction checkedOutMoviesOption = new ListCheckedOutBooksOption(consoleInputOutput, movieSection);
+        MainMenuAction checkedOutMoviesOption = new ListCheckedOutItemsOption(consoleInputOutput, movieSection);
+
         librarianOptionsList.put("CheckedOut Books", checkedOutBooksOption);
         librarianOptionsList.put("CheckedOut Movies", checkedOutMoviesOption);
         librarianOptionsList.put("List Books", listBooksOption);

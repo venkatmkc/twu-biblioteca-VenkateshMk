@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
 
 import static org.mockito.Mockito.verify;
 
-public class ListCheckedOutBooksOptionTest {
+public class ListCheckedOutItemsOptionTest {
     private final ByteArrayOutputStream outputStreamContent = new ByteArrayOutputStream();
 
     @Mock
@@ -36,7 +36,7 @@ public class ListCheckedOutBooksOptionTest {
         LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
         Section section = new Section(books);
-        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutBooksOption(consoleInputOutput, section);
+        MainMenuAction listCheckedOutBooksOption = new ListCheckedOutItemsOption(consoleInputOutput, section);
 
         listCheckedOutBooksOption.obtainOptionResult(user);
 

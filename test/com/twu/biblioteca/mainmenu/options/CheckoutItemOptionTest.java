@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.*;
 
-public class CheckoutBookOptionTest {
+public class CheckoutItemOptionTest {
     @Mock
     private ConsoleInputOutput consoleInputOutput;
 
@@ -34,11 +34,11 @@ public class CheckoutBookOptionTest {
         LinkedHashSet<BorrowableItem> books = new LinkedHashSet<BorrowableItem>();
         books.add(book);
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
-        Section section = new Section(books);;
+        Section section = new Section(books);
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
+        CheckoutItemOption checkoutItemOption = new CheckoutItemOption(consoleInputOutput, section);
 
-        checkoutBookOption.obtainOptionResult(user);
+        checkoutItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).getUserInput();
     }
@@ -55,9 +55,9 @@ public class CheckoutBookOptionTest {
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
 
         when(section.checkoutItem("Kite Runner", user)).thenReturn(Messages.SUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
+        CheckoutItemOption checkoutItemOption = new CheckoutItemOption(consoleInputOutput, section);
 
-        checkoutBookOption.obtainOptionResult(user);
+        checkoutItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(Messages.SUCCESSFUL_BOOK_CHECKOUT);
     }
@@ -72,9 +72,9 @@ public class CheckoutBookOptionTest {
         User user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
         when(consoleInputOutput.getUserInput()).thenReturn("Kite Runner");
         when(section.checkoutItem("Kite Runner", user)).thenReturn(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
-        CheckoutBookOption checkoutBookOption = new CheckoutBookOption(consoleInputOutput, section);
+        CheckoutItemOption checkoutItemOption = new CheckoutItemOption(consoleInputOutput, section);
 
-        checkoutBookOption.obtainOptionResult(user);
+        checkoutItemOption.obtainOptionResult(user);
 
         verify(consoleInputOutput).displayOutputToUser(Messages.UNSUCCESSFUL_BOOK_CHECKOUT);
     }
