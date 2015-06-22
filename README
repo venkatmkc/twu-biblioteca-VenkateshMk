@@ -1,29 +1,33 @@
-Instructions to push your code to code.google.com
-=================================================
-1. Sign into GitHub and create a new repository
-        Repository name: twu-biblioteca-yourname
-        Privacy level: Public
-        Don't check "Initialize this repository with a README"
-        Add .gitignore: None
-        Add a license: Apache License 2.0
+Biblioteca is a Console Based Library Management System. This application can be used to see the List of Books available, List of Movies available, Checkout Books,Movies and return them. The librarian in addition to this can see the Checkedout movies and books of the Users.
 
-2. Run 'git init' in the folder that was extracted from the downloaded .zip file, in order to
- initialize local repository.
+INSTALLATION
 
-3. Make a local commit.
-    $ git add -A
-    $ git commit -m “Initial commit”
+1) Download the Package and extract it.
 
-(Dont forget to add the hidden .idea folder, as it will make opening your project in Intellij easier.)
+2) Build the project from console using ant command.
 
-4. After you are done with the local commit, you can share your code with "The World" by pushing it to your
- GitHub repository.
-    $ git remote add origin https://github.com/<YOUR-GITHUB-USERNAME>/twu-biblioteca-<YOURNAME>
-    $ git push origin master
+3) Generate java archive using the command ant jar.
 
-Instructions to open your code in Intellij
-==========================================
-1. Go to File -> Open (or Open Project)
-2. Select the directory containing the code
-DONE !
+4) Run the application using the command ant run.
 
+USING THE APPLICATION
+
+1) They are three types of users guest, normal user and librarian
+
+2) User credentials for normal users: 
+	library no : 111-1111 password : letmein
+	library no : 222-2222 password : logmein
+
+
+3) User credentials for librarian:
+	library no : 333-3333 password : superuser
+
+4) Give Menu input , as option number .
+
+Example : 
+1. List Books
+2. List Movies
+3.Quit
+Give 2 for listing movies			
+
+5) While entering Book Name or Movie Name , input the title in the same way as it appears in the List. Example : java tutorial
