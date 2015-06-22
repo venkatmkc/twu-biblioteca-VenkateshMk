@@ -1,16 +1,15 @@
 package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.io.Messages;
-import com.twu.biblioteca.user.NullUser;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class NullUserTest {
+public class GuestTest {
     @Test
     public void unSuccessfulLoginShouldProduceFailureMessage() {
-        User nullUser = new NullUser();
+        User nullUser = new Guest();
 
         String actualLoginMessage = nullUser.getLoginMessage();
 

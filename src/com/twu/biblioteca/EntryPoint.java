@@ -19,7 +19,7 @@ import com.twu.biblioteca.user.UserAccounts;
 import java.util.*;
 
 public class EntryPoint {
-    public static void main(String []args) {
+    public static void main(String[] args) {
         Scanner consoleInput = new Scanner(System.in);
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
 
@@ -32,7 +32,7 @@ public class EntryPoint {
         users.add(librarian);
         UserAccounts userAccounts = new UserAccounts(users, consoleInputOutput);
 
-        Book bookOne = new AvailableBook("java tutorial", "aravind", "2012");
+        Book bookOne = new AvailableBook("java tutorial", "venkatesh", "2012");
         Book bookTwo = new AvailableBook("Kite Runner", "Khaled Hosseini", "2003");
         Book bookThree = new CheckedOutBook("The Sky Is Falling", "Sidney Sheldon", "2001", userOne);
         Book bookFour = new AvailableBook("Outliers", "Marrisa Meyer", "2007");
@@ -46,7 +46,7 @@ public class EntryPoint {
 
         LinkedHashSet<BorrowableItem> movies = new LinkedHashSet<BorrowableItem>();
         Movie movieOne = new AvailableMovie("Inception", "2010", "Christopher Nolan", "9");
-        Movie movieTwo = new AvailableMovie( "Following", "1998", "Christopher Nolan", "unrated");
+        Movie movieTwo = new AvailableMovie("Following", "1998", "Christopher Nolan", "unrated");
         Movie movieThree = new CheckedOutMovie("Goodfellas", "1995", "Quentin Tarantino", "unrated", userTwo);
         movies.add(movieOne);
         movies.add(movieTwo);

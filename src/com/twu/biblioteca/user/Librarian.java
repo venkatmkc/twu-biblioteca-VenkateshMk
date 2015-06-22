@@ -11,15 +11,15 @@ public class Librarian extends User {
     }
 
     @Override
-    public void visit(UserMainMenu userMainMenu) {
+    public void visitMenu(UserMainMenu userMainMenu) {
     }
 
     @Override
-    public void visit(LibrarianMainMenu librarianMainMenu) {
+    public void visitMenu(LibrarianMainMenu librarianMainMenu) {
         librarianMainMenu.dispatch(this);
     }
 
     @Override
-    public void visit(MainMenu mainMenu) {
+    public void visitMenu(MainMenu mainMenu) {
     }
 }

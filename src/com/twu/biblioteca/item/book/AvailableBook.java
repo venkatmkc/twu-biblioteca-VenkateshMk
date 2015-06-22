@@ -10,13 +10,13 @@ public class AvailableBook extends Book {
         super(name, author, year);
     }
 
+    public static AvailableBook create(String name, String author, String year) {
+        return new AvailableBook(name, author, year);
+    }
+
     @Override
     public Book checkout(User user) {
         return CheckedOutBook.create(name, author, year, user);
-    }
-
-    public static AvailableBook create(String name, String author, String year) {
-        return new AvailableBook(name, author, year);
     }
 
     @Override

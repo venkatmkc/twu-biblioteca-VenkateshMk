@@ -4,7 +4,7 @@ import com.twu.biblioteca.mainmenu.*;
 
 import static com.twu.biblioteca.io.Messages.SUCCESSFUL_LOGIN;
 
-public class User implements Visitor{
+public class User implements Visitor {
     private String libraryNumber;
     private String password;
     private final String name;
@@ -59,17 +59,18 @@ public class User implements Visitor{
         return libraryNumber + " | " + name;
     }
 
-    public void visit(UserMainMenu userMainMenu) {
+    public void visitMenu(UserMainMenu userMainMenu) {
         userMainMenu.dispatch(this);
     }
 
     @Override
-    public void visit(LibrarianMainMenu librarianMainMenu) {
+    public void visitMenu(LibrarianMainMenu librarianMainMenu) {
 
     }
 
     @Override
-    public void visit(MainMenu mainMenu) {}
+    public void visitMenu(MainMenu mainMenu) {
+    }
 
     public String userInformation() {
         return "Name : " + name +

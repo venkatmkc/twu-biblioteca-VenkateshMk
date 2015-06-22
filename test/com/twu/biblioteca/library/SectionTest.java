@@ -6,7 +6,6 @@ import com.twu.biblioteca.item.ItemPresenter;
 import com.twu.biblioteca.item.movie.AvailableMovie;
 import com.twu.biblioteca.item.movie.CheckedOutMovie;
 import com.twu.biblioteca.item.movie.Movie;
-import com.twu.biblioteca.library.Section;
 import com.twu.biblioteca.user.User;
 import org.junit.*;
 
@@ -36,7 +35,7 @@ public class SectionTest {
 
     @Test
     public void formattedBookListShouldBeProduced() {
-        String actualBookList = section.availableFormattedItems(itemPresenter);
+        String actualBookList = section.availableItems(itemPresenter);
 
         assertThat(actualBookList, is(equalTo("Kite Runner          | Khaled Hosseini      | 2003\nThe Sky Is Falling   | Sidney Sheldon       | 2001\n")));
     }
@@ -89,7 +88,7 @@ public class SectionTest {
         movies.add(movieTwo);
         Section section = new Section(movies);
 
-        String actualBookList = section.availableFormattedItems(itemPresenter);
+        String actualBookList = section.availableItems(itemPresenter);
 
         assertThat(actualBookList, is(equalTo("Inception, 2010, Christopher Nolan, 9\nFollowing, 1998, Christopher Nolan, 8\n")));
     }

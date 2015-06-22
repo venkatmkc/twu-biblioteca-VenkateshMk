@@ -50,6 +50,6 @@ public class ListItemsOptionTest {
 
         listBooksOption.obtainOptionResult(user);
 
-        verify(consoleInputOutput).displayOutputToUser(section.availableFormattedItems(bookPresenter));
+        verify(consoleInputOutput).displayOutputToUser(section.availableItems(bookPresenter));
     }
 }

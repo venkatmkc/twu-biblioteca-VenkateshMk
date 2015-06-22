@@ -6,8 +6,8 @@ import com.twu.biblioteca.mainmenu.UserMainMenu;
 
 import static com.twu.biblioteca.io.Messages.UNSUCCESSFUL_LOGIN;
 
-public class NullUser extends User{
-    public NullUser() {
+public class Guest extends User {
+    public Guest() {
         super("", "", "", "", "");
     }
 
@@ -15,11 +15,13 @@ public class NullUser extends User{
         return UNSUCCESSFUL_LOGIN;
     }
 
-    public void visit(MainMenu mainMenu) {
+    public void visitMenu(MainMenu mainMenu) {
         mainMenu.dispatch(this);
     }
 
-    public void visit(LibrarianMainMenu librarianMainMenu){}
+    public void visitMenu(LibrarianMainMenu librarianMainMenu) {
+    }
 
-    public void visit(UserMainMenu userMainMenu) {}
+    public void visitMenu(UserMainMenu userMainMenu) {
+    }
 }

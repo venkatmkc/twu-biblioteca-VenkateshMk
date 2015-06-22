@@ -17,7 +17,7 @@ public class CheckedOutBook extends Book {
     }
 
     public Book returnItem(User visitingUser) {
-        if(user.equals(visitingUser))
+        if (user.equals(visitingUser))
             return AvailableBook.create(name, author, year);
         return new UnAvailableBook();
     }
@@ -42,5 +42,6 @@ public class CheckedOutBook extends Book {
     }
 
     @Override
-    public void appendToAvailableItems(ItemPresenter itemPresenter) {}
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {
+    }
 }

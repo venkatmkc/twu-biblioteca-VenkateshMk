@@ -6,7 +6,7 @@ import com.twu.biblioteca.mainmenu.LibrarianMainMenu;
 import com.twu.biblioteca.mainmenu.MainMenu;
 import com.twu.biblioteca.mainmenu.UserMainMenu;
 import com.twu.biblioteca.mainmenu.Visitable;
-import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.Guest;
 import com.twu.biblioteca.user.User;
 
 public class Biblioteca implements Visitable {
@@ -24,14 +24,14 @@ public class Biblioteca implements Visitable {
 
     public void start() {
         consoleInputOutput.displayOutputToUser(Messages.WELCOME_MESSAGE);
-        User user = new NullUser();
+        User user = new Guest();
         accept(user);
     }
 
     @Override
     public void accept(User user) {
-        user.visit(mainMenu);
-        user.visit(userMainMenu);
-        user.visit(librarianMainMenu);
+        user.visitMenu(mainMenu);
+        user.visitMenu(userMainMenu);
+        user.visitMenu(librarianMainMenu);
     }
 }

@@ -14,7 +14,7 @@ public class Section {
         this.items = items;
     }
 
-    public String availableFormattedItems(ItemPresenter itemPresenter) {
+    public String availableItems(ItemPresenter itemPresenter) {
         itemPresenter.flush();
         for (BorrowableItem item : items) {
             item.appendToAvailableItems(itemPresenter);
@@ -46,7 +46,6 @@ public class Section {
         items.add(item);
         return item.getReturnMessage();
     }
-
 
     public BorrowableItem searchItem(String itemName) {
         for (BorrowableItem item : items) {

@@ -16,6 +16,7 @@ public class AvailableBookTest {
     public void setUp() {
         user = new User("111-1111", "letmein", "venkatesh", "222-2222", "logmein");
     }
+
     @Test
     public void checkoutShouldProduceCheckedOutBook() {
         Book checkedOutBook = new CheckedOutBook("Kite Runner", "Khaled Hosseini", "2003", user);

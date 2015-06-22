@@ -20,8 +20,7 @@ public class Options {
         List<MainMenuAction> optionList = new ArrayList<MainMenuAction>(options.values());
         try {
             return optionList.get(parseInt(userInput) - 1);
-        }
-        catch (Exception parseException) {
+        } catch (Exception parseException) {
             return null;
         }
     }

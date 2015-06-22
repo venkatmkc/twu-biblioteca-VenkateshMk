@@ -35,8 +35,10 @@ public class UnAvailableBook extends Book {
     }
 
     @Override
-    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {}
+    public void appendToCheckedOutItems(ItemPresenter itemPresenter) {
+    }
 
     @Override
-    public void appendToAvailableItems(ItemPresenter itemPresenter) {}
+    public void appendToAvailableItems(ItemPresenter itemPresenter) {
+    }
 }

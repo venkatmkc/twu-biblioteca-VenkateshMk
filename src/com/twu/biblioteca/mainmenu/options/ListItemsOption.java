@@ -17,6 +17,6 @@ public class ListItemsOption implements MainMenuAction {
     @Override
     public void obtainOptionResult(User user) {
         ItemPresenter itemPresenter = new ItemPresenter("");
-        consoleInputOutput.displayOutputToUser(section.availableFormattedItems(itemPresenter));
+        consoleInputOutput.displayOutputToUser(section.availableItems(itemPresenter));
     }
 }

@@ -5,7 +5,9 @@ import com.twu.biblioteca.mainmenu.MainMenu;
 import com.twu.biblioteca.mainmenu.UserMainMenu;
 
 public interface Visitor {
-    void visit(UserMainMenu userMainMenu);
-    void visit(LibrarianMainMenu librarianMainMenu);
-    void visit(MainMenu mainMenu);
+    void visitMenu(UserMainMenu userMainMenu);
+
+    void visitMenu(LibrarianMainMenu librarianMainMenu);
+
+    void visitMenu(MainMenu mainMenu);
 }
